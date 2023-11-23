@@ -83,7 +83,7 @@ function AppHeader() {
           className=" items-center px-4 sm:px-0 flex-grow-0 ml-auto flex"
         ></div>
         {/* Theme switcher small screen */}
-        <div
+        {/* <div
           id="theme-switcher-small-screen"
           onClick={() => setTheme(activeTheme)}
           aria-label="Theme Switcher"
@@ -94,7 +94,7 @@ function AppHeader() {
           ) : (
             <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
           )}
-        </div>
+        </div> */}
         {/* Header links small screen */}
         <div
           className={
@@ -152,7 +152,7 @@ function AppHeader() {
           </div>
 
           {/* Theme switcher large screen */}
-          <div
+          {/* <div
             id="theme-switcher-large-screen"
             onClick={() => setTheme(activeTheme)}
             aria-label="Theme Switcher"
@@ -163,7 +163,7 @@ function AppHeader() {
             ) : (
               <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
             )}
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Header right section buttons */}

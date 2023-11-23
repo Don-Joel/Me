@@ -75,6 +75,7 @@ function AppBanner() {
 							: '/images/developer-dark.svg'
 					}
 					alt="Developer"
+			
 				/>
 			</motion.div>
 		</motion.section>
