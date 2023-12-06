@@ -8,6 +8,7 @@ export const projectsData = [{
     url: "airbnb-replica",
     category: "Web Application",
     img: "/images/web-project-2.jpg",
+    link: "https://github.com/Don-Joel/MockAirbnbMobileApp",
     ProjectHeader: {
       title: "AirBnb Replica",
       publishDate: "Jul 26, 2021",
@@ -92,6 +93,7 @@ export const projectsData = [{
     url: "MyDash",
     category: "Mobile Application",
     img: "/images/mobile-project-2.jpg",
+    link: "https://github.com/Don-Joel/MyDash",
     ProjectHeader: {
       title: "Phoenix Digital Agency",
       publishDate: "Jul 26, 2021",
@@ -175,28 +177,14 @@ export const projectsData = [{
     title: "GPA Calculator",
     url: "project-management-ui",
     category: "UI/UX Design",
-    img: "/images/ui-project-1.jpg",
+    img: "/images/calculator.png",
+    link: "https://github.com/Don-Joel/GPA-Calculator",
     ProjectHeader: {
       title: "GPA Calculator",
       publishDate: "Jul 26, 2021",
       tags: "UI / Frontend",
     },
-    ProjectImages: [{
-        id: uuidv4(),
-        title: "Kabul Project Management UI",
-        img: "/images/ui-project-1.jpg",
-      },
-      {
-        id: uuidv4(),
-        title: "Kabul Project Management UI",
-        img: "/images/web-project-2.jpg",
-      },
-      {
-        id: uuidv4(),
-        title: "Kabul Project Management UI",
-        img: "/images/mobile-project-2.jpg",
-      },
-    ],
+
     ProjectInfo: {
       ClientHeading: "About Client",
       CompanyInfo: [{
