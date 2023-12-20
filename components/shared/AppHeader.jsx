@@ -68,14 +68,10 @@ function AppHeader() {
             </svg>
           </button>
         </div>
-        <div className="hidden md:flex">
-          <button
-            onClick={showHireMeModal}
-            className="text-md font-general-medium bg-blue-600 mr-3 hover:bg-blue-400 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
-            aria-label="Contact Me Button"
-          >
-            Contact Me
-          </button>
+        <div className="hidden font-mono  text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  italic antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar md:flex">
+          <Link href="/" aria-label="Contact">
+            Joel Dominic Tavarez
+          </Link>
         </div>
         {/* Header menu links and small screen hamburger menu */}
         <div
@@ -103,28 +99,11 @@ function AppHeader() {
               : "hidden"
           }
         >
-          <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light  dark:border-secondary-dark">
-            <button
-              onClick={showHireMeModal}
-              className="font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
-              aria-label="Contact Me Button"
-            >
-              Contact Me
-            </button>
-          </div>
-          <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
-            <Link href="/projects" aria-label="Projects">
-              Projects
-            </Link>
-          </div>
-          <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-            <Link href="/about" aria-label="About Me">
-              About Me
-            </Link>
-          </div>
+          <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light  dark:border-secondary-dark"></div>
+
           <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
             <Link href="/contact" aria-label="Contact">
-              Contact
+              Contact Me
             </Link>
           </div>
         </div>
@@ -133,22 +112,9 @@ function AppHeader() {
         <div className="font-general-medium hidden m-0 lg:ml-4 mt-5 lg:mt-3 lg:flex p-5 lg:p-0  shadow-lg lg:shadow-none">
           <div
             className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
-            aria-label="Projects"
-          >
-            <Link href="/projects">Projects</Link>
-          </div>
-          <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
-            aria-label="About Me"
-          >
-            <Link href="/about">About Me</Link>
-          </div>
-
-          <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
             aria-label="Contact"
           >
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact">Contact Me</Link>
           </div>
 
           {/* Theme switcher large screen */}
