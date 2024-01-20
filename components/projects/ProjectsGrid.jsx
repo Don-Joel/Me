@@ -1,7 +1,5 @@
-import { useState } from "react";
 import ProjectSingle from "./ProjectSingle";
 import { projectsData } from "../../data/projectsData";
-import ProjectsFilter from "./ProjectsFilter";
 
 function ProjectsGrid() {
   return (

@@ -22,7 +22,7 @@ const DropdownButton = () => {
       </button>
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 bg-white border rounded shadow-lg"
+          className="absolute right-0 mt-2 bg-white border rounded shadow-lg z-10 "
           onBlur={closeDropdown}
         >
           <a
