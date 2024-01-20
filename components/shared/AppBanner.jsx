@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FiArrowDownCircle } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 
@@ -36,7 +35,7 @@ function AppBanner() {
           }}
           className="font-general-medium mt-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
         >
-          an Engineer with a Passion for UX and Performance
+          a Software Engineer with a Passion for UX and Performance
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}

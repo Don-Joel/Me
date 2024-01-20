@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { SocialIcon } from "react-social-icons";
 
 function AboutMeBio() {
   return (
@@ -11,6 +13,20 @@ function AboutMeBio() {
           className="rounded-lg"
           alt="Profile Image"
         />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.9,
+            delay: 0.2
+          }}
+          className="my-3 flex justify-center space-x-4"
+        >
+          <SocialIcon url="https://github.com/Don-Joel" />
+          <SocialIcon url="https://www.linkedin.com/in/joel-d-tavarez/" />
+          <SocialIcon url="mailto:joeldtavarez@gmail.com" />
+        </motion.div>
       </div>
 
       <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
@@ -33,12 +49,7 @@ function AboutMeBio() {
           life. Although I hold a degree in Computer Science, throughout my time
           at UVA, I took many courses in commerce, entrepreneurship, history and
           miscenallous courses in biology, nutrition, and child development
-          which I consider critical to my overall outlook. One of my most
-          memerable experiences came from my time with iXperience in Cape Town,
-          South Africa. Here, I spent 6 weeks learning full-stack development
-          but also spent an additional 4 weeks learning about the history,
-          anthropology, and astronomy of South Afirca and how it relates to its
-          present day culture.
+          which I consider critical to my overall outlook.
         </p>
       </div>
     </div>

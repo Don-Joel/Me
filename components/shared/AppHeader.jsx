@@ -3,13 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiX, FiMenu } from "react-icons/fi";
-import HireMeModal from "../HireMeModal";
 import logo from "../../public/images/logo.svg";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
+import DropdownButton from "@/components/shared/DropdownButton";
 
 function AppHeader() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const [activeTheme, setTheme] = useThemeSwitcher();
 
   function toggleMenu() {
@@ -17,20 +16,6 @@ function AppHeader() {
       setShowMenu(true);
     } else {
       setShowMenu(false);
-    }
-  }
-
-  function showHireMeModal() {
-    if (!showModal) {
-      document
-        .getElementsByTagName("html")[0]
-        .classList.add("overflow-y-hidden");
-      setShowModal(true);
-    } else {
-      document
-        .getElementsByTagName("html")[0]
-        .classList.remove("overflow-y-hidden");
-      setShowModal(false);
     }
   }
 
@@ -68,7 +53,7 @@ function AppHeader() {
             </svg>
           </button>
         </div>
-        <div className="hidden font-mono  text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  italic antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar md:flex">
+        <div className="hidden font-mono  text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar md:flex">
           <Link href="/" aria-label="Contact">
             Joel Dominic Tavarez
           </Link>
@@ -99,26 +84,18 @@ function AppHeader() {
               : "hidden"
           }
         >
-          <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light  dark:border-secondary-dark"></div>
-
           <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-            <Link href="/contact" aria-label="Contact">
-              Contact Me
-            </Link>
+            <DropdownButton />
           </div>
         </div>
 
         {/* Header links large screen */}
         <div className="font-general-medium hidden m-0 lg:ml-4 mt-5 lg:mt-3 lg:flex p-5 lg:p-0  shadow-lg lg:shadow-none">
-          <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
-            aria-label="Contact"
-          >
-            <Link href="/contact">Contact Me</Link>
-          </div>
+          <DropdownButton />
+        </div>
 
-          {/* Theme switcher large screen */}
-          {/* <div
+        {/* Theme switcher large screen */}
+        {/* <div
             id="theme-switcher-large-screen"
             onClick={() => setTheme(activeTheme)}
             aria-label="Theme Switcher"
@@ -130,14 +107,6 @@ function AppHeader() {
               <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
             )}
           </div> */}
-        </div>
-      </div>
-      {/* Header right section buttons */}
-      <div>
-        {showModal ? (
-          <HireMeModal onClose={showHireMeModal} onRequest={showHireMeModal} />
-        ) : null}
-        {showModal ? showHireMeModal : null}
       </div>
     </motion.nav>
   );
