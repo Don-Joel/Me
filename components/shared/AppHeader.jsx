@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiX, FiMenu } from "react-icons/fi";
-import logo from "../../public/images/logo.svg";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 import DropdownButton from "@/components/shared/DropdownButton";
 

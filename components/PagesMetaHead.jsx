@@ -7,7 +7,7 @@ function PagesMetaHead({ title, keywords, description }) {
       <meta name="keywords" content={keywords} />
       <meta name="description" content={description} />
       <meta charSet="utf-8" />
-      <link rel="icon" href="/public/images/working.png" />
+      <link rel="icon" sizes="16x16" src="/public/images/udevelper.svg" />
       <title>{title}</title>
     </Head>
   );
