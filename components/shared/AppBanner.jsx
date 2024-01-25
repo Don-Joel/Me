@@ -68,8 +68,8 @@ function AppBanner() {
           layout="responsive"
           src={
             activeTheme === "dark"
-              ? "/images/developer.svg"
-              : "/images/developer-dark.svg"
+              ? "/images/udeveloper.svg"
+              : "/images/udeveloper.svg"
           }
           alt="Developer"
         />
