@@ -46,7 +46,7 @@ export const projectsData = [
     id: 4,
     title: "Mario Game",
     url: "mario-game",
-    category: "Web Application",
+    category: "App",
     img: "/images/mario_game.png",
     link: "https://github.com/Don-Joel/Mario-s-Quest",
     ProjectHeader: {
