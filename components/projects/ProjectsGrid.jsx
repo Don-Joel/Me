@@ -15,7 +15,7 @@ function ProjectsGrid() {
           <ProjectSingle key={index} {...project} />
         ))}
       </div>
-      <div className="flex md:underline justify-center my-12 font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
+      <div className="flex underline justify-center my-12 font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
         <a href="https://github.com/Don-Joel?tab=repositories">
           ...more projects
         </a>
