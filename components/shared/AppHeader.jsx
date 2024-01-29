@@ -26,15 +26,6 @@ function AppHeader() {
         {/* Header small screen*/}
         <div className="flex lg:hidden">
           <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
-            <DropdownButton />
-          </div>
-        </div>
-      </div>
-      {/* Theme switcher small screen */}
-      <div id="header" className="z-10  flex  sm:items-center py-1 flex">
-        {/* Header small screen*/}
-        <div className="flex lg:hidden">
-          <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
             <div
               id="theme-switcher-small-screen"
               onClick={() => setTheme(activeTheme)}
@@ -47,6 +38,15 @@ function AppHeader() {
                 <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
               )}
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Theme switcher small screen */}
+      <div id="header" className="z-10  flex  sm:items-center py-1 flex">
+        {/* Header small screen*/}
+        <div className="flex lg:hidden">
+          <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
+            <DropdownButton />
           </div>
         </div>
       </div>
