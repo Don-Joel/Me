@@ -47,7 +47,7 @@ function AboutMeBio() {
           interests in endocrinology, nutrition, and biohacking. I also enjoy
           reading and having new experiences that could lead me to diverse
           outlooks on life. Ultimately, with my career, I hope to create a
-          product that will improve people's everyday lives and well-being.
+          product that will improve people&apos;s everyday lives and well-being.
         </p>
       </div>
     </div>
