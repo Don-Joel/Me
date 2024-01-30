@@ -7,7 +7,7 @@ function PagesMetaHead({ title, keywords, description }) {
       <meta name="keywords" content={keywords} />
       <meta name="description" content={description} />
       <meta charSet="utf-8" />
-      <link rel="icon" sizes="16x16" src="/public/images/udevelper.svg" />
+      <link rel="icon" src="/public/images/logo.ico" />
       <title>{title}</title>
     </Head>
   );
@@ -15,7 +15,7 @@ function PagesMetaHead({ title, keywords, description }) {
 
 PagesMetaHead.defaultProps = {
   title: "Joel Tavarez's Portfolio",
-  keywords: "Joel Tavarez, Software Engineer, web, ui, design",
+  keywords: "Joel Tavarez, Software Engineer, web, ui, design, jvm languages",
   keywords: "Joel Tavarez website"
 };
 

@@ -36,9 +36,9 @@ function AboutMeBio() {
           working as a front end software engineer at Target. I work on the Same
           Day Delivery (Shipt) service on Target.com. I previously worked on a
           backend engineering squad, the digital payments team, and helped
-          implement SNAP as a payment on Target.com. I am broadly interested in
-          technical performance, design, and process of creating efficient,
-          competent systems with remarkable UX.
+          implement SNAP as a payment on Target.com. I have interests in
+          technical performance, design, and creating efficient, competent
+          systems with remarkable UX.
         </p>
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           In my leisure, I like to keep myself up to date with the latest tech
