@@ -31,25 +31,23 @@ function AboutMeBio() {
 
       <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-          Hello, I am Joel Tavarez. I graduated with a degree in Computer
-          Science in 2021 from the University of Virginia. I am currently
-          working as a front end software engineer at Target. I work on the Same
-          Day Delivery (Shipt) service on Target.com. I previously worked on a
-          backend engineering squad, the digital payments team, and helped
-          implement SNAP as a payment on Target.com. I have interests in
-          technical performance, design, and creating efficient, competent
-          systems with remarkable UX.
+          Hello, I am Joel Tavarez. I graduated with a Computer Science degree
+          from the University of Virginia. I am currently working as a web
+          software engineer at Target. I develop on the Same Day Delivery
+          (Shipt) service on Target.com. I previously worked on a backend
+          engineering squad, the digital payments team, and helped implement
+          SNAP as a payment on Target.com. I have interests in technical
+          performance, design, and creating efficient, competent systems with
+          remarkable UX.
         </p>
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           In my leisure, I like to keep myself up to date with the latest tech
           and economics news, primarly on AI and macroeconomics. Besides my
           technical passions, I enjoy a fitness lifestyle and hold deep
           interests in endocrinology, nutrition, and biohacking. I also enjoy
-          reading and new experiences that could lead me to diverse outlooks on
-          life. Although I hold a degree in Computer Science, throughout my time
-          at UVA, I took many courses in commerce, entrepreneurship, history and
-          miscenallous courses in biology, nutrition, and child development
-          which I consider critical to my overall outlook.
+          reading and having new experiences that could lead me to diverse
+          outlooks on life. Ultimately, with my career, I hope to create a
+          product that will improve people's everyday lives and well-being.
         </p>
       </div>
     </div>
