@@ -33,26 +33,26 @@ export const projectsData = [
     id: 3,
     title: "GPA Calculator",
     url: "project-management-ui",
-    category: "UI/UX Design",
+    category: "Desktop App",
     img: "/images/calculator.png",
     link: "https://github.com/Don-Joel/GPA-Calculator",
     ProjectHeader: {
       title: "GPA Calculator",
       publishDate: "Jul 26, 2021",
-      tags: "UI / Frontend",
+      tags: "Desktop App",
     },
   },
   {
     id: 4,
     title: "Mario Game",
     url: "mario-game",
-    category: "App",
+    category: "Desktop Game App",
     img: "/images/mario_game.png",
     link: "https://github.com/Don-Joel/Mario-s-Quest",
     ProjectHeader: {
       title: "Mario Game",
       publishDate: "Jul 26, 2021",
-      tags: "UI / Frontend",
+      tags: "Desktop Game App",
     },
   },
   {
@@ -65,7 +65,7 @@ export const projectsData = [
     ProjectHeader: {
       title: "AirBnb Replica",
       publishDate: "Jul 26, 2021",
-      tags: "UI / Frontend",
+      tags: "Full Stack",
     },
   },
 
