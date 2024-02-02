@@ -39,11 +39,13 @@ function AppHeader() {
               aria-label="Theme Switcher Small"
               className=" sm:m-0 bg-primary-light  dark:bg-ternary-dark p-3 w-11 h-11  rounded-xl cursor-pointer ml-5"
             >
-              {activeTheme === "dark" ? (
-                <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
-              ) : (
-                <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
-              )}
+              <div>
+                {activeTheme === "dark" ? (
+                  <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
+                ) : (
+                  <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
+                )}
+              </div>
             </div>
           </div>
         </div>
