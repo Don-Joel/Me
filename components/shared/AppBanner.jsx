@@ -60,9 +60,27 @@ function AppBanner() {
         initial={{ opacity: 0, y: -180 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
-        className=" w-full sm:w-2/3 text-right float-right mt-10 sm:mt-0"
+        className="block sm:hidden sm:text-right sm:float-right sm:mt-10 sm:mt-0"
       >
-        <img layout="responsive" src="/images/udeveloper.svg" alt="Developer" />
+        <img
+          src="/images/udeveloper.svg"
+          width={400}
+          height={400}
+          alt="Developer-small"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -180 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
+        className="hidden sm:block text-right float-right mt-10 mt-0"
+      >
+        <img
+          src="/images/udeveloper.svg"
+          width={800}
+          height={800}
+          alt="Developer-large"
+        />
       </motion.div>
     </motion.section>
   );
