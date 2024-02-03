@@ -56,19 +56,7 @@ function AppBanner() {
           </a>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: -180 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
-        className="block sm:hidden sm:text-right sm:float-right sm:mt-10 sm:mt-0"
-      >
-        <img
-          src="/images/udeveloper.svg"
-          width={400}
-          height={400}
-          alt="Developer-small"
-        />
-      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: -180 }}
         animate={{ opacity: 1, y: 0 }}
