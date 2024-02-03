@@ -20,7 +20,7 @@ function AppBanner() {
           }}
           className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
         >
-          Hi &#x1F44B;, I&apos;m Joel
+          Hi &#x1F44B;, I&apos;m Joel -
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -60,7 +60,7 @@ function AppBanner() {
         initial={{ opacity: 0, y: -180 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
-        className="w-full sm:w-2/3 text-right float-right mt-10 sm:mt-0"
+        className=" w-full sm:w-2/3 text-right float-right mt-10 sm:mt-0"
       >
         <img layout="responsive" src="/images/udeveloper.svg" alt="Developer" />
       </motion.div>
