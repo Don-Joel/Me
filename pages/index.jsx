@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import PagesMetaHead from "../components/PagesMetaHead";
 import ProjectsGrid from "../components/projects/ProjectsGrid";
-import AppBanner from "../components/shared/AppBanner";
+import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
 
 export default function Home() {
   return (
     <div className="container mx-auto">
       <PagesMetaHead title="Joel Tavarez" />
-      <AppBanner />
+      <DynamicAppBanner />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, delay: 1 }}
