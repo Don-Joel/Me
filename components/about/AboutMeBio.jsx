@@ -6,15 +6,23 @@ function AboutMeBio() {
   return (
     <div className="block mx-px px-0.5 sm:flex sm:gap-10 mt-10 sm:mt-20 mr-0.5">
       <div className="w-full sm:w-1/4 mb-7 sm:mb-0">
-        <div className=" flex justify-center ">
-          <div className="relative h-64 w-64">
-            <Image
-              src="/images/profile.jpeg"
-              fill={true}
-              className="rounded-lg"
-              alt="Profile Image"
-            />
-          </div>
+        <div className=" hidden sm:block flex justify-center ">
+          <Image
+            src="/images/profile.jpeg"
+            height={1000}
+            width={1000}
+            className="rounded-lg"
+            alt="Profile Image - large"
+          />
+        </div>
+        <div className=" block sm:hidden flex justify-center ">
+          <Image
+            src="/images/profile.jpeg"
+            height={300}
+            width={300}
+            className="rounded-lg"
+            alt="Profile Image - small"
+          />
         </div>
         <motion.div
           initial={{ opacity: 0 }}
