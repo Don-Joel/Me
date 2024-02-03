@@ -7,9 +7,11 @@ const ProjectSingle = props => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, delay: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       transition={{
         ease: "easeInOut",
-        duration: 0.7,
+        duration: 0.2,
         delay: 0.15
       }}
     >

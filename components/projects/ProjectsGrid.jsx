@@ -1,5 +1,6 @@
 import ProjectSingle from "./ProjectSingle";
 import { projectsData } from "../../data/projectsData";
+import { motion } from "framer-motion";
 
 function ProjectsGrid() {
   return (
@@ -9,17 +10,20 @@ function ProjectsGrid() {
           Projects
         </p>
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 mt-6 gap-10">
         {projectsData.map((project, index) => (
           <ProjectSingle key={index} {...project} />
         ))}
       </div>
-      <div className="flex underline justify-center my-12 font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="flex underline justify-center my-12 font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light"
+      >
         <a href="https://github.com/Don-Joel?tab=repositories">
           ...more projects
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }

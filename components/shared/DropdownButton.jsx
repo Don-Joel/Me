@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiPhone, FiMail } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,23 +22,30 @@ const DropdownButton = () => {
         Contact Me
       </button>
       {isOpen && (
-        <div
-          className="absolute lg:right-0 mt-2 bg-white border rounded shadow-lg z-10 "
-          onBlur={closeDropdown}
-        >
-          <a
-            href="tel:4079060788"
-            className="block px-4 py-2  text-gray-800 hover:bg-blue-500 hover:text-white flex "
+        <motion.div>
+          <div
+            className="absolute lg:right-0 mt-2 bg-white border rounded shadow-lg z-10 "
+            onBlur={closeDropdown}
+            focusOut={closeDropdown}
           >
-            <FiPhone className="mr-1 w-6 h-6" /> (407)-906-0788
-          </a>
-          <a
-            href="mailto:joeldtavarez@gmail.com"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white flex "
-          >
-            <FiMail className="mr-1 w-6 h-6" /> joeldtavarez@gmail.com
-          </a>
-        </div>
+            <motion.a
+              href="tel:4079060788"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="block px-4 py-2  text-gray-800 hover:bg-blue-500 hover:text-white flex "
+            >
+              <FiPhone className="mr-1 w-6 h-6" /> (407)-906-0788
+            </motion.a>
+            <motion.a
+              href="mailto:joeldtavarez@gmail.com"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white flex "
+            >
+              <FiMail className="mr-1 w-6 h-6" /> joeldtavarez@gmail.com
+            </motion.a>
+          </div>
+        </motion.div>
       )}
     </div>
   );

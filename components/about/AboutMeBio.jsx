@@ -23,9 +23,15 @@ function AboutMeBio() {
           }}
           className="my-3 flex justify-center space-x-4"
         >
-          <SocialIcon url="https://github.com/Don-Joel" />
-          <SocialIcon url="https://www.linkedin.com/in/joel-d-tavarez/" />
-          <SocialIcon url="mailto:joeldtavarez@gmail.com" />
+          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+            <SocialIcon url="https://github.com/Don-Joel" />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+            <SocialIcon url="https://www.linkedin.com/in/joel-d-tavarez/" />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+            <SocialIcon url="mailto:joeldtavarez@gmail.com" />
+          </motion.div>
         </motion.div>
       </div>
 
