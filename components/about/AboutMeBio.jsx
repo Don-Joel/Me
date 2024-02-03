@@ -7,6 +7,7 @@ function AboutMeBio() {
     <div className="block mx-px px-0.5 sm:flex sm:gap-10 mt-10 sm:mt-20 mr-0.5">
       <div className="w-full sm:w-1/4 mb-7 sm:mb-0">
         <motion.div
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
             ease: "easeInOut",
@@ -24,6 +25,7 @@ function AboutMeBio() {
           />
         </motion.div>
         <motion.div
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
             ease: "easeInOut",
