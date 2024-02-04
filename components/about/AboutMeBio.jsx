@@ -75,7 +75,7 @@ function AboutMeBio() {
         </p>
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           Moreovever, I have interests in technical performance, design, and
-          creating efficient, competent systems with remarkable UX.In my
+          creating efficient, competent systems with remarkable UX. In my
           leisure, I like to keep myself up to date with the latest tech and
           economics news, primarly on AI and macroeconomics. Besides my
           technical passions, I enjoy a fitness lifestyle and hold deep
