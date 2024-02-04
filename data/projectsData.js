@@ -58,12 +58,12 @@ export const projectsData = [
   {
     id: 5,
     title: "Nourish'd App",
-    url: "airbnb-replica",
-    category: "Mobile Application",
+    url: "nourish'd app",
+    category: "Private Mobile Application",
     img: "/images/nourishd2.png",
-    link: "/",
+    link: "/#:~:text=and%20well%2Dbeing.-,Projects,-GPA%20Calculator",
     ProjectHeader: {
-      title: "AirBnb Replica",
+      title: "Nourish'd app",
       publishDate: "Jul 26, 2021",
       tags: "Full Stack",
     },
