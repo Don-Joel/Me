@@ -7,7 +7,10 @@ import AboutMeBio from "../components/about/AboutMeBio";
 export default function Home() {
   return (
     <div className="container mx-auto">
-      <PagesMetaHead title="Joel Tavarez" />
+      <PagesMetaHead
+        title="Joel Tavarez"
+        content="Hello, World! This is Joel Tavarez's Website."
+      />
       <DynamicAppBanner />
       <motion.div
         initial={{ opacity: 0 }}
