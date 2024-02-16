@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 function ProjectsGrid() {
   return (
-    <section className="py-5 sm:py-10 mt-5 sm:mt-10">
+    <div className="py-5 sm:py-10 mt-5 sm:mt-10">
       <div className="text-center">
         <p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
           Projects
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 mt-6 gap-10">
+      <div className=" grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 mt-6 gap-10">
         {projectsData.map((project, index) => (
           <ProjectSingle key={index} {...project} />
         ))}
@@ -24,7 +24,7 @@ function ProjectsGrid() {
           ...more projects
         </a>
       </motion.div>
-    </section>
+    </div>
   );
 }
 

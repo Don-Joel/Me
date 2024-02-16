@@ -14,6 +14,7 @@ const ProjectSingle = props => {
         duration: 0.2,
         delay: 0.15
       }}
+      className="size-10/12"
     >
       {/* <Link href={props.link} aria-label="Single Project" passHref> */}
       <Image
@@ -25,7 +26,7 @@ const ProjectSingle = props => {
         }}
         className="rounded-t-xl border-none"
         alt="Single Project"
-        width={500}
+        width={400}
         height={400}
       />
       <div className="rounded-b-xl  shadow-lg hover:shadow-xl h-30 cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
