@@ -1,18 +1,14 @@
 function AppFooterCopyright() {
-	return (
-		<div className="font-general-regular flex justify-center items-center text-center">
-			<div className="text-lg text-ternary-dark dark:text-ternary-light">
-				&copy; {new Date().getFullYear()}
-				<a
-					href=""
-					target="__blank"
-					className="text-secondary-dark dark:text-secondary-light font-medium uppercase hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 ml-1 duration-500"
-				>
-					Joel Tavarez
-				</a>
-			</div>
-		</div>
-	);
+  return (
+    <div className="font-general-regular flex justify-center items-center text-center">
+      <div className="text-lg text-ternary-dark dark:text-ternary-light">
+        <p className="text-secondary-dark dark:text-secondary-light font-medium ml-1 ">
+          Made with Next.js, Tailwind, and Framer by Joel Tavarez &copy;{" "}
+          {new Date().getFullYear()}
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default AppFooterCopyright;

@@ -1,16 +1,16 @@
-import AppHeader from '../shared/AppHeader';
-import AppFooter from '../shared/AppFooter';
-import PagesMetaHead from '../PagesMetaHead';
+import AppHeader from "../shared/AppHeader";
+import AppFooter from "../shared/AppFooter";
+import PagesMetaHead from "../PagesMetaHead";
 
 const DefaultLayout = ({ children }) => {
-	return (
-		<>
-			<PagesMetaHead />
-			<AppHeader />
-			<div>{children}</div>
-			<AppFooter />
-		</>
-	);
+  return (
+    <html lang="en" className="min-h-screen">
+      <PagesMetaHead />
+      <AppHeader />
+      <div>{children}</div>
+      <AppFooter />
+    </html>
+  );
 };
 
 export default DefaultLayout;
