@@ -69,7 +69,7 @@ function AboutMeBio() {
           Hello, world! I graduated with a Computer Science degree from the University of
           Virginia in 2021. I am currently working as a front-end product software
           engineer at Target. I engineer the Same Day Delivery (Shipt) service
-          on Target.com. Before my current role, I previously worked as a backend engineer on Target&apos;'s
+          on Target.com. Before my current role, I previously worked as a backend engineer on Target`&apos;'s
           digital payments team and helped implement SNAP as a payment on
           Target.com.
         </p>
