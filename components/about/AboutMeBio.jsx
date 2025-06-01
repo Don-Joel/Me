@@ -76,8 +76,8 @@ function AboutMeBio() {
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           In addition to my product role, I take part in Target&#39;s performance guild where I pursue
           my interests in technical performance and design. In my leisure, I like to keep myself up to date with the latest tech and
-          economics news, primarly on AI and macroeconomics. I have a deep passion for systems engineering which shows in my work.
-          Besides my technical passions, I enjoy a fit lifestyle and hold deep
+          economics news, primarly focusing on AI and macroeconomics. I also have a deep passion for systems engineering and thinking 
+          which I integrate in my work and everyday life. Besides my technical passions, I enjoy a fit lifestyle and hold deep
           interests in endocrinology and nutrition. I also enjoy
           reading and having new experiences that could lead me to new
           outlooks on life. Ultimately, with my career, I hope to create
