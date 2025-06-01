@@ -67,7 +67,7 @@ function AboutMeBio() {
       <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           Hello world, I am Joel Tavarez! I graduated with a Computer Science degree from the University of
-          Virginia in 2021 and, shortly after, joined Target as a software engineer. I am currently working as a front-end product
+          Virginia in 2021 and, shortly after, joined Target as a software engineer. I&#39;m currently working as a front-end product
           engineer at Target where I develop the Same Day Delivery (Shipt) service
           on Target.com. Before my current role, I worked as a backend engineer on Target&#39;s
           digital payments team and helped implement SNAP as a payment on
