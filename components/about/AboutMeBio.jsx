@@ -66,23 +66,22 @@ function AboutMeBio() {
 
       <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-          Hello, world! I graduated with a Computer Science degree from the University of
-          Virginia in 2021. I am currently working as a front-end product software
-          engineer at Target. I engineer the Same Day Delivery (Shipt) service
-          on Target.com. Before my current role, I previously worked as a backend engineer on Target&#39;s
+          Hello world, I am Joel Tavarez! I graduated with a Computer Science degree from the University of
+          Virginia in 2021 and soonafter joined Target as a software engineer. I am currently working as a front-end product software
+          engineer at Target where I develop the Same Day Delivery (Shipt) service
+          on Target.com. Before my current role, I worked as a backend engineer on Target&#39;s
           digital payments team and helped implement SNAP as a payment on
           Target.com.
         </p>
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-          In addition to my role, I have interests in technical performance, design, and
-          creating efficient, competent systems with remarkable UX. I am part in Target&#39;s performance guild where I pursue
-          these passions and implement my learnings to improve our website&#39;s performance. In my leisure, I like to keep myself up to date with the latest tech and
-          economics news, primarly on AI and macroeconomics. Besides my
-          technical passions, I enjoy a fit lifestyle and hold deep
+          In addition to my product role, I take part in Target&#39;s performance guild where I pursue
+          my interests in technical performance and design. In my leisure, I like to keep myself up to date with the latest tech and
+          economics news, primarly on AI and macroeconomics. I have a deep passion for systems engineering which shows in my work.
+          Besides my technical passions, I enjoy a fit lifestyle and hold deep
           interests in endocrinology and nutrition. I also enjoy
           reading and having new experiences that could lead me to new
           outlooks on life. Ultimately, with my career, I hope to create
-          products that will improve people&apos;s everyday lives and well-being.
+          products that will notably improve people&apos;s everyday lives and well-being.
         </p>
       </div>
     </div>
