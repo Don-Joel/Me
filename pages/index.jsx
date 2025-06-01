@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import PagesMetaHead from "../components/PagesMetaHead";
-import ProjectsGrid from "../components/projects/ProjectsGrid";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
 
@@ -20,7 +19,6 @@ export default function Home() {
       >
         <AboutMeBio />
       </motion.div>
-      <ProjectsGrid />
     </div>
   );
 }

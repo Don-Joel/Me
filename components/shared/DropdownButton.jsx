@@ -29,14 +29,6 @@ const DropdownButton = () => {
             focusOut={closeDropdown}
           >
             <motion.a
-              href="tel:4079060788"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="block px-4 py-2  text-gray-800 hover:bg-blue-500 hover:text-white flex "
-            >
-              <FiPhone className="mr-1 w-6 h-6" /> (407)-906-0788
-            </motion.a>
-            <motion.a
               href="mailto:joeldtavarez@gmail.com"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
