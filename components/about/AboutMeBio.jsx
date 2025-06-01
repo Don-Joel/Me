@@ -66,17 +66,17 @@ function AboutMeBio() {
 
       <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-          I graduated with a Computer Science degree from the University of
-          Virginia in 2021. I am currently working as a web (front-end) software
-          engineer at Target. I develop the Same Day Delivery (Shipt) service
-          on Target.com. I previously worked as a backend engineer in its
+          Hello, world! I graduated with a Computer Science degree from the University of
+          Virginia in 2021. I am currently working as a front-end product software
+          engineer at Target. I engineer the Same Day Delivery (Shipt) service
+          on Target.com. Before my current role, I previously worked as a backend engineer on Target&apos;'s
           digital payments team and helped implement SNAP as a payment on
           Target.com.
         </p>
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-          Furthermore, I have interests in technical performance, design, and
-          creating efficient, competent systems with remarkable UX. In my
-          leisure, I like to keep myself up to date with the latest tech and
+          In addition to my role, I have interests in technical performance, design, and
+          creating efficient, competent systems with remarkable UX. I am part in Target&apos;'s performance guild where I pursue
+          these passions and implement my learnings to improve our website&apos;'s performance. In my leisure, I like to keep myself up to date with the latest tech and
           economics news, primarly on AI and macroeconomics. Besides my
           technical passions, I enjoy a fit lifestyle and hold deep
           interests in endocrinology and nutrition. I also enjoy
