@@ -35,7 +35,7 @@ function AboutMeBio() {
           className=" block sm:hidden flex justify-center "
         >
           <Image
-            src="/images/profile.jpeg"
+            src="/images/profile.jpg"
             height={300}
             width={300}
             className="rounded-lg"
