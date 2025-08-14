@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { FiPhone, FiMail } from "react-icons/fi";
+import React, { useEffect, useState, useRef } from "react";
+import { FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const drawerRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -12,6 +13,20 @@ const DropdownButton = () => {
   const closeDropdown = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+  function handleClickOutside(event) {
+    if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  }
+  if (isOpen) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [isOpen]);
 
   return (
     <div className="relative inline-block">
@@ -25,8 +40,7 @@ const DropdownButton = () => {
         <motion.div>
           <div
             className="absolute lg:right-0 mt-2 bg-white border rounded shadow-lg z-10 "
-            onBlur={closeDropdown}
-            focusOut={closeDropdown}
+            ref={drawerRef}
           >
             <motion.a
               href="mailto:joeldtavarez@gmail.com"

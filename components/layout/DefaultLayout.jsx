@@ -5,10 +5,12 @@ import PagesMetaHead from "../PagesMetaHead";
 const DefaultLayout = ({ children }) => {
   return (
     <html lang="en" className="min-h-screen">
-      <PagesMetaHead />
-      <AppHeader />
-      <div>{children}</div>
-      <AppFooter />
+        <body>
+            <PagesMetaHead />
+            <AppHeader />
+            <div>{children}</div>
+            <AppFooter />
+        </body>
     </html>
   );
 };
