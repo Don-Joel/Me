@@ -64,7 +64,7 @@ function AboutMeBio() {
         </motion.div>
       </div>
 
-      <div id="bio" className="font-general-regular w-full sm:w-3/4 text-left">
+      <div id="bio" className="font-general-medium w-full sm:w-3/4 text-left">
         <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
           Hello world, I am Joel Tavarez! I graduated with a Computer Science degree from the University of
           Virginia in 2021 and, shortly after, joined Target Corporation as a software engineer. I currently work as a front-end product
