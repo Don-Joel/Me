@@ -18,7 +18,7 @@ function AppBanner() {
             duration: 0.9,
             delay: 0.1
           }}
-          className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
+          className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light"
         >
           Hi &#x1F44B;, I&apos;m Joel -
         </motion.h1>

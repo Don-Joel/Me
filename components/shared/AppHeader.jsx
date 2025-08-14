@@ -19,10 +19,10 @@ function AppHeader() {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="hidden font-mono text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar lg:flex"
+          className="hidden font-general-semibold text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar lg:flex"
         >
           <Link href="/" aria-label="Contact">
-            Joel Dominic Tavarez
+            JOEL D. TAVAREZ
           </Link>
         </motion.div>
         {/* Header small screen*/}
