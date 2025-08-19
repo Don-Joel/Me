@@ -3,7 +3,7 @@ import PagesMetaHead from "../components/PagesMetaHead";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
 
-export default function Home() {
+export default Home = () => {
   return (
     <div className="container mx-auto">
       <PagesMetaHead

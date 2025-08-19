@@ -9,11 +9,7 @@ const DropdownButton = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
-  const closeDropdown = () => {
-    setIsOpen(false);
-  };
-
+  
   useEffect(() => {
   function handleClickOutside(event) {
     if (drawerRef.current && !drawerRef.current.contains(event.target)) {

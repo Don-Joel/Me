@@ -4,7 +4,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 import DropdownButton from "@/components/shared/DropdownButton";
 
-function AppHeader() {
+const AppHeader = () => {
   const [activeTheme, setTheme] = useThemeSwitcher();
 
   return (
