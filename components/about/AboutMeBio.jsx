@@ -12,7 +12,7 @@ function AboutMeBio() {
           transition={{
             ease: "easeInOut",
             duration: 0.9,
-            delay: 0.2
+            delay: 0.2,
           }}
           className=" hidden sm:block flex justify-center "
         >
@@ -30,7 +30,7 @@ function AboutMeBio() {
           transition={{
             ease: "easeInOut",
             duration: 0.9,
-            delay: 0.2
+            delay: 0.2,
           }}
           className=" block sm:hidden flex justify-center "
         >
@@ -48,7 +48,7 @@ function AboutMeBio() {
           transition={{
             ease: "easeInOut",
             duration: 0.9,
-            delay: 0.2
+            delay: 0.2,
           }}
           className="my-3 flex justify-center space-x-4"
         >
@@ -65,28 +65,32 @@ function AboutMeBio() {
       </div>
 
       <div id="bio" className="font-general-medium w-full sm:w-3/4 text-left">
-      <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-  Hello world, I am Joel Tavarez! I graduated with a Computer Science degree from the University of
-  Virginia in 2021 and began my career at Target Corporation as a software engineer. During my time
-  at Target, I delivered large-scale front-end features for Target.com, most recently engineering 
-  the Same Day Delivery (Shipt) experience. I previously worked on Target&apos;s digital payments 
-  platform, where I helped implement SNAP as a supported tender on Target.com.
-</p>
+        <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
+          Hello world, I am Joel Tavarez! I graduated with a Computer Science
+          degree from the University of Virginia in 2021 and began my career at
+          Target Corporation as a software engineer. During my time at Target, I
+          delivered large-scale front-end features for Target.com, most recently
+          engineering the Same Day Delivery (Shipt) experience. I previously
+          worked on Target&apos;s digital payments platform, where I helped
+          implement SNAP as a supported tender on Target.com.
+        </p>
 
-<p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-  I currently work at Newmark as a full-stack engineer building a new in-house leasing and 
-  transaction platform for commercial real estate brokers. My role focuses on architecting and 
-  developing high-impact product features across the front end and backend, with an emphasis on 
-  scalability, reliability, and clear user value.
-</p>
+        <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
+          I currently work at Newmark as a full-stack engineer building a new
+          in-house leasing and transaction platform for commercial real estate
+          brokers. My role focuses on architecting and developing high-impact
+          product features across the front end and backend, with an emphasis on
+          scalability, reliability, and clear user value.
+        </p>
 
-<p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
-  I have a strong interest in performance, systems thinking, and building technology that solves 
-  real business problems. Outside of engineering, I stay engaged with emerging technology and 
-  macroeconomics, and I maintain a long-standing commitment to fitness, nutrition, and continuous 
-  learning. My goal is to create software products that meaningfully improve the way people work and 
-  live.
-</p>
+        <p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
+          I have a strong interest in performance, systems thinking, and
+          building technology that solves real business problems. Outside of
+          engineering, I stay engaged with emerging technology and
+          macroeconomics, and I maintain a long-standing commitment to fitness,
+          nutrition, and continuous learning. My goal is to create software
+          products that meaningfully improve the way people work and live.
+        </p>
       </div>
     </div>
   );
