@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useThemeSwitcher = () => {
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" ? localStorage.theme : ""
+    typeof window !== "undefined" ? localStorage.theme || "dark" : "dark"
   );
   const activeTheme = theme === "dark" ? "light" : "dark";
 
