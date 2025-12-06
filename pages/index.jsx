@@ -3,7 +3,7 @@ import PagesMetaHead from "../components/PagesMetaHead";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
 
-export default Home = () => {
+const Home = () => {
   return (
     <div className="container mx-auto">
       <PagesMetaHead
@@ -21,4 +21,6 @@ export default Home = () => {
       </motion.div>
     </div>
   );
-}
+};
+
+export default Home;
