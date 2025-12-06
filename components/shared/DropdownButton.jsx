@@ -9,20 +9,20 @@ const DropdownButton = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  
+
   useEffect(() => {
-  function handleClickOutside(event) {
-    if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-      setIsOpen(false);
+    function handleClickOutside(event) {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
     }
-  }
-  if (isOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  }
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [isOpen]);
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div className="relative inline-block">

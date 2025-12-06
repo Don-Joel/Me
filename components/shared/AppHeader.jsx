@@ -25,26 +25,14 @@ const AppHeader = () => {
             JOEL D. TAVAREZ
           </Link>
         </motion.div>
-        {/* Header small screen*/}
-        <div className="flex lg:hidden">
-          <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
-            <DropdownButton />
-          </div>
-        </div>
-      </div>
-      {/* Theme switcher small screen */}
-      <div
-        id="small-screen-theme-switcher"
-        className="z-10 flex sm:items-center py-1 flex"
-      >
-        {/* Header small screen*/}
+        {/* Theme switcher small screen - moved to left */}
         <div className="flex lg:hidden">
           <div className="flex sm:font-general-medium sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0 shadow-sm sm:shadow-none">
             <div
               id="theme-switcher-small-screen"
               onClick={() => setTheme(activeTheme)}
               aria-label="Theme Switcher Small"
-              className=" sm:m-0 bg-primary-light  dark:bg-ternary-dark p-3 w-11 h-11  rounded-xl cursor-pointer ml-5"
+              className=" sm:m-0 bg-primary-light  dark:bg-ternary-dark p-3 w-11 h-11  rounded-xl cursor-pointer"
             >
               <div>
                 {activeTheme === "dark" ? (
@@ -54,6 +42,17 @@ const AppHeader = () => {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Contact Me button small screen - moved to right */}
+      <div
+        id="small-screen-contact-button"
+        className="z-10 flex sm:items-center py-1 flex"
+      >
+        <div className="flex lg:hidden">
+          <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
+            <DropdownButton />
           </div>
         </div>
       </div>
