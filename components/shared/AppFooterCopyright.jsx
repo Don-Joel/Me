@@ -1,14 +1,17 @@
 const AppFooterCopyright = () => {
   return (
-    <div className="font-general-regular flex justify-center items-center text-center">
-      <div className="text-lg text-ternary-dark dark:text-ternary-light">
-        <p className="text-secondary-dark dark:text-secondary-light font-medium ml-1 ">
-          Made with Next.js, Tailwind, and Framer by Joel Tavarez &copy;{" "}
-          {new Date().getFullYear()}
-        </p>
-      </div>
+    <div className="text-center">
+      <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-general-medium">
+        <span className="text-slate-900 dark:text-slate-100 font-general-semibold">
+          Joel Tavarez
+        </span>
+        {" "}&copy; {new Date().getFullYear()}
+      </p>
+      <p className="text-sm text-slate-500 dark:text-slate-500 mt-2 font-general-regular">
+        Full-stack software engineer passionate about building great products
+      </p>
     </div>
   );
-}
+};
 
 export default AppFooterCopyright;

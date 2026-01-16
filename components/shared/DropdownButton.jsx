@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FiMail } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,39 +24,57 @@ const DropdownButton = () => {
     };
   }, [isOpen]);
 
+  const buttonClasses =
+    "text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-general-semibold rounded-xl text-sm px-5 py-2.5 text-center inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300";
+
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block" ref={drawerRef}>
       {/* Direct link for small screens */}
       <a
         href="mailto:joeldtavarez@gmail.com"
-        className="lg:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-general-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className={`lg:hidden ${buttonClasses}`}
       >
         Contact Me
       </a>
+
       {/* Dropdown button for large screens */}
       <button
         onClick={toggleDropdown}
-        className="hidden lg:inline-flex text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-general-medium rounded-lg text-sm px-5 py-2.5 text-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className={`hidden lg:inline-flex ${buttonClasses}`}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
         Contact Me
       </button>
-      {isOpen && (
-        <motion.div>
-          <div
-            className="absolute lg:right-0 mt-2 bg-white border rounded shadow-lg z-10 "
-            ref={drawerRef}
+
+      {/* Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute lg:right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-2xl z-50 overflow-hidden min-w-[280px]"
           >
             <motion.a
               href="mailto:joeldtavarez@gmail.com"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white flex "
+              whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.1)" }}
+              className="block px-6 py-4 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-3 transition-colors"
             >
-              <FiMail className="mr-1 w-6 h-6" /> joeldtavarez@gmail.com
+              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                <FiMail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              </div>
+              <div>
+                <div className="font-general-semibold text-sm">Email</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">
+                  joeldtavarez@gmail.com
+                </div>
+              </div>
             </motion.a>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

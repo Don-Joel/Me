@@ -8,75 +8,69 @@ const AppHeader = () => {
   const [activeTheme, setTheme] = useThemeSwitcher();
 
   return (
-    <motion.nav
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      id="nav"
-      className="sm:container sm:mx-auto flex justify-between"
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="sticky top-0 z-50 backdrop-blur-lg bg-white/90 dark:bg-slate-900/90 border-b border-slate-200/60 dark:border-slate-700/60 shadow-sm"
     >
-      {/* Header */}
-      <div id="header" className="z-10 flex sm:items-center py-1 flex">
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="hidden font-general-semibold text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light antialiased hover:subpixel-antialiased text-left text-lg text-primary-dar lg:flex"
-        >
-          <Link href="/" aria-label="Contact">
-            JOEL D. TAVAREZ
-          </Link>
-        </motion.div>
-        {/* Theme switcher small screen - moved to left */}
-        <div className="flex lg:hidden">
-          <div className="flex sm:font-general-medium sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0 shadow-sm sm:shadow-none">
-            <div
-              id="theme-switcher-small-screen"
-              onClick={() => setTheme(activeTheme)}
-              aria-label="Theme Switcher Small"
-              className=" sm:m-0 bg-primary-light  dark:bg-ternary-dark p-3 w-11 h-11  rounded-xl cursor-pointer"
+      <nav className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-16 lg:h-20">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center"
+          >
+            <Link
+              href="/"
+              className="font-general-bold text-xl lg:text-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transition-all duration-200"
+              aria-label="Home"
             >
-              <div>
-                {activeTheme === "dark" ? (
-                  <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
-                ) : (
-                  <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Contact Me button small screen - moved to right */}
-      <div
-        id="small-screen-contact-button"
-        className="z-10 flex sm:items-center py-1 flex"
-      >
-        <div className="flex lg:hidden">
-          <div className="flex sm:font-general-medium  sm:m-0 sm:ml-4 sm:mt-5 sm:mt-3 sm:flex p-5 sm:p-0  shadow-sm sm:shadow-none">
+              <span className="hidden lg:inline">Joel D. Tavarez</span>
+              <span className="lg:hidden">JDT</span>
+            </Link>
+          </motion.div>
+
+          {/* Mobile: Theme switcher on left, Contact on right */}
+          <div className="flex lg:hidden items-center gap-3">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setTheme(activeTheme)}
+              aria-label="Theme Switcher"
+              className="p-3 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 hover:from-slate-200 hover:to-slate-300 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-200 shadow-md hover:shadow-lg border border-slate-200/50 dark:border-slate-700/50"
+            >
+              {activeTheme === "dark" ? (
+                <FiMoon className="w-5 h-5" />
+              ) : (
+                <FiSun className="w-5 h-5" />
+              )}
+            </motion.button>
             <DropdownButton />
           </div>
-        </div>
-      </div>
 
-      {/* Header large screen */}
-      <div className=" lg:flex lg:justify-end hidden  lg:font-general-medium  lg:m-0 lg:ml-4 lg:mt-5 lg:mt-3 lg:flex p-5 lg:p-0  shadow-lg lg:shadow-none">
-        <DropdownButton />
-        <motion.div
-          id="theme-switcher-large-screen"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setTheme(activeTheme)}
-          aria-label="Theme Switcher Large"
-          className=" bg-primary-light dark:bg-ternary-dark p-3 w-11 h-11 hidden sm:block rounded-xl cursor-pointer ml-5"
-          suppressHydrationWarning={true}
-        >
-          {activeTheme === "dark" ? (
-            <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
-          ) : (
-            <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
-          )}
-        </motion.div>
-      </div>
-    </motion.nav>
+          {/* Desktop: Actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            <DropdownButton />
+            <motion.button
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setTheme(activeTheme)}
+              aria-label="Theme Switcher"
+              className="p-3 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 hover:from-slate-200 hover:to-slate-300 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-200 shadow-md hover:shadow-lg border border-slate-200/50 dark:border-slate-700/50"
+              suppressHydrationWarning={true}
+            >
+              {activeTheme === "dark" ? (
+                <FiMoon className="w-5 h-5" />
+              ) : (
+                <FiSun className="w-5 h-5" />
+              )}
+            </motion.button>
+          </div>
+        </div>
+      </nav>
+    </motion.header>
   );
 }
 
