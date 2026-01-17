@@ -1,14 +1,20 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
-import { FiBriefcase, FiTarget, FiTrendingUp, FiMapPin, FiCalendar } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiTarget,
+  FiTrendingUp,
+  FiMapPin,
+  FiCalendar,
+} from "react-icons/fi";
 
 function AboutMeBio() {
   const experiences = [
     {
       icon: FiBriefcase,
       title: "Early Career at Target",
-      period: "2021 - Present",
+      period: "2021 - 2025",
       company: "Target Corporation",
       description:
         "I graduated with a Computer Science degree from the University of Virginia in 2021 and began my career at Target Corporation as a software engineer. During my time at Target, I delivered large-scale front-end features for Target.com, most recently engineering the Same Day Delivery (Shipt) experience. I previously worked on Target's digital payments platform, where I helped implement SNAP as a supported tender on Target.com.",
@@ -88,11 +94,15 @@ function AboutMeBio() {
                   <div className="space-y-3 mb-6 text-center">
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiMapPin className="w-4 h-4" />
-                      <span className="text-sm font-general-medium">University of Virginia</span>
+                      <span className="text-sm font-general-medium">
+                        University of Virginia
+                      </span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiCalendar className="w-4 h-4" />
-                      <span className="text-sm font-general-medium">Graduated 2021</span>
+                      <span className="text-sm font-general-medium">
+                        Graduated 2021
+                      </span>
                     </div>
                   </div>
 
@@ -145,7 +155,9 @@ function AboutMeBio() {
                   <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-1">
                     <div className="flex items-start gap-6">
                       {/* Icon */}
-                      <div className={`flex-shrink-0 p-4 rounded-xl ${exp.iconBg} group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`flex-shrink-0 p-4 rounded-xl ${exp.iconBg} group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <exp.icon className={`w-6 h-6 ${exp.iconColor}`} />
                       </div>
 
