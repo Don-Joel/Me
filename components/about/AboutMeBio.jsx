@@ -93,6 +93,12 @@ function AboutMeBio() {
                   {/* Location & Info */}
                   <div className="space-y-3 mb-6 text-center">
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
+                      <FiBriefcase className="w-4 h-4" />
+                      <span className="text-sm font-general-medium">
+                        Full-Stack Engineer at Newmark
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiMapPin className="w-4 h-4" />
                       <span className="text-sm font-general-medium">
                         University of Virginia
@@ -101,13 +107,13 @@ function AboutMeBio() {
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiCalendar className="w-4 h-4" />
                       <span className="text-sm font-general-medium">
-                        Graduated 2021
+                        B.A. Computer Science, 2021
                       </span>
                     </div>
                   </div>
 
                   {/* Social Links */}
-                  <div className="flex justify-center gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
+                  <div className="flex justify-evenly gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
                     <motion.a
                       href="https://github.com/Don-Joel"
                       target="_blank"
