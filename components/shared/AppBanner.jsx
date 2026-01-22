@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FiArrowDownCircle, FiCode, FiDatabase, FiZap, FiLayers, FiCpu, FiSettings, FiUsers } from "react-icons/fi";
+import {
+  FiArrowDownCircle,
+  FiCode,
+  FiDatabase,
+  FiZap,
+  FiLayers,
+  FiCpu,
+  FiSettings,
+  FiUsers,
+} from "react-icons/fi";
 
 const AppBanner = () => {
   return (
@@ -8,7 +17,7 @@ const AppBanner = () => {
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
-      
+
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -54,7 +63,8 @@ const AppBanner = () => {
                 className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
                 Building scalable microservices in JVM languages and crafting
-                exceptional user experiences with React and modern web technologies.
+                exceptional user experiences with React and modern web
+                technologies.
               </motion.p>
 
               {/* Tech Stack Pills */}
@@ -65,13 +75,41 @@ const AppBanner = () => {
                 className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10"
               >
                 {[
-                  { icon: FiCode, label: "Frontend", iconColor: "text-blue-600 dark:text-blue-400" },
-                  { icon: FiDatabase, label: "Backend", iconColor: "text-indigo-600 dark:text-indigo-400" },
-                  { icon: FiZap, label: "Performance", iconColor: "text-purple-600 dark:text-purple-400" },
-                  { icon: FiLayers, label: "Architecture", iconColor: "text-blue-600 dark:text-blue-400" },
-                  { icon: FiCpu, label: "AI/ML", iconColor: "text-indigo-600 dark:text-indigo-400" },
-                  { icon: FiSettings, label: "DevOps", iconColor: "text-purple-600 dark:text-purple-400" },
-                  { icon: FiUsers, label: "Leadership", iconColor: "text-blue-600 dark:text-blue-400" },
+                  {
+                    icon: FiCode,
+                    label: "Frontend",
+                    iconColor: "text-blue-600 dark:text-blue-400",
+                  },
+                  {
+                    icon: FiDatabase,
+                    label: "Backend",
+                    iconColor: "text-indigo-600 dark:text-indigo-400",
+                  },
+                  {
+                    icon: FiZap,
+                    label: "Performance",
+                    iconColor: "text-purple-600 dark:text-purple-400",
+                  },
+                  {
+                    icon: FiLayers,
+                    label: "Architecture",
+                    iconColor: "text-blue-600 dark:text-blue-400",
+                  },
+                  {
+                    icon: FiCpu,
+                    label: "AI/ML",
+                    iconColor: "text-indigo-600 dark:text-indigo-400",
+                  },
+                  {
+                    icon: FiSettings,
+                    label: "DevOps",
+                    iconColor: "text-purple-600 dark:text-purple-400",
+                  },
+                  {
+                    icon: FiUsers,
+                    label: "Leadership",
+                    iconColor: "text-blue-600 dark:text-blue-400",
+                  },
                 ].map((tech, idx) => (
                   <motion.div
                     key={tech.label}
