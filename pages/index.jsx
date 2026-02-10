@@ -1,6 +1,7 @@
 import PagesMetaHead from "../components/PagesMetaHead";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
+import TechnologiesSection from "../components/about/TechnologiesSection";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       />
       <DynamicAppBanner />
       <AboutMeBio />
+      <TechnologiesSection />
     </>
   );
 };
