@@ -5,62 +5,55 @@ import { motion } from "framer-motion";
 // Simple Icons CDN: https://cdn.simpleicons.org/<slug>
 // Slugs from https://simpleicons.org
 const LANGUAGES = [
-  { name: "Kotlin", slug: "kotlin" },
-  { name: "Java", slug: "openjdk" },
-  { name: "Groovy", slug: "groovy" },
-  { name: "JavaScript", slug: "javascript" },
-  { name: "TypeScript", slug: "typescript" },
-  { name: "Python", slug: "python" },
-  { name: "HTML5", slug: "html5" },
-  { name: "CSS3", slug: "css3" },
-  { name: "PostgreSQL", slug: "postgresql" },
-  { name: "MySQL", slug: "mysql" },
-  { name: "C++", slug: "cplusplus" },
-  { name: "C#", slug: "csharp" },
+  { name: "Kotlin", slug: "kotlin", url: "https://kotlinlang.org" },
+  { name: "Java", slug: "openjdk", url: "https://openjdk.org" },
+  { name: "Groovy", slug: "groovy", url: "https://groovy-lang.org" },
+  { name: "JavaScript", slug: "javascript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "TypeScript", slug: "typescript", url: "https://www.typescriptlang.org" },
+  { name: "Python", slug: "python", url: "https://www.python.org" },
+  { name: "HTML5", slug: "html5", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+  { name: "CSS3", slug: "css3", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { name: "PostgreSQL", slug: "postgresql", url: "https://www.postgresql.org" },
+  { name: "MySQL", slug: "mysql", url: "https://www.mysql.com" },
+  { name: "C++", slug: "cplusplus", url: "https://isocpp.org" },
+  { name: "C#", slug: "csharp", url: "https://dotnet.microsoft.com/languages/csharp" },
 ];
 
 const TECH_STACK = [
-  { name: "React", slug: "react" },
-  { name: "Next.js", slug: "nextdotjs" },
-  { name: "Vite", slug: "vite" },
-  { name: "Elasticsearch", slug: "elasticsearch" },
-  { name: "Kibana", slug: "kibana" },
-  { name: "Logstash", slug: "logstash" },
-  { name: "Grafana", slug: "grafana" },
-  { name: "Chef", slug: "chef" },
-  { name: "Node.js", slug: "nodedotjs" },
-  { name: ".NET", slug: "dotnet" },
-  { name: "Angular", slug: "angular" },
-  { name: "Django", slug: "django" },
-  { name: "Jest", slug: "jest" },
-  { name: "Jira", slug: "jira" },
-  { name: "Jenkins", slug: "jenkins" },
-  { name: "Ratpack", slug: null },
-  { name: "Spring Boot", slug: "spring" },
-  { name: "Kafka", slug: "apachekafka" },
-  { name: "Micronaut", slug: null },
-  { name: "Git", slug: "git" },
-  { name: "Docker", slug: "docker" },
-  { name: "Codemods", slug: null },
-  { name: "Storybook", slug: "storybook" },
-  { name: "Linux", slug: "linux" },
+  { name: "React", slug: "react", url: "https://react.dev" },
+  { name: "Next.js", slug: "nextdotjs", url: "https://nextjs.org" },
+  { name: "Vite", slug: "vite", url: "https://vitejs.dev" },
+  { name: "Elasticsearch", slug: "elasticsearch", url: "https://www.elastic.co/elasticsearch" },
+  { name: "Kibana", slug: "kibana", url: "https://www.elastic.co/kibana" },
+  { name: "Logstash", slug: "logstash", url: "https://www.elastic.co/logstash" },
+  { name: "Grafana", slug: "grafana", url: "https://grafana.com" },
+  { name: "Chef", slug: "chef", url: "https://www.chef.io" },
+  { name: "Node.js", slug: "nodedotjs", url: "https://nodejs.org" },
+  { name: ".NET", slug: "dotnet", url: "https://dotnet.microsoft.com" },
+  { name: "Angular", slug: "angular", url: "https://angular.io" },
+  { name: "Django", slug: "django", url: "https://www.djangoproject.com" },
+  { name: "Jest", slug: "jest", url: "https://jestjs.io" },
+  { name: "Jira", slug: "jira", url: "https://www.atlassian.com/software/jira" },
+  { name: "Jenkins", slug: "jenkins", url: "https://www.jenkins.io" },
+  { name: "Ratpack", slug: null, url: "https://ratpack.io" },
+  { name: "Spring Boot", slug: "spring", url: "https://spring.io/projects/spring-boot" },
+  { name: "Kafka", slug: "apachekafka", url: "https://kafka.apache.org" },
+  { name: "Micronaut", slug: null, url: "https://micronaut.io" },
+  { name: "Git", slug: "git", url: "https://git-scm.com" },
+  { name: "Docker", slug: "docker", url: "https://www.docker.com" },
+  { name: "Codemods", slug: null, url: "https://github.com/facebook/jscodeshift" },
+  { name: "Storybook", slug: "storybook", url: "https://storybook.js.org" },
+  { name: "Linux", slug: "linux", url: "https://www.kernel.org" },
 ];
 
 const ICON_BASE = "https://cdn.simpleicons.org";
 
-function TechCard({ name, slug, index }) {
+function TechCard({ name, slug, url, index }) {
   const [imgError, setImgError] = React.useState(false);
   const useFallback = !slug || imgError;
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.35, delay: index * 0.02 }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group flex flex-col items-center gap-3 p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/10 transition-all duration-300"
-    >
+  const cardContent = (
+    <>
       <div className="relative flex items-center justify-center w-12 h-12 transition-transform duration-300 group-hover:scale-110">
         {useFallback ? (
           <div
@@ -84,6 +77,37 @@ function TechCard({ name, slug, index }) {
       <span className="text-sm font-general-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-100 text-center transition-colors">
         {name}
       </span>
+    </>
+  );
+
+  const cardClassName =
+    "group flex flex-col items-center gap-3 p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/10 transition-all duration-300";
+
+  const motionProps = {
+    initial: { opacity: 0, y: 12 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.35, delay: index * 0.02 },
+    whileHover: { y: -4, transition: { duration: 0.2 } },
+  };
+
+  if (url) {
+    return (
+      <motion.a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`block ${cardClassName}`}
+        {...motionProps}
+      >
+        {cardContent}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div className={cardClassName} {...motionProps}>
+      {cardContent}
     </motion.div>
   );
 }
@@ -124,9 +148,10 @@ function TechnologiesSection() {
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4">
               {LANGUAGES.map((tech, idx) => (
                 <TechCard
-                  key={tech.slug}
+                  key={tech.name}
                   name={tech.name}
                   slug={tech.slug}
+                  url={tech.url}
                   index={idx}
                 />
               ))}
@@ -146,9 +171,10 @@ function TechnologiesSection() {
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4">
               {TECH_STACK.map((tech, idx) => (
                 <TechCard
-                  key={tech.slug}
+                  key={tech.name}
                   name={tech.name}
                   slug={tech.slug}
+                  url={tech.url}
                   index={idx}
                 />
               ))}
