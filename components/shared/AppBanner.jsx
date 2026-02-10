@@ -64,7 +64,7 @@ const AppBanner = () => {
               >
                 AI-driven software engineer building scalable microservices in
                 JVM languages and crafting exceptional user experiences with
-                React and modern web technologies.
+                React and modern web technologies
               </motion.p>
 
               {/* Tech Stack Pills */}
