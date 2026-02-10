@@ -62,7 +62,7 @@ const AppBanner = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
-                AI-driven software engineer building scalable microservices in
+                Leveraging advanced AI workflows to accelerate microservices in
                 JVM languages and crafting exceptional user experiences with
                 React and modern web technologies
               </motion.p>
