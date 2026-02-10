@@ -1,10 +1,10 @@
 # Portfolio - Joel Tavarez
 
-A modern, responsive portfolio website built with Next.js and Tailwind CSS, showcasing my work as a Full-Stack Software Engineer.
+A modern, responsive portfolio website built with Next.js and Tailwind CSS.
 
 ## About
 
-This is my personal portfolio website featuring my projects, skills, and professional experience. The site is built with modern web technologies and designed to be fast, accessible, and visually appealing.
+This is my website featuring my skills and professional experience. The site is built with modern web technologies and designed to be fast, accessible, and visually appealing.
 
 ## Tech Stack
 
