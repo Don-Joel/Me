@@ -18,8 +18,8 @@ function AboutMeBio() {
       company: "Newmark",
       description:
         "I currently work at Newmark as a full-stack engineer building a new in-house leasing and transaction platform for commercial real estate brokers. My role focuses on leveraging AI to architect and develop high-impact product features across the front end and backend, with an emphasis on scalability, reliability, and clear user value.",
-      iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
-      iconColor: "text-indigo-600 dark:text-indigo-400",
+      iconBg: "bg-slate-100 dark:bg-slate-700/50",
+      iconColor: "text-slate-600 dark:text-slate-400",
     },
     {
       icon: FiBriefcase,
@@ -28,8 +28,8 @@ function AboutMeBio() {
       company: "Target Corporation",
       description:
         "I graduated with a Computer Science degree from the University of Virginia in 2021 and began my career at Target Corporation as a software engineer. During my time at Target, I delivered large-scale front-end features for Target.com, most recently engineering the Same Day Delivery (Shipt) experience. I previously worked on Target's digital payments platform, where I helped implement SNAP as a supported tender on Target.com.",
-      iconBg: "bg-blue-100 dark:bg-blue-900/30",
-      iconColor: "text-blue-600 dark:text-blue-400",
+      iconBg: "bg-slate-100 dark:bg-slate-700/50",
+      iconColor: "text-slate-600 dark:text-slate-400",
     },
     {
       icon: FiTrendingUp,
@@ -38,8 +38,8 @@ function AboutMeBio() {
       company: "Personal Growth",
       description:
         "I have a strong interest in performance, systems thinking, and building technology that solves real business problems. Outside of engineering, I stay engaged with emerging technology and macroeconomics, and I maintain a long-standing commitment to fitness, nutrition, and continuous learning. My goal is to create software products that meaningfully improve the way people work and live.",
-      iconBg: "bg-purple-100 dark:bg-purple-900/30",
-      iconColor: "text-purple-600 dark:text-purple-400",
+      iconBg: "bg-slate-100 dark:bg-slate-700/50",
+      iconColor: "text-slate-600 dark:text-slate-400",
     },
   ];
 
@@ -58,7 +58,7 @@ function AboutMeBio() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-general-bold mb-4 text-slate-900 dark:text-slate-100">
               About Me
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mx-auto rounded-full" />
+            <div className="w-32 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 mx-auto rounded-full" />
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
@@ -78,7 +78,7 @@ function AboutMeBio() {
                     className="mb-6 flex justify-center"
                   >
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-2xl blur-2xl opacity-30" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-400 via-blue-500/80 to-slate-500 dark:from-slate-500 dark:via-blue-600/50 dark:to-slate-600 rounded-2xl blur-2xl opacity-25 dark:opacity-20" />
                       <Image
                         src="/images/profile.jpg"
                         height={280}

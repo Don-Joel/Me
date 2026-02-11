@@ -25,7 +25,7 @@ const DropdownButton = () => {
   }, [isOpen]);
 
   const buttonClasses =
-    "text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-general-semibold rounded-xl text-sm px-5 py-2.5 text-center inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300";
+    "text-white bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-500 dark:focus:ring-blue-600 font-general-semibold rounded-xl text-sm px-5 py-2.5 text-center inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300";
 
   return (
     <div className="relative inline-block" ref={drawerRef}>
@@ -60,10 +60,10 @@ const DropdownButton = () => {
             <motion.a
               href="mailto:joeldtavarez@gmail.com"
               whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-              className="block px-6 py-4 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-3 transition-colors"
+              className="block px-6 py-4 text-gray-800 dark:text-gray-200 hover:text-slate-700 dark:hover:text-blue-500 flex items-center gap-3 transition-colors"
             >
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <FiMail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <div className="p-2 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                <FiMail className="w-5 h-5 text-slate-600 dark:text-slate-400" />
               </div>
               <div>
                 <div className="font-general-semibold text-sm">Email</div>

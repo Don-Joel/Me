@@ -57,7 +57,7 @@ function TechCard({ name, slug, url, index }) {
       <div className="relative flex items-center justify-center w-12 h-12 transition-transform duration-300 group-hover:scale-110">
         {useFallback ? (
           <div
-            className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-general-semibold text-sm"
+            className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-700/60 flex items-center justify-center text-slate-600 dark:text-slate-400 font-general-semibold text-sm"
             aria-hidden
           >
             {name.charAt(0)}
@@ -81,7 +81,7 @@ function TechCard({ name, slug, url, index }) {
   );
 
   const cardClassName =
-    "group flex flex-col items-center gap-3 p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/10 transition-all duration-300";
+    "group flex flex-col items-center gap-3 p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-blue-500/70 dark:hover:border-blue-600/70 hover:shadow-lg hover:shadow-blue-600/15 dark:hover:shadow-blue-600/15 transition-all duration-300";
 
   const motionProps = {
     initial: { opacity: 0, y: 12 },
@@ -128,7 +128,7 @@ function TechnologiesSection() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-general-bold mb-4 text-slate-900 dark:text-slate-100">
               Technologies
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mx-auto rounded-full" />
+            <div className="w-32 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 mx-auto rounded-full" />
             <p className="mt-6 text-slate-600 dark:text-slate-400 font-general-medium max-w-2xl mx-auto text-lg">
               Languages, frameworks, and tools I work with
             </p>

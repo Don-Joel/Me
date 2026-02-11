@@ -15,7 +15,7 @@ const AppBanner = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-100/80 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 py-20">
@@ -40,7 +40,7 @@ const AppBanner = () => {
                 </span>
                 <span className="text-slate-900 dark:text-slate-100">Joel</span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent">
                   Tavarez
                 </span>
               </motion.h1>
@@ -78,37 +78,37 @@ const AppBanner = () => {
                   {
                     icon: FiCode,
                     label: "Frontend",
-                    iconColor: "text-blue-600 dark:text-blue-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiDatabase,
                     label: "Backend",
-                    iconColor: "text-indigo-600 dark:text-indigo-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiZap,
                     label: "Performance",
-                    iconColor: "text-purple-600 dark:text-purple-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiLayers,
                     label: "Architecture",
-                    iconColor: "text-blue-600 dark:text-blue-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiCpu,
                     label: "AI/ML",
-                    iconColor: "text-indigo-600 dark:text-indigo-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiSettings,
                     label: "DevOps",
-                    iconColor: "text-purple-600 dark:text-purple-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                   {
                     icon: FiUsers,
                     label: "Leadership",
-                    iconColor: "text-blue-600 dark:text-blue-400",
+                    iconColor: "text-slate-600 dark:text-slate-400",
                   },
                 ].map((tech, idx) => (
                   <motion.div
@@ -139,7 +139,7 @@ const AppBanner = () => {
                   whileTap={{ scale: 0.95 }}
                   download="Tavarez-Joel-Resume.pdf"
                   href="/files/Tavarez-Joel-Resume.pdf"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-general-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 text-white font-general-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   aria-label="Download Resume"
                 >
                   <FiArrowDownCircle className="w-5 h-5 group-hover:animate-bounce" />
@@ -157,7 +157,7 @@ const AppBanner = () => {
             >
               <div className="relative">
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-indigo-400/20 to-purple-400/20 rounded-3xl blur-3xl transform rotate-6" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-400/15 via-blue-500/20 to-slate-400/15 dark:from-slate-500/10 dark:via-blue-600/15 dark:to-slate-500/10 rounded-3xl blur-3xl transform rotate-6" />
                 <div className="relative">
                   <Image
                     src="/images/udeveloper.svg"

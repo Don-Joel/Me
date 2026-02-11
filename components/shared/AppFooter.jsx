@@ -4,7 +4,7 @@ import { FiHeart } from "react-icons/fi";
 
 const AppFooter = () => {
   return (
-    <footer className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border-t border-slate-200/50 dark:border-slate-700/50">
+    <footer className="relative bg-gradient-to-br from-slate-50 via-slate-100/50 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border-t border-slate-200/50 dark:border-slate-700/50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,7 +15,7 @@ const AppFooter = () => {
         >
           <div className="flex flex-col items-center gap-6">
             {/* Decorative line */}
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 rounded-full" />
             
             {/* Footer content */}
             <div className="text-center">
