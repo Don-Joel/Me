@@ -1,7 +1,17 @@
+import dynamic from "next/dynamic";
 import PagesMetaHead from "../components/PagesMetaHead";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
 import AboutMeBio from "../components/about/AboutMeBio";
-import TechnologiesSection from "../components/about/TechnologiesSection";
+
+const TechnologiesSection = dynamic(
+  () => import("../components/about/TechnologiesSection"),
+  {
+    loading: () => (
+      <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900 min-h-[400px]" />
+    ),
+    ssr: true,
+  }
+);
 
 const Home = () => {
   return (
