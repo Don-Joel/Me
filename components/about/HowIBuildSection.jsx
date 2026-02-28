@@ -28,7 +28,7 @@ const pillars = [
   },
 ];
 
-function HowIBuildSection() {
+const HowIBuildSection = () => {
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
