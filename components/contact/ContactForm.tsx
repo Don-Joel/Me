@@ -1,9 +1,10 @@
-import { useRef, useState, useEffect } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha";
 import { FiSend, FiCheck, FiShield } from "react-icons/fi";
 import { PHONE_PATTERN, formatPhoneDisplay } from "../../lib/phone";
+
+const ReCAPTCHALoader = lazy(() => import("./ReCAPTCHALoader"));
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -20,30 +21,29 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
+  const [loadCaptchaWidget, setLoadCaptchaWidget] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   useEffect(() => setMounted(true), []);
 
   const isCaptchaConfigured = Boolean(RECAPTCHA_SITE_KEY);
 
-  const handleVerifyHuman = async () => {
-    if (!recaptchaRef.current || !isCaptchaConfigured) return;
+  const handleVerifyHuman = () => {
+    if (!isCaptchaConfigured) return;
     setError("");
     setIsVerifying(true);
-    try {
-      const token = await recaptchaRef.current.executeAsync();
-      recaptchaRef.current.reset();
-      if (token) {
-        setCaptchaToken(token);
-      } else {
-        setError("Verification failed. Please try again.");
-      }
-    } catch {
-      setError("Verification failed. Please try again.");
-    } finally {
-      setIsVerifying(false);
-    }
+    setLoadCaptchaWidget(true);
+  };
+
+  const handleCaptchaToken = (token: string) => {
+    setCaptchaToken(token);
+    setIsVerifying(false);
+  };
+
+  const handleCaptchaError = () => {
+    setError("Verification failed. Please try again.");
+    setIsVerifying(false);
+    setLoadCaptchaWidget(false);
   };
 
   const handlePhoneChange = (value: string) => {
@@ -215,17 +215,14 @@ const ContactForm = () => {
       <div className="space-y-2">
         {isCaptchaConfigured ? (
           <>
-            {mounted && (
-              <div
-                className="absolute left-[-9999px] w-px h-px overflow-hidden"
-                aria-hidden
-              >
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY ?? ""}
-                  size="invisible"
+            {mounted && loadCaptchaWidget && RECAPTCHA_SITE_KEY && (
+              <Suspense fallback={null}>
+                <ReCAPTCHALoader
+                  sitekey={RECAPTCHA_SITE_KEY}
+                  onToken={handleCaptchaToken}
+                  onError={handleCaptchaError}
                 />
-              </div>
+              </Suspense>
             )}
             {!captchaToken ? (
               <motion.button
