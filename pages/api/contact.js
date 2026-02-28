@@ -1,10 +1,10 @@
 import { Resend } from "resend";
+import { PHONE_PATTERN } from "../../lib/phone";
 
 const ENABLE_RECAPTCHA = false;
 
 const TO_EMAIL = "joeldtavarez@gmail.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_PATTERN = /^\+?[0-9\s().-]{7,20}$/;
 
 const verifyRecaptcha = async (token, remoteIp) => {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
