@@ -2,7 +2,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
-import DropdownButton from "@/components/shared/DropdownButton";
+
+const contactButtonClasses =
+  "text-white bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-500 dark:focus:ring-blue-600 font-general-semibold rounded-xl text-sm px-5 py-2.5 text-center inline-flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300";
 
 const AppHeader = () => {
   const [activeTheme, setTheme] = useThemeSwitcher();
@@ -47,12 +49,16 @@ const AppHeader = () => {
                 <FiSun className="w-5 h-5" />
               )}
             </motion.button>
-            <DropdownButton />
+            <Link href="/contact" className={contactButtonClasses}>
+              Contact
+            </Link>
           </div>
 
           {/* Desktop: Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <DropdownButton />
+            <Link href="/contact" className={contactButtonClasses}>
+              Contact
+            </Link>
             <motion.button
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
