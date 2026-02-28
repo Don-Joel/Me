@@ -59,7 +59,6 @@ const AppHeader = () => {
               onClick={() => setTheme(activeTheme)}
               aria-label="Theme Switcher"
               className="p-3 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-slate-700 dark:text-slate-300 hover:from-slate-200 hover:to-slate-300 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-200 shadow-md hover:shadow-lg border border-slate-200/50 dark:border-slate-700/50"
-              suppressHydrationWarning={true}
             >
               {activeTheme === "dark" ? (
                 <FiMoon className="w-5 h-5" />

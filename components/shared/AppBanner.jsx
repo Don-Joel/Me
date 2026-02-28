@@ -52,7 +52,7 @@ const AppBanner = () => {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="text-2xl sm:text-3xl lg:text-4xl font-general-semibold text-slate-700 dark:text-slate-300 mb-4"
               >
-                Full-Stack Software Engineer
+                Product Engineer
               </motion.p>
 
               {/* Description */}
@@ -60,11 +60,19 @@ const AppBanner = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
-                Leveraging advanced AI workflows to accelerate microservice
-                development in JVM languages and crafting exceptional user
-                experiences with React and modern web technologies
+                I use AI orchestration (Codex, Opus) to design and ship the
+                ideal product—full-stack from idea to production, with a focus
+                on user value and systems that scale.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.6 }}
+                className="text-base sm:text-lg text-slate-500 dark:text-slate-500 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                React, JVM languages, and modern web—accelerated by AI.
               </motion.p>
 
               {/* Tech Stack Pills */}

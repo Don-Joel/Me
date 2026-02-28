@@ -17,7 +17,7 @@ function AboutMeBio() {
       period: "Present",
       company: "Newmark",
       description:
-        "I currently work at Newmark as a full-stack engineer building a new in-house leasing and transaction platform for commercial real estate brokers. My role focuses on leveraging AI to architect and develop high-impact product features across the front end and backend, with an emphasis on scalability, reliability, and clear user value.",
+        "I currently work at Newmark as a product engineer building a new in-house leasing and transaction platform for commercial real estate brokers. I use Codex and Opus to orchestrate development end-to-end—architecting and shipping high-impact features across the front end and backend, with an emphasis on scalability, reliability, and clear user value.",
       iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
       iconColor: "text-indigo-600 dark:text-indigo-400",
     },
@@ -95,7 +95,7 @@ function AboutMeBio() {
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiBriefcase className="w-4 h-4" />
                       <span className="text-sm font-general-medium">
-                        Full-Stack Engineer at Newmark
+                        Product Engineer at Newmark
                       </span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">

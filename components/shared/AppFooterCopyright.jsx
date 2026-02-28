@@ -1,7 +1,7 @@
 const AppFooterCopyright = () => {
   return (
     <div className="text-center">
-      <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-general-medium">
+      <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-general-medium" suppressHydrationWarning>
         <span className="text-slate-900 dark:text-slate-100 font-general-semibold">
           Joel Tavarez
         </span>

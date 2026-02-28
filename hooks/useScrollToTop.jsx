@@ -4,20 +4,19 @@ import { FiChevronUp } from 'react-icons/fi';
 const useScrollToTop = () => {
 	const [showScroll, setShowScroll] = useState(false);
 
+	const scrollToTop = () => {
+		setShowScroll((prev) => {
+			const offset = window.pageYOffset;
+			if (!prev && offset > 400) return true;
+			if (prev && offset <= 400) return false;
+			return prev;
+		});
+	};
+
 	useEffect(() => {
 		window.addEventListener('scroll', scrollToTop);
-		return function cleanup() {
-			window.removeEventListener('scroll', scrollToTop);
-		};
-	});
-
-	const scrollToTop = () => {
-		if (!showScroll && window.pageYOffset > 400) {
-			setShowScroll(true);
-		} else if (showScroll && window.pageYOffset <= 400) {
-			setShowScroll(false);
-		}
-	};
+		return () => window.removeEventListener('scroll', scrollToTop);
+	}, []);
 
 	const backToTop = () => {
 		window.scrollTo({
@@ -25,10 +24,6 @@ const useScrollToTop = () => {
 			behavior: 'smooth',
 		});
 	};
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('scroll', scrollToTop);
-	}
 
 	return (
 		<>
