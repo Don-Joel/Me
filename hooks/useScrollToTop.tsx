@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { FiChevronUp } from "react-icons/fi";
 
-const useScrollToTop = () => {
+const useScrollToTop = (): JSX.Element => {
   const [showScroll, setShowScroll] = useState(false);
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     setShowScroll((prev) => {
       const offset = window.pageYOffset;
       if (!prev && offset > 400) return true;
@@ -18,7 +18,7 @@ const useScrollToTop = () => {
     return () => window.removeEventListener("scroll", scrollToTop);
   }, []);
 
-  const backToTop = () => {
+  const backToTop = (): void => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",

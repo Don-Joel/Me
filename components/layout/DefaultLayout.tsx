@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import type { ReactNode } from "react";
 import AppFooter from "../shared/AppFooter";
 
 const AppHeader = dynamic(() => import("../shared/AppHeader"), {
@@ -15,7 +16,11 @@ const AppHeader = dynamic(() => import("../shared/AppHeader"), {
   ),
 });
 
-const DefaultLayout = ({ children }) => {
+type DefaultLayoutProps = {
+  children: ReactNode;
+};
+
+const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <AppHeader />

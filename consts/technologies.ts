@@ -1,4 +1,6 @@
-export const LANGUAGES = [
+import type { Technology } from "./types";
+
+export const LANGUAGES: Technology[] = [
   { name: "Kotlin", slug: "kotlin", url: "https://kotlinlang.org" },
   { name: "Java", slug: "openjdk", url: "https://openjdk.org" },
   { name: "Groovy", slug: "groovy", url: "https://groovy-lang.org" },
@@ -33,7 +35,7 @@ export const LANGUAGES = [
   },
 ];
 
-export const TECH_STACK = [
+export const TECH_STACK: Technology[] = [
   { name: "React", slug: "react", url: "https://react.dev" },
   { name: "Next.js", slug: "nextdotjs", url: "https://nextjs.org" },
   { name: "Vite", slug: "vite", url: "https://vitejs.dev" },

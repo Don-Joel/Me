@@ -1,6 +1,7 @@
 import { FiUsers, FiZap, FiCpu } from "react-icons/fi";
+import type { Pillar } from "./types";
 
-export const pillars = [
+export const pillars: Pillar[] = [
   {
     icon: FiUsers,
     title: "Leadership",

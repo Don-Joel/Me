@@ -1,4 +1,5 @@
-import { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FiSend, FiCheck, FiShield } from "react-icons/fi";
@@ -20,11 +21,11 @@ const ContactForm = () => {
   const [captchaToken, setCaptchaToken] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   useEffect(() => setMounted(true), []);
 
-  const isCaptchaConfigured = useMemo(() => Boolean(RECAPTCHA_SITE_KEY), []);
+  const isCaptchaConfigured = Boolean(RECAPTCHA_SITE_KEY);
 
   const handleVerifyHuman = async () => {
     if (!recaptchaRef.current || !isCaptchaConfigured) return;
@@ -45,11 +46,11 @@ const ContactForm = () => {
     }
   };
 
-  const handlePhoneChange = (value) => {
+  const handlePhoneChange = (value: string) => {
     setPhone(formatPhoneDisplay(value));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -85,8 +86,12 @@ const ContactForm = () => {
       }
 
       setSent(true);
-    } catch (submitError) {
-      setError(submitError.message || "Unable to send message.");
+    } catch (submitError: unknown) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Unable to send message."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -137,7 +142,9 @@ const ContactForm = () => {
           id="name"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setName(e.target.value)
+          }
           placeholder="Your name"
           className={inputBase}
           autoComplete="name"
@@ -155,7 +162,9 @@ const ContactForm = () => {
           type="tel"
           inputMode="tel"
           value={phone}
-          onChange={(e) => handlePhoneChange(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            handlePhoneChange(e.target.value)
+          }
           placeholder="(555) 555-5555"
           className={inputBase}
           autoComplete="tel"
@@ -175,7 +184,9 @@ const ContactForm = () => {
           id="email"
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
           placeholder="you@example.com"
           className={inputBase}
           autoComplete="email"
@@ -192,7 +203,9 @@ const ContactForm = () => {
         <textarea
           id="message"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            setMessage(e.target.value)
+          }
           placeholder="What's on your mind?"
           rows={5}
           className={`${inputBase} resize-none`}
@@ -209,7 +222,7 @@ const ContactForm = () => {
               >
                 <ReCAPTCHA
                   ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY}
+                  sitekey={RECAPTCHA_SITE_KEY ?? ""}
                   size="invisible"
                 />
               </div>

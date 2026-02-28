@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { LANGUAGES, TECH_STACK, ICON_BASE } from "../../consts/technologies";
+import type { Technology } from "../../consts/types";
 
-const TechCard = ({ name, slug, url, index }) => {
+type TechCardProps = Technology & {
+  index: number;
+};
+
+const TechCard = ({ name, slug, url, index }: TechCardProps) => {
   const [imgError, setImgError] = React.useState(false);
   const useFallback = !slug || imgError;
 

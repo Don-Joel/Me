@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 
+type Theme = "dark" | "light";
+
 const useThemeSwitcher = () => {
   // Use a constant initial value so server and client first render match (avoids React hydration error #418).
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState<Theme>("dark");
   const activeTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") || "dark";
-    setTheme(stored);
+    const stored = localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") {
+      setTheme(stored);
+    } else {
+      setTheme("dark");
+    }
   }, []);
 
   useEffect(() => {
@@ -17,7 +23,7 @@ const useThemeSwitcher = () => {
     localStorage.setItem("theme", theme);
   }, [theme, activeTheme]);
 
-  return [activeTheme, setTheme];
+  return [activeTheme, setTheme] as const;
 };
 
 export default useThemeSwitcher;

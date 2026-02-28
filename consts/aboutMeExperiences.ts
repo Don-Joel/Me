@@ -1,6 +1,7 @@
 import { FiBriefcase, FiTarget, FiTrendingUp } from "react-icons/fi";
+import type { Experience } from "./types";
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     icon: FiTarget,
     title: "Current Role at Newmark",
