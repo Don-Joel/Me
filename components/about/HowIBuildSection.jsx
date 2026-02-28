@@ -8,7 +8,7 @@ const pillars = [
     iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
     iconColor: "text-indigo-600 dark:text-indigo-400",
     description:
-      "From Eagle Scout and Junior Assistant Scoutmaster managing a troop of 53 to MLT Career Prep Fellow and project lead at Nourish'd,I've built habits of ownership and mentorship. At Newmark I lead stakeholder interviews to drive product adoption; at Target I led system design for the checkout pipeline and collaborated across platform, UX, and fulfillment teams under peak traffic.",
+      "From Eagle Scout and Junior Assistant Scoutmaster managing a troop of 53 to MLT Career Prep Fellow and project lead at Nourish'd, I've built habits of ownership and mentorship. At Newmark, I lead stakeholder interviews to drive product adoption; at Target I led system design for the checkout pipeline and collaborated across platform, UX, and fulfillment teams under peak traffic.",
   },
   {
     icon: FiZap,
@@ -82,6 +82,6 @@ const HowIBuildSection = () => {
       </div>
     </section>
   );
-}
+};
 
 export default HowIBuildSection;

@@ -6,18 +6,18 @@ const PagesMetaHead = ({ title, keywords, description }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content={keywords} />
       <meta name="description" content={description} />
-      <meta charSet="utf-8" content="Website of Joel Tavarez." />
+      <meta charSet="utf-8" />
 
-      <link rel="icon" src="/public/images/logo.png" />
+      <link rel="icon" src="/images/logo.png" />
       <title>{title}</title>
     </Head>
   );
-}
+};
 
 PagesMetaHead.defaultProps = {
   title: "Joel Tavarez's Portfolio",
-  keywords: "Joel Tavarez, Software Engineer, web, ui, design, jvm languages",
-  keywords: "Joel Tavarez website"
+  keywords:
+    "Joel Tavarez, Software Engineer, web, ui, design, jvm languages, Joel Tavarez website",
 };
 
 export default PagesMetaHead;
