@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide default reCAPTCHA badge; disclosure is shown below the contact form submit button */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
 html,
 body {
   padding: 0;

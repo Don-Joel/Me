@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { PHONE_PATTERN } from "../../lib/phone";
 
-const ENABLE_RECAPTCHA = false;
-
 const TO_EMAIL = "joeldtavarez@gmail.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -63,17 +61,15 @@ const handler = async (req, res) => {
   if (!safeMessage || safeMessage.length > 4000) {
     return res.status(400).json({ error: "Please provide your message." });
   }
-  if (ENABLE_RECAPTCHA) {
-    if (!captchaToken || typeof captchaToken !== "string") {
-      return res.status(400).json({ error: "Captcha is required." });
-    }
-    const remoteIp = req.headers["x-forwarded-for"]
-      ? String(req.headers["x-forwarded-for"]).split(",")[0].trim()
-      : undefined;
-    const captcha = await verifyRecaptcha(captchaToken, remoteIp);
-    if (!captcha.ok) {
-      return res.status(400).json({ error: captcha.error });
-    }
+  if (!captchaToken || typeof captchaToken !== "string") {
+    return res.status(400).json({ error: "Captcha is required." });
+  }
+  const remoteIp = req.headers["x-forwarded-for"]
+    ? String(req.headers["x-forwarded-for"]).split(",")[0].trim()
+    : undefined;
+  const captcha = await verifyRecaptcha(captchaToken, remoteIp);
+  if (!captcha.ok) {
+    return res.status(400).json({ error: captcha.error });
   }
 
   if (!process.env.RESEND_API_KEY) {

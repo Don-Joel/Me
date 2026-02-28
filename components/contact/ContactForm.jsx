@@ -1,14 +1,9 @@
-import dynamic from "next/dynamic";
-import { useRef, useMemo, useState } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 import { FiSend, FiCheck, FiShield } from "react-icons/fi";
 import { PHONE_PATTERN, formatPhoneDisplay } from "../../lib/phone";
 
-const ENABLE_CAPTCHA = false;
-
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
-  ssr: false,
-});
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const inputBase =
@@ -24,12 +19,12 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const recaptchaRef = useRef(null);
 
-  const isCaptchaConfigured = useMemo(
-    () => ENABLE_CAPTCHA && Boolean(RECAPTCHA_SITE_KEY),
-    []
-  );
+  useEffect(() => setMounted(true), []);
+
+  const isCaptchaConfigured = useMemo(() => Boolean(RECAPTCHA_SITE_KEY), []);
 
   const handleVerifyHuman = async () => {
     if (!recaptchaRef.current || !isCaptchaConfigured) return;
@@ -205,9 +200,9 @@ const ContactForm = () => {
         />
       </div>
       <div className="space-y-2">
-        {ENABLE_CAPTCHA ? (
-          isCaptchaConfigured ? (
-            <>
+        {isCaptchaConfigured ? (
+          <>
+            {mounted && (
               <div
                 className="absolute left-[-9999px] w-px h-px overflow-hidden"
                 aria-hidden
@@ -218,31 +213,31 @@ const ContactForm = () => {
                   size="invisible"
                 />
               </div>
-              {!captchaToken ? (
-                <motion.button
-                  type="button"
-                  onClick={handleVerifyHuman}
-                  disabled={isVerifying}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 font-general-semibold hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors disabled:opacity-60"
-                >
-                  <FiShield className="w-5 h-5" />
-                  {isVerifying ? "Verifying..." : "Verify I'm human"}
-                </motion.button>
-              ) : (
-                <p className="text-sm text-emerald-600 dark:text-emerald-400 font-general-medium inline-flex items-center gap-2">
-                  <FiCheck className="w-4 h-4 flex-shrink-0" />
-                  Verified. You can send your message.
-                </p>
-              )}
-            </>
-          ) : (
-            <p className="text-xs text-amber-600 dark:text-amber-400 font-general-medium">
-              reCAPTCHA is not configured. Add NEXT_PUBLIC_RECAPTCHA_SITE_KEY.
-            </p>
-          )
-        ) : null}
+            )}
+            {!captchaToken ? (
+              <motion.button
+                type="button"
+                onClick={handleVerifyHuman}
+                disabled={isVerifying}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 font-general-semibold hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors disabled:opacity-60"
+              >
+                <FiShield className="w-5 h-5" />
+                {isVerifying ? "Verifying..." : "Verify I'm human"}
+              </motion.button>
+            ) : (
+              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-general-medium inline-flex items-center gap-2">
+                <FiCheck className="w-4 h-4 flex-shrink-0" />
+                Verified. You can send your message.
+              </p>
+            )}
+          </>
+        ) : (
+          <p className="text-xs text-amber-600 dark:text-amber-400 font-general-medium">
+            reCAPTCHA is not configured. Add NEXT_PUBLIC_RECAPTCHA_SITE_KEY.
+          </p>
+        )}
         {error ? (
           <p className="text-sm text-rose-600 dark:text-rose-400 font-general-medium">
             {error}
@@ -264,6 +259,29 @@ const ContactForm = () => {
         </motion.span>
         {isSubmitting ? "Sending..." : "Send message"}
       </motion.button>
+      {isCaptchaConfigured && (
+        <p className="mt-4 text-xs text-slate-400 dark:text-slate-500 font-general-medium text-center">
+          This site is protected by reCAPTCHA and the Google{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-slate-600 dark:hover:text-slate-400"
+          >
+            Privacy Policy
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://policies.google.com/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-slate-600 dark:hover:text-slate-400"
+          >
+            Terms of Service
+          </a>{" "}
+          apply.
+        </p>
+      )}
     </motion.form>
   );
 };
