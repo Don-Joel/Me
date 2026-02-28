@@ -46,6 +46,25 @@ This is my website featuring my skills and professional experience. The site is 
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+### Environment Variables
+
+Copy `.env.example` to `.env.local` and set the following. All are required for the contact form except where noted.
+
+| Variable | API / Service | Description |
+| -------- | ------------- | ----------- |
+| `RESEND_API_KEY` | [Resend](https://resend.com) | API key for sending contact form emails. |
+| `CONTACT_FROM_EMAIL` | Resend | "From" address for contact emails (e.g. `Portfolio Contact <onboarding@resend.dev>`). |
+| `RECAPTCHA_SECRET_KEY` | [Google reCAPTCHA](https://www.google.com/recaptcha) | Server-side secret for reCAPTCHA v2. |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA | Public site key for the reCAPTCHA widget (exposed to the client). |
+| `UPSTASH_REDIS_REST_URL` | [Upstash Redis](https://upstash.com) | REST URL for the Redis instance. **Optional.** |
+| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis | REST token for the Redis instance. **Optional.** |
+
+#### New: Upstash Redis (rate limiting)
+
+**Variables:** `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`
+
+The contact form uses **Upstash Redis** with `@upstash/ratelimit` to limit how many submissions each IP can send per hour (e.g. 5 per hour). This is needed because the app runs on **Vercel**: each request can hit a different serverless instance, so in-memory counters are not shared and would not enforce a global limit. Upstash provides Redis over HTTP, so every instance can read and update the same counters and the limit applies across all requests. If these env vars are unset, the contact API still works; rate limiting is simply skipped.
+
 ### Build for Production
 
 ```bash
