@@ -11,6 +11,14 @@ const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const PHONE_PATTERN = /^\+?[0-9\s().-]{7,20}$/;
 
+const formatPhoneDisplay = (value) => {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length === 0) return "";
+  if (digits.length <= 3) return `(${digits}`;
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+};
+
 const inputBase =
   "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-slate-800/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-general-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:ring-offset-0 focus:border-blue-500 dark:focus:border-blue-400";
 
@@ -51,8 +59,7 @@ const ContactForm = () => {
   };
 
   const handlePhoneChange = (value) => {
-    const sanitized = value.replace(/[^0-9+()\-.\s]/g, "").slice(0, 20);
-    setPhone(sanitized);
+    setPhone(formatPhoneDisplay(value));
   };
 
   const handleSubmit = async (e) => {
@@ -162,7 +169,7 @@ const ContactForm = () => {
           inputMode="tel"
           value={phone}
           onChange={(e) => handlePhoneChange(e.target.value)}
-          placeholder="+1 (555) 555-5555"
+          placeholder="(555) 555-5555"
           className={inputBase}
           autoComplete="tel"
           pattern={PHONE_PATTERN.source}
