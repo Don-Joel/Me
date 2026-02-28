@@ -80,9 +80,26 @@ const ContactForm = () => {
         }),
       });
 
-      const payload = await response.json();
+      const payload = (await response.json()) as {
+        error?: string;
+        retryAfter?: number;
+      };
       if (!response.ok) {
-        throw new Error(payload?.error || "Unable to send message.");
+        if (response.status === 429) {
+          const base = payload?.error ?? "Too many attempts. Please try again later.";
+          const minutes =
+            payload?.retryAfter != null
+              ? Math.ceil(payload.retryAfter / 60)
+              : 0;
+          setError(
+            minutes > 0
+              ? `${base} You can try again in ${minutes} minute${minutes === 1 ? "" : "s"}.`
+              : base
+          );
+        } else {
+          setError(payload?.error ?? "Unable to send message.");
+        }
+        return;
       }
 
       setSent(true);

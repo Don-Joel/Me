@@ -1,6 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 import { Resend } from "resend";
 import { PHONE_PATTERN } from "../../lib/phone";
+
+const contactLimiter =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Ratelimit({
+        redis: Redis.fromEnv(),
+        limiter: Ratelimit.slidingWindow(5, "1 h"),
+      })
+    : null;
 
 const TO_EMAIL = "joeldtavarez@gmail.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -63,6 +73,26 @@ const handler = async (
     return;
   }
 
+  const remoteIp = req.headers["x-forwarded-for"]
+    ? String(req.headers["x-forwarded-for"]).split(",")[0].trim()
+    : undefined;
+  const identifier = remoteIp ?? "anonymous";
+
+  if (contactLimiter) {
+    const { success, reset } = await contactLimiter.limit(identifier);
+    if (!success) {
+      const retryAfterSeconds = Math.ceil((reset - Date.now()) / 1000);
+      if (retryAfterSeconds > 0) {
+        res.setHeader("Retry-After", String(retryAfterSeconds));
+      }
+      res.status(429).json({
+        error: "Too many attempts. Try again later.",
+        retryAfter: retryAfterSeconds > 0 ? retryAfterSeconds : undefined,
+      });
+      return;
+    }
+  }
+
   const { name, email, phone, message, captchaToken } =
     (req.body as ContactRequestBody) || {};
   const safeName = typeof name === "string" ? name.trim() : "";
@@ -91,9 +121,6 @@ const handler = async (
     return;
   }
 
-  const remoteIp = req.headers["x-forwarded-for"]
-    ? String(req.headers["x-forwarded-for"]).split(",")[0].trim()
-    : undefined;
   const captcha = await verifyRecaptcha(captchaToken, remoteIp);
   if (!captcha.ok) {
     res.status(400).json({ error: captcha.error });
