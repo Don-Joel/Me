@@ -77,6 +77,6 @@ const AppHeader = () => {
       </nav>
     </motion.header>
   );
-}
+};
 
 export default AppHeader;

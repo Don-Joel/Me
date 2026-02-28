@@ -9,7 +9,7 @@ import {
   FiCalendar,
 } from "react-icons/fi";
 
-function AboutMeBio() {
+const AboutMeBio = () => {
   const experiences = [
     {
       icon: FiTarget,
@@ -194,6 +194,6 @@ function AboutMeBio() {
       </div>
     </section>
   );
-}
+};
 
 export default AboutMeBio;

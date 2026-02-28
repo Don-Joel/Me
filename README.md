@@ -33,11 +33,13 @@ This is my website featuring my skills and professional experience. The site is 
 
 1. Clone the repository (if you have permission)
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Run the development server:
+
    ```bash
    npm run dev
    ```

@@ -25,6 +25,6 @@ const MyApp = ({ Component, pageProps }) => {
       <Analytics />
     </>
   );
-}
+};
 
 export default MyApp;

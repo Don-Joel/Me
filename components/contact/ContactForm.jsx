@@ -5,14 +5,16 @@ import { FiSend, FiCheck, FiShield } from "react-icons/fi";
 
 const ENABLE_CAPTCHA = false;
 
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false });
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+});
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const PHONE_PATTERN = /^\+?[0-9\s().-]{7,20}$/;
 
 const inputBase =
   "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-slate-800/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-general-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:ring-offset-0 focus:border-blue-500 dark:focus:border-blue-400";
 
-export default function ContactForm() {
+const ContactForm = () => {
   const [sent, setSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -207,7 +209,10 @@ export default function ContactForm() {
         {ENABLE_CAPTCHA ? (
           isCaptchaConfigured ? (
             <>
-              <div className="absolute left-[-9999px] w-px h-px overflow-hidden" aria-hidden>
+              <div
+                className="absolute left-[-9999px] w-px h-px overflow-hidden"
+                aria-hidden
+              >
                 <ReCAPTCHA
                   ref={recaptchaRef}
                   sitekey={RECAPTCHA_SITE_KEY}
@@ -247,19 +252,21 @@ export default function ContactForm() {
       </div>
       <motion.button
         type="submit"
-        whileHover={{ scale: 1.02, boxShadow: "0 20px 40px -12px rgba(59, 130, 246, 0.35)" }}
+        whileHover={{
+          scale: 1.02,
+          boxShadow: "0 20px 40px -12px rgba(59, 130, 246, 0.35)",
+        }}
         whileTap={{ scale: 0.98 }}
         disabled={isSubmitting || (isCaptchaConfigured && !captchaToken)}
         className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-600 dark:to-blue-600 dark:hover:from-slate-500 dark:hover:to-blue-500 text-white font-general-semibold rounded-xl shadow-lg shadow-blue-600/20 dark:shadow-blue-600/15 hover:shadow-xl hover:shadow-blue-600/25 transition-shadow duration-300 disabled:opacity-50 disabled:pointer-events-none"
       >
-        <motion.span
-          whileHover={{ x: 2 }}
-          transition={{ duration: 0.2 }}
-        >
+        <motion.span whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
           <FiSend className="w-5 h-5" />
         </motion.span>
         {isSubmitting ? "Sending..." : "Send message"}
       </motion.button>
     </motion.form>
   );
-}
+};
+
+export default ContactForm;

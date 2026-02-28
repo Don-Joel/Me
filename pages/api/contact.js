@@ -6,7 +6,7 @@ const TO_EMAIL = "joeldtavarez@gmail.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^\+?[0-9\s().-]{7,20}$/;
 
-async function verifyRecaptcha(token, remoteIp) {
+const verifyRecaptcha = async (token, remoteIp) => {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
   if (!secret) {
     return { ok: false, error: "reCAPTCHA secret is not configured." };
@@ -29,12 +29,15 @@ async function verifyRecaptcha(token, remoteIp) {
   const result = await response.json();
 
   if (!response.ok || !result.success) {
-    return { ok: false, error: "Verification failed. Please verify you're human again." };
+    return {
+      ok: false,
+      error: "Verification failed. Please verify you're human again.",
+    };
   }
   return { ok: true };
-}
+};
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
     return res.status(405).json({ error: "Method not allowed." });
@@ -53,7 +56,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Please provide a valid email." });
   }
   if (!PHONE_PATTERN.test(safePhone)) {
-    return res.status(400).json({ error: "Please provide a valid phone number." });
+    return res
+      .status(400)
+      .json({ error: "Please provide a valid phone number." });
   }
   if (!safeMessage || safeMessage.length > 4000) {
     return res.status(400).json({ error: "Please provide your message." });
@@ -78,7 +83,9 @@ export default async function handler(req, res) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>",
+      from:
+        process.env.CONTACT_FROM_EMAIL ||
+        "Portfolio Contact <onboarding@resend.dev>",
       to: [TO_EMAIL],
       replyTo: safeEmail,
       subject: `Portfolio contact: ${safeName}`,
@@ -98,4 +105,6 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({ error: "Failed to send email." });
   }
-}
+};
+
+export default handler;
