@@ -62,9 +62,9 @@ const AppBanner = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
-                I use AI orchestration (Codex, Opus) to design and ship the
-                ideal product—full-stack from idea to production, with a focus
-                on user value and systems that scale.
+                I use AI orchestration to design and ship the ideal
+                product—full-stack from idea to production, with a focus on user
+                value and systems that scale.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
