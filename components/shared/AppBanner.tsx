@@ -10,6 +10,7 @@ import {
   FiSettings,
   FiUsers,
 } from "react-icons/fi";
+import TypewriterText from "../ui/TypewriterText";
 
 const AppBanner = () => {
   return (
@@ -28,38 +29,52 @@ const AppBanner = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center lg:text-left"
             >
-              {/* Name */}
+              {/* Name - typewriter */}
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
                 className="text-5xl sm:text-6xl lg:text-7xl font-general-bold mb-6 leading-tight"
               >
-                <span className="text-slate-900 dark:text-slate-100">
-                  Hi, I&apos;m{" "}
-                </span>
-                <span className="text-slate-900 dark:text-slate-100">Joel</span>
+                <TypewriterText
+                  text="Hi, I'm "
+                  duration={0.6}
+                  delay={0.2}
+                  cursor={false}
+                  className="text-slate-900 dark:text-slate-100"
+                />
+                <TypewriterText
+                  text="Joel"
+                  duration={0.6}
+                  delay={0.5}
+                  cursor={false}
+                  className="text-slate-900 dark:text-slate-100"
+                />
                 <br />
-                <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent">
-                  Tavarez
-                </span>
+                <TypewriterText
+                  text="Tavarez"
+                  duration={0.6}
+                  delay={0.85}
+                  cursor={true}
+                  className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent"
+                />
               </motion.h1>
 
-              {/* Title */}
+              {/* Title - pop in at 2s */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="text-2xl sm:text-3xl lg:text-4xl font-general-semibold text-slate-700 dark:text-slate-300 mb-4"
               >
                 Product Engineer
               </motion.p>
 
-              {/* Description */}
+              {/* Description - pop in at 2s */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
                 I use AI orchestration to design and ship the ideal
@@ -67,19 +82,19 @@ const AppBanner = () => {
                 value and systems that scale.
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.6 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="text-base sm:text-lg text-slate-500 dark:text-slate-500 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
                 React, JVM languages, and modern web—accelerated by AI.
               </motion.p>
 
-              {/* Tech Stack Pills */}
+              {/* Tech Stack Pills - pop in at 2s */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10"
               >
                 {[
@@ -123,7 +138,7 @@ const AppBanner = () => {
                     key={tech.label}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.7 + idx * 0.1 }}
+                    transition={{ delay: 2, duration: 0.35, ease: "easeOut" }}
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all"
                   >
@@ -135,11 +150,11 @@ const AppBanner = () => {
                 ))}
               </motion.div>
 
-              {/* CTA Button */}
+              {/* CTA Button - pop in at 2s */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="flex justify-center lg:justify-start"
               >
                 <motion.a
@@ -156,11 +171,11 @@ const AppBanner = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Column - Image */}
+            {/* Right Column - Image (pop in after typing done ~1.2s) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
               className="hidden lg:block relative"
             >
               <div className="relative">
