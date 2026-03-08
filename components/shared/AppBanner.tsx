@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -10,9 +11,18 @@ import {
   FiSettings,
   FiUsers,
 } from "react-icons/fi";
-import TypewriterText from "../ui/TypewriterText";
+import TypewriterText, { TypewriterCursor } from "../ui/TypewriterText";
+
+const INTRO_LENGTHS = [8, 4, 7]; // "Hi, I'm ", "Joel", "Tavarez"
+const INTRO_TOTAL = INTRO_LENGTHS[0] + INTRO_LENGTHS[1] + INTRO_LENGTHS[2];
 
 const AppBanner = () => {
+  const [len1, setLen1] = useState(0);
+  const [len2, setLen2] = useState(0);
+  const [len3, setLen3] = useState(0);
+  const totalVisible = len1 + len2 + len3;
+  const isTyping = totalVisible < INTRO_TOTAL;
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
@@ -29,35 +39,42 @@ const AppBanner = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center lg:text-left"
             >
-              {/* Name - typewriter */}
+              {/* Name - typewriter with cursor that moves along with text */}
               <motion.h1
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
                 className="text-5xl sm:text-6xl lg:text-7xl font-general-bold mb-6 leading-tight"
               >
+                {totalVisible === 0 && <TypewriterCursor />}
                 <TypewriterText
                   text="Hi, I'm "
                   duration={0.6}
                   delay={0.2}
                   cursor={false}
+                  onVisibleLengthChange={setLen1}
                   className="text-slate-900 dark:text-slate-100"
                 />
+                {totalVisible >= 1 && totalVisible <= 8 && <TypewriterCursor />}
                 <TypewriterText
                   text="Joel"
                   duration={0.6}
                   delay={0.5}
                   cursor={false}
+                  onVisibleLengthChange={setLen2}
                   className="text-slate-900 dark:text-slate-100"
                 />
+                {totalVisible >= 9 && totalVisible <= 12 && <TypewriterCursor />}
                 <br />
                 <TypewriterText
                   text="Tavarez"
                   duration={0.6}
                   delay={0.85}
-                  cursor={true}
+                  cursor={false}
+                  onVisibleLengthChange={setLen3}
                   className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent"
                 />
+                {totalVisible >= 13 && isTyping && <TypewriterCursor />}
               </motion.h1>
 
               {/* Title - pop in at 2s */}

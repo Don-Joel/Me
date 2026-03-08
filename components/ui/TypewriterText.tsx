@@ -12,6 +12,7 @@ type Props = {
   delay?: number;
   cursor?: boolean;
   cursorChar?: string;
+  onVisibleLengthChange?: (length: number) => void;
 };
 
 const TypewriterText = ({
@@ -21,6 +22,7 @@ const TypewriterText = ({
   delay = 0,
   cursor = true,
   cursorChar = "|",
+  onVisibleLengthChange,
 }: Props) => {
   const [visibleLength, setVisibleLength] = useState(0);
   const lastLengthRef = useRef(0);
@@ -40,11 +42,12 @@ const TypewriterText = ({
         if (next !== lastLengthRef.current) {
           lastLengthRef.current = next;
           setVisibleLength(next);
+          onVisibleLengthChange?.(next);
         }
       },
     });
     return () => controls.stop();
-  }, [text, duration, delay]);
+  }, [text, duration, delay, onVisibleLengthChange]);
 
   return (
     <span className={className}>
@@ -61,5 +64,20 @@ const TypewriterText = ({
     </span>
   );
 };
+
+export const TypewriterCursor = ({
+  cursorChar = "|",
+}: {
+  cursorChar?: string;
+}) => (
+  <motion.span
+    animate={{ opacity: [1, 0] }}
+    transition={{ duration: 0.5, repeat: Infinity }}
+    aria-hidden
+    className="inline-block"
+  >
+    {cursorChar}
+  </motion.span>
+);
 
 export default TypewriterText;
