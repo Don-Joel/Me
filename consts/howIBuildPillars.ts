@@ -24,6 +24,6 @@ export const pillars: Pillar[] = [
     iconBg: "bg-purple-100 dark:bg-purple-900/30",
     iconColor: "text-purple-600 dark:text-purple-400",
     description:
-      "I work as a product engineer who uses AI to orchestrate code and ship the right product. With Codex and Opus, I design, architect, and implement features end-to-end—focusing on user value, scalability, and clarity rather than just writing code. AI augments how I think and build so I can move faster from idea to production without sacrificing quality or design.",
+      "I work as a product engineer who uses AI to orchestrate coding agents and ship the right product. With Codex and Opus, I design, architect, and implement features end-to-end—focusing on user value, scalability, and clarity rather than just writing code. AI augments how I think and build so I can move faster from idea to production without sacrificing quality or design.",
   },
 ];
