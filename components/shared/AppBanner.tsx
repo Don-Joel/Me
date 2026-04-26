@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import {
   FiArrowDownCircle,
@@ -17,11 +18,18 @@ const INTRO_LENGTHS = [8, 4, 7]; // "Hi, I'm ", "Joel", "Tavarez"
 const INTRO_TOTAL = INTRO_LENGTHS[0] + INTRO_LENGTHS[1] + INTRO_LENGTHS[2];
 
 const AppBanner = () => {
+  const reducedMotion = useReducedMotion();
   const [len1, setLen1] = useState(0);
   const [len2, setLen2] = useState(0);
   const [len3, setLen3] = useState(0);
   const totalVisible = len1 + len2 + len3;
   const isTyping = totalVisible < INTRO_TOTAL;
+  const heroLightLoopWrapper =
+    "inline-block p-[3px] rounded-xl animate-cta-light-loop";
+  const heroLightLoopBg =
+    "conic-gradient(from var(--cta-light-angle, 0deg), #3f4755 0deg, #3f4755 142deg, rgba(233,238,246,1) 160deg, rgba(248,251,255,1) 176deg, rgba(226,233,243,1) 206deg, rgba(210,220,234,1) 236deg, rgba(236,242,250,1) 264deg, rgba(250,252,255,1) 288deg, rgba(224,231,241,1) 322deg, rgba(206,217,231,1) 336deg, #3f4755 356deg, #3f4755 360deg)";
+  const heroGlowShadow =
+    "0 0 16px rgba(226,234,246,0.36), 0 0 30px rgba(236,243,252,0.26), 0 0 50px rgba(244,248,255,0.2)";
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
@@ -175,17 +183,31 @@ const AppBanner = () => {
                 transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
                 className="flex justify-center lg:justify-start"
               >
-                <motion.a
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  download="Tavarez-Joel-Resume.pdf"
-                  href="/files/Tavarez-Joel-Resume.pdf"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 text-white font-general-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                  aria-label="Download Resume"
+                <span
+                  className={
+                    reducedMotion
+                      ? "inline-block p-[3px] rounded-xl"
+                      : heroLightLoopWrapper
+                  }
+                  style={{
+                    background: heroLightLoopBg,
+                    boxShadow: heroGlowShadow,
+                  }}
                 >
-                  <FiArrowDownCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  <span>Download Resume</span>
-                </motion.a>
+                  <motion.a
+                    whileHover={
+                      reducedMotion ? undefined : { scale: 1.05, y: -2 }
+                    }
+                    whileTap={reducedMotion ? undefined : { scale: 0.95 }}
+                    download="Tavarez-Joel-Resume.pdf"
+                    href="/files/Tavarez-Joel-Resume.pdf"
+                    className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 text-white font-general-semibold rounded-[10px] shadow-lg hover:shadow-xl transition-all duration-300"
+                    aria-label="Download Resume"
+                  >
+                    <FiArrowDownCircle className="w-5 h-5 group-hover:animate-bounce" />
+                    <span>Download Resume</span>
+                  </motion.a>
+                </span>
               </motion.div>
             </motion.div>
 

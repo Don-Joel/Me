@@ -86,14 +86,17 @@ const ContactForm = () => {
       };
       if (!response.ok) {
         if (response.status === 429) {
-          const base = payload?.error ?? "Too many attempts. Please try again later.";
+          const base =
+            payload?.error ?? "Too many attempts. Please try again later.";
           const minutes =
             payload?.retryAfter != null
               ? Math.ceil(payload.retryAfter / 60)
               : 0;
           setError(
             minutes > 0
-              ? `${base} You can try again in ${minutes} minute${minutes === 1 ? "" : "s"}.`
+              ? `${base} You can try again in ${minutes} minute${
+                  minutes === 1 ? "" : "s"
+                }.`
               : base
           );
         } else {

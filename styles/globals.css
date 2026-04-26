@@ -262,3 +262,20 @@ a {
     opacity: 0.5;
   }
 }
+
+/* Animated angle for CTA loop border highlight */
+@property --cta-light-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes cta-light-loop {
+  to {
+    --cta-light-angle: 360deg;
+  }
+}
+
+.animate-cta-light-loop {
+  animation: cta-light-loop 4.8s linear infinite;
+}

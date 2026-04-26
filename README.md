@@ -50,14 +50,14 @@ This is my website featuring my skills and professional experience. The site is 
 
 Copy `.env.example` to `.env.local` and set the following. All are required for the contact form except where noted.
 
-| Variable | API / Service | Description |
-| -------- | ------------- | ----------- |
-| `RESEND_API_KEY` | [Resend](https://resend.com) | API key for sending contact form emails. |
-| `CONTACT_FROM_EMAIL` | Resend | "From" address for contact emails (e.g. `Portfolio Contact <onboarding@resend.dev>`). |
-| `RECAPTCHA_SECRET_KEY` | [Google reCAPTCHA](https://www.google.com/recaptcha) | Server-side secret for reCAPTCHA v2. |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA | Public site key for the reCAPTCHA widget (exposed to the client). |
-| `UPSTASH_REDIS_REST_URL` | [Upstash Redis](https://upstash.com) | REST URL for the Redis instance. **Optional.** |
-| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis | REST token for the Redis instance. **Optional.** |
+| Variable                         | API / Service                                        | Description                                                                           |
+| -------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`                 | [Resend](https://resend.com)                         | API key for sending contact form emails.                                              |
+| `CONTACT_FROM_EMAIL`             | Resend                                               | "From" address for contact emails (e.g. `Portfolio Contact <onboarding@resend.dev>`). |
+| `RECAPTCHA_SECRET_KEY`           | [Google reCAPTCHA](https://www.google.com/recaptcha) | Server-side secret for reCAPTCHA v2.                                                  |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA                                     | Public site key for the reCAPTCHA widget (exposed to the client).                     |
+| `UPSTASH_REDIS_REST_URL`         | [Upstash Redis](https://upstash.com)                 | REST URL for the Redis instance. **Optional.**                                        |
+| `UPSTASH_REDIS_REST_TOKEN`       | Upstash Redis                                        | REST token for the Redis instance. **Optional.**                                      |
 
 #### New: Upstash Redis (rate limiting)
 
