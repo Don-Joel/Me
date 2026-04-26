@@ -279,3 +279,33 @@ a {
 .animate-cta-light-loop {
   animation: cta-light-loop 4.8s linear infinite;
 }
+
+/* Marquee fade mask (edges) */
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+/* Pause marquee on hover/focus within the row */
+.marquee-pause:hover [data-marquee-track],
+.marquee-pause:focus-within [data-marquee-track] {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-marquee-track] {
+    animation: none !important;
+  }
+}

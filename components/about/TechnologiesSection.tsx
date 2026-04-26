@@ -4,15 +4,14 @@ import { motion } from "framer-motion";
 import { LANGUAGES, TECH_STACK, ICON_BASE } from "../../consts/technologies";
 import type { Technology } from "../../consts/types";
 
-type TechCardProps = Technology & {
-  index: number;
-};
-
-const TechCard = ({ name, slug, url, index }: TechCardProps) => {
+const TechCard = ({ name, slug, url }: Technology) => {
   const [imgError, setImgError] = React.useState(false);
   const useFallback = !slug || imgError;
 
-  const cardContent = (
+  const cardClassName =
+    "group flex flex-col items-center justify-center gap-3 p-5 w-[184px] flex-shrink-0 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-blue-500/70 dark:hover:border-blue-500/60 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-blue-600/10 hover:-translate-y-1 transition-all duration-300";
+
+  const inner = (
     <>
       <div className="relative flex items-center justify-center w-12 h-12 transition-transform duration-300 group-hover:scale-110">
         {useFallback ? (
@@ -28,7 +27,7 @@ const TechCard = ({ name, slug, url, index }: TechCardProps) => {
             alt={name}
             width={40}
             height={40}
-            className="object-contain dark:brightness-0.95 dark:invert-[0.05]"
+            className="object-contain"
             onError={() => setImgError(true)}
             unoptimized
           />
@@ -40,40 +39,64 @@ const TechCard = ({ name, slug, url, index }: TechCardProps) => {
     </>
   );
 
-  const cardClassName =
-    "group flex flex-col items-center gap-3 p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-blue-500/70 dark:hover:border-blue-600/70 hover:shadow-lg hover:shadow-blue-600/15 dark:hover:shadow-blue-600/15 transition-all duration-300";
-
-  const motionProps = {
-    initial: { opacity: 0, y: 12 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.35, delay: index * 0.02 },
-    whileHover: { y: -4, transition: { duration: 0.2 } },
-  };
-
   if (url) {
     return (
-      <motion.a
+      <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`block ${cardClassName}`}
-        {...motionProps}
+        className={cardClassName}
       >
-        {cardContent}
-      </motion.a>
+        {inner}
+      </a>
     );
   }
 
+  return <div className={cardClassName}>{inner}</div>;
+};
+
+type CarouselProps = {
+  items: Technology[];
+  direction?: "left" | "right";
+  speedSecondsPerItem?: number;
+};
+
+const Carousel = ({
+  items,
+  direction = "left",
+  speedSecondsPerItem = 3.2,
+}: CarouselProps) => {
+  const duplicated = [...items, ...items];
+  const animationName =
+    direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+  const totalDurationSec = Math.max(20, items.length * speedSecondsPerItem);
+
   return (
-    <motion.div className={cardClassName} {...motionProps}>
-      {cardContent}
-    </motion.div>
+    <div className="marquee-fade marquee-pause overflow-hidden">
+      <div
+        data-marquee-track
+        className={`flex gap-4 w-max ${animationName}`}
+        style={
+          {
+            ["--marquee-duration" as string]: `${totalDurationSec}s`,
+          } as React.CSSProperties
+        }
+      >
+        {duplicated.map((tech, i) => (
+          <TechCard
+            key={`${tech.name}-${i}`}
+            name={tech.name}
+            slug={tech.slug}
+            url={tech.url}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
 const TechnologiesSection = () => (
-  <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900">
+  <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900 overflow-hidden">
     <div className="container mx-auto px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -92,55 +115,49 @@ const TechnologiesSection = () => (
             Languages, frameworks, and tools I work with
           </p>
         </motion.div>
-
-        {/* Languages */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300 mb-6">
-            Languages
-          </h3>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4">
-            {LANGUAGES.map((tech, idx) => (
-              <TechCard
-                key={tech.name}
-                name={tech.name}
-                slug={tech.slug}
-                url={tech.url}
-                index={idx}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Technologies & Tools */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300 mb-6">
-            Frameworks & Tools
-          </h3>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4">
-            {TECH_STACK.map((tech, idx) => (
-              <TechCard
-                key={tech.name}
-                name={tech.name}
-                slug={tech.slug}
-                url={tech.url}
-                index={idx}
-              />
-            ))}
-          </div>
-        </motion.div>
       </div>
     </div>
+
+    {/* Languages */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-14"
+    >
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-6">
+        <div className="max-w-7xl mx-auto flex items-baseline justify-between">
+          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300">
+            Languages
+          </h3>
+          <span className="text-xs font-general-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
+            Hover to pause
+          </span>
+        </div>
+      </div>
+      <Carousel items={LANGUAGES} direction="left" />
+    </motion.div>
+
+    {/* Frameworks & Tools */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-6">
+        <div className="max-w-7xl mx-auto flex items-baseline justify-between">
+          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300">
+            Frameworks & Tools
+          </h3>
+          <span className="text-xs font-general-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
+            Hover to pause
+          </span>
+        </div>
+      </div>
+      <Carousel items={TECH_STACK} direction="right" />
+    </motion.div>
   </section>
 );
 
