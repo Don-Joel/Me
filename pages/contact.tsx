@@ -120,7 +120,6 @@ const Contact = () => (
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-100/80 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.12),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.06),transparent_45%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.03)_1px,transparent_1px)] bg-[size:24px_24px] dark:opacity-50" />
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex-1">
         <div className="max-w-4xl mx-auto grid lg:grid-cols-5 lg:gap-12 lg:items-stretch">
