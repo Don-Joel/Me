@@ -14,9 +14,6 @@ const AppFooter = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="flex flex-col items-center gap-6">
-            {/* Decorative line */}
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 rounded-full" />
-
             {/* Footer content */}
             <div className="text-center">
               <AppFooterCopyright />

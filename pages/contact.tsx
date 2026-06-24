@@ -122,41 +122,31 @@ const Contact = () => (
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.06),transparent_45%)]" />
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex-1">
-        <div className="max-w-4xl mx-auto grid lg:grid-cols-5 lg:gap-12 lg:items-stretch">
-          {/* Left: headline at top, SVG vertically centered to align with form */}
+        <div className="max-w-4xl mx-auto grid lg:grid-cols-5 lg:gap-12 lg:items-start">
+          {/* Left: headline and illustration */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="lg:col-span-2 mb-8 lg:mb-0 flex flex-col lg:min-h-0"
+            className="lg:col-span-2 mb-8 lg:mb-0"
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-general-bold text-slate-900 dark:text-slate-100 mb-2">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-general-bold text-slate-900 dark:text-slate-100 mb-4">
               Get in{" "}
               <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent">
                 touch
               </span>
             </h1>
-            <div className="w-20 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 rounded-full mb-5" />
-            <p className="text-slate-600 dark:text-slate-400 font-general-medium text-lg leading-relaxed mb-8 lg:mb-0">
+            <p className="text-slate-600 dark:text-slate-400 font-general-medium text-lg leading-relaxed mb-6">
               Have a project in mind or want to connect? Send a message below.
             </p>
-            {/* Spacers so SVG sits at column center = form center (desktop only) */}
-            <div
-              className="hidden lg:block flex-1 min-h-[1.5rem]"
-              aria-hidden
-            />
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="flex justify-center lg:justify-start flex-shrink-0 mt-0"
+              className="flex justify-center lg:justify-start"
             >
               <ContactHeroSvg />
             </motion.div>
-            <div
-              className="hidden lg:block flex-1 min-h-[1.5rem]"
-              aria-hidden
-            />
           </motion.div>
 
           {/* Right: glass form card, centered in column */}
@@ -166,9 +156,8 @@ const Contact = () => (
             transition={{ duration: 0.4, delay: 0.1 }}
             className="lg:col-span-3 flex flex-col justify-center"
           >
-            <div className="relative rounded-2xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/40 backdrop-blur-xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 ring-1 ring-slate-200/50 dark:ring-slate-700/50 overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-blue-600 to-slate-600 dark:from-blue-400 dark:via-blue-500 dark:to-slate-500" />
-              <div className="p-6 sm:p-8 pl-7 sm:pl-9">
+            <div className="rounded-2xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/40 backdrop-blur-xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 ring-1 ring-slate-200/50 dark:ring-slate-700/50 overflow-hidden">
+              <div className="p-6 sm:p-8">
                 <ContactForm />
               </div>
             </div>
