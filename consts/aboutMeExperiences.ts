@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     period: "Present",
     company: "Newmark",
     description:
-      "I currently work at Newmark as a product engineer building a new in-house leasing and transaction platform for commercial real estate brokers. I use Codex and Opus to orchestrate development end-to-end—architecting and shipping high-impact features across the front end and backend, with an emphasis on scalability, reliability, and clear user value.",
+      "I currently work at Newmark as a product engineer building a new in-house leasing and transaction platform for commercial real estate brokers. I use AI to orchestrate development end-to-end—architecting and shipping high-impact features across the front end and backend, with an emphasis on scalability, reliability, and clear user value.",
     iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
     iconColor: "text-indigo-600 dark:text-indigo-400",
   },
