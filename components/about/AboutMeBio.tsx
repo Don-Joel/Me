@@ -11,7 +11,7 @@ const AboutMeBio = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -26,7 +26,7 @@ const AboutMeBio = () => {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Profile Sidebar */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -76,34 +76,39 @@ const AboutMeBio = () => {
 
                   {/* Social Links */}
                   <div className="flex justify-evenly gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
-                    <motion.a
-                      href="https://github.com/Don-Joel"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.div
                       whileHover={{ scale: 1.2, y: -3 }}
                       whileTap={{ scale: 0.9 }}
                       className="transition-transform"
                     >
-                      <SocialIcon url="https://github.com/Don-Joel" />
-                    </motion.a>
-                    <motion.a
-                      href="https://www.linkedin.com/in/joel-d-tavarez/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      <SocialIcon
+                        url="https://github.com/Don-Joel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    </motion.div>
+                    <motion.div
                       whileHover={{ scale: 1.2, y: -3 }}
                       whileTap={{ scale: 0.9 }}
                       className="transition-transform"
                     >
-                      <SocialIcon url="https://www.linkedin.com/in/joel-d-tavarez/" />
-                    </motion.a>
-                    <motion.a
-                      href="mailto:joeldtavarez@gmail.com"
+                      <SocialIcon
+                        url="https://www.linkedin.com/in/joel-d-tavarez/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    </motion.div>
+                    <motion.div
                       whileHover={{ scale: 1.2, y: -3 }}
                       whileTap={{ scale: 0.9 }}
                       className="transition-transform"
                     >
-                      <SocialIcon url="mailto:joeldtavarez@gmail.com" />
-                    </motion.a>
+                      <SocialIcon
+                        url="mailto:joeldtavarez@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -114,7 +119,7 @@ const AboutMeBio = () => {
               {experiences.map((exp, idx) => (
                 <motion.div
                   key={exp.title}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={false}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}

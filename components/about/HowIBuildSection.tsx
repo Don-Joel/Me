@@ -8,7 +8,7 @@ const HowIBuildSection = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -29,7 +29,7 @@ const HowIBuildSection = () => {
             {pillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}

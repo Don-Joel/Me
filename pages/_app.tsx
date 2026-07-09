@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import dynamic from "next/dynamic";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import UseScrollToTop from "../hooks/useScrollToTop";
 
@@ -20,14 +19,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
         <DefaultLayout>
-          <motion.div
-            key={router.asPath}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-          >
+          <div key={router.asPath}>
             <Component {...pageProps} />
-          </motion.div>
+          </div>
         </DefaultLayout>
         <UseScrollToTop />
       </div>

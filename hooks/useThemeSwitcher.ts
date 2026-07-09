@@ -6,8 +6,8 @@ const THEME_STORAGE_KEY = "theme";
 const DEFAULT_THEME: Theme = "light";
 
 const useThemeSwitcher = () => {
-  // Use a constant initial value so server and client first render match (avoids React hydration error #418).
   const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
+  const [ready, setReady] = useState(false);
   const activeTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
@@ -18,14 +18,17 @@ const useThemeSwitcher = () => {
       setTheme(DEFAULT_THEME);
       localStorage.setItem(THEME_STORAGE_KEY, DEFAULT_THEME);
     }
+    setReady(true);
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
+
     const root = window.document.documentElement;
-    root.classList.remove(activeTheme);
+    root.classList.remove("light", "dark");
     root.classList.add(theme);
     localStorage.setItem(THEME_STORAGE_KEY, theme);
-  }, [theme, activeTheme]);
+  }, [theme, ready]);
 
   return [activeTheme, setTheme] as const;
 };

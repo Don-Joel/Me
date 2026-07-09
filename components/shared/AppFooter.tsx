@@ -7,7 +7,7 @@ const AppFooter = () => {
     <footer className="relative bg-gradient-to-br from-slate-50 via-slate-100/50 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border-t border-slate-200/50 dark:border-slate-700/50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
