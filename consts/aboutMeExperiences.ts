@@ -31,10 +31,10 @@ export const experiences: Experience[] = [
   {
     icon: FiTarget,
     title: "Early Career at Target",
-    period: "2021 - 2025",
+    period: "2020 - 2025",
     company: "Target Corporation",
     description:
-      "I graduated with a Computer Science degree from the University of Virginia in 2021 and began my career at Target Corporation as a software engineer. During my time at Target, I delivered large-scale front-end features for Target.com, most recently engineering the Same Day Delivery (Shipt) experience. I previously worked on Target's digital payments platform, where I helped implement SNAP as a supported tender on Target.com.",
+      "I graduated with a Computer Science degree from the University of Virginia and began my career at Target Corporation as a software engineer. During my time at Target, I delivered large-scale front-end features for Target.com, most recently engineering the Same Day Delivery (Shipt) experience. I previously worked on Target's digital payments platform, where I helped implement SNAP as a supported tender on Target.com.",
     iconBg: "bg-blue-100 dark:bg-blue-900/30",
     iconColor: "text-blue-600 dark:text-blue-400",
   },

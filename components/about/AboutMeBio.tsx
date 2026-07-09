@@ -69,7 +69,7 @@ const AboutMeBio = () => {
                     <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
                       <FiCalendar className="w-4 h-4" />
                       <span className="text-sm font-general-medium">
-                        B.A. Computer Science, 2021
+                        B.A. Computer Science
                       </span>
                     </div>
                   </div>
