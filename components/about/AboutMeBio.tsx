@@ -125,8 +125,8 @@ const AboutMeBio = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="group relative"
                 >
-                  <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-1 min-w-0">
+                    <div className="flex items-start gap-4 sm:gap-6 min-w-0">
                       {/* Icon */}
                       <div
                         className={`flex-shrink-0 p-4 rounded-xl ${exp.iconBg} group-hover:scale-110 transition-transform duration-300`}
@@ -137,17 +137,17 @@ const AboutMeBio = () => {
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                          <h3 className="text-2xl font-general-semibold text-slate-900 dark:text-slate-100">
+                          <h3 className="text-2xl font-general-semibold text-slate-900 dark:text-slate-100 break-words">
                             {exp.title}
                           </h3>
-                          <span className="text-sm font-general-medium text-slate-500 dark:text-slate-400">
+                          <span className="text-sm font-general-medium text-slate-500 dark:text-slate-400 shrink-0">
                             {exp.period}
                           </span>
                         </div>
-                        <p className="text-slate-600 dark:text-slate-400 mb-2 font-general-medium">
+                        <p className="text-slate-600 dark:text-slate-400 mb-2 font-general-medium break-words">
                           {exp.company}
                         </p>
-                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed break-words">
                           {exp.description}
                         </p>
                       </div>
