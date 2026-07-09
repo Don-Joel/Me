@@ -1,9 +1,15 @@
-import { FiBriefcase, FiTarget, FiTrendingUp } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiLayers,
+  FiMapPin,
+  FiTarget,
+  FiTrendingUp,
+} from "react-icons/fi";
 import type { Experience } from "./types";
 
 export const experiences: Experience[] = [
   {
-    icon: FiTarget,
+    icon: FiBriefcase,
     title: "Current Role at Newmark",
     period: "Present",
     company: "Newmark",
@@ -13,7 +19,17 @@ export const experiences: Experience[] = [
     iconColor: "text-indigo-600 dark:text-indigo-400",
   },
   {
-    icon: FiBriefcase,
+    icon: FiMapPin,
+    title: "dallasbillboardconnection.com",
+    period: "Present",
+    company: "Billboard Connection",
+    description:
+      "Built an end-to-end web application for a $4M annual revenue billboard advertising agency. Handled everything from initial stakeholder product discovery to full-stack implementation, utilizing Next.js, Node, and Vercel. Engineered a programmatic SEO strategy, authored targeted conversion copy, and integrated a custom Resend data pipeline for real-time, asynchronous CTA tracking. The platform achieves a perfect 100/100 performance score across all four Google Lighthouse metrics with zero-downtime CI/CD deployment.",
+    iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
+    iconColor: "text-indigo-600 dark:text-indigo-400",
+  },
+  {
+    icon: FiTarget,
     title: "Early Career at Target",
     period: "2021 - 2025",
     company: "Target Corporation",
