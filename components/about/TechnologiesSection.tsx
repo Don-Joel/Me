@@ -72,7 +72,7 @@ const Carousel = ({
   const totalDurationSec = Math.max(20, items.length * speedSecondsPerItem);
 
   return (
-    <div className="marquee-fade marquee-pause overflow-hidden">
+    <div className="marquee-fade marquee-pause overflow-hidden py-3">
       <div
         data-marquee-track
         className={`flex gap-4 w-max ${animationName}`}

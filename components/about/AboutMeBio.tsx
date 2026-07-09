@@ -6,9 +6,9 @@ import { experiences } from "../../consts/aboutMeExperiences";
 
 const AboutMeBio = () => {
   return (
-    <section className="py-20 lg:py-32 bg-white dark:bg-slate-900">
+    <section className="py-20 lg:py-32 bg-white dark:bg-slate-900 overflow-x-hidden">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto min-w-0">
           {/* Section Header */}
           <motion.div
             initial={false}
@@ -23,29 +23,29 @@ const AboutMeBio = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 min-w-0">
             {/* Profile Sidebar */}
             <motion.div
               initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-4"
+              className="lg:col-span-4 min-w-0"
             >
-              <div className="sticky top-24">
-                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
+              <div className="lg:sticky lg:top-24">
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-700">
                   {/* Profile Image */}
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className="mb-6 flex justify-center"
                   >
-                    <div className="relative">
+                    <div className="relative w-full max-w-[280px] overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-slate-400 via-blue-500/80 to-slate-500 dark:from-slate-500 dark:via-blue-600/50 dark:to-slate-600 rounded-2xl blur-2xl opacity-25 dark:opacity-20" />
                       <Image
                         src="/images/profile.jpg"
                         height={280}
                         width={280}
-                        className="relative rounded-2xl shadow-2xl"
+                        className="relative w-full h-auto rounded-2xl shadow-2xl"
                         alt="Joel Tavarez"
                         priority
                       />
@@ -115,7 +115,7 @@ const AboutMeBio = () => {
             </motion.div>
 
             {/* Experience Timeline */}
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 min-w-0 space-y-8">
               {experiences.map((exp, idx) => (
                 <motion.div
                   key={exp.title}
@@ -135,7 +135,7 @@ const AboutMeBio = () => {
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                           <h3 className="text-2xl font-general-semibold text-slate-900 dark:text-slate-100">
                             {exp.title}
