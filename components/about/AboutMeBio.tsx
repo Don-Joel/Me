@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
-import { FiBriefcase, FiMapPin, FiCalendar } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiMapPin,
+  FiCalendar,
+  FiExternalLink,
+} from "react-icons/fi";
 import { experiences } from "../../consts/aboutMeExperiences";
 
 const AboutMeBio = () => {
@@ -137,8 +142,25 @@ const AboutMeBio = () => {
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                          <h3 className="text-2xl font-general-semibold text-slate-900 dark:text-slate-100 break-words">
-                            {exp.title}
+                          <h3 className="text-2xl font-general-semibold break-words">
+                            {exp.url ? (
+                              <a
+                                href={exp.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-blue-700 dark:text-blue-400 underline underline-offset-4 decoration-blue-700/40 dark:decoration-blue-400/40 hover:decoration-blue-700 dark:hover:decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                              >
+                                {exp.title}
+                                <FiExternalLink
+                                  className="w-4 h-4 shrink-0"
+                                  aria-hidden
+                                />
+                              </a>
+                            ) : (
+                              <span className="text-slate-900 dark:text-slate-100">
+                                {exp.title}
+                              </span>
+                            )}
                           </h3>
                           <span className="text-sm font-general-medium text-slate-500 dark:text-slate-400 shrink-0">
                             {exp.period}

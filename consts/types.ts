@@ -22,4 +22,5 @@ export type Experience = {
   description: string;
   iconBg: string;
   iconColor: string;
+  url?: string;
 };
