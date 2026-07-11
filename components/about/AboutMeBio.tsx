@@ -142,17 +142,17 @@ const AboutMeBio = () => {
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                          <h3 className="text-2xl font-general-semibold break-words">
+                          <h3 className="min-w-0 text-2xl font-general-semibold break-words">
                             {exp.url ? (
                               <a
                                 href={exp.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-blue-700 dark:text-blue-400 underline underline-offset-4 decoration-blue-700/40 dark:decoration-blue-400/40 hover:decoration-blue-700 dark:hover:decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                                className="inline text-blue-700 dark:text-blue-400 underline underline-offset-4 decoration-blue-700/40 dark:decoration-blue-400/40 hover:decoration-blue-700 dark:hover:decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors break-all"
                               >
                                 {exp.title}
                                 <FiExternalLink
-                                  className="w-4 h-4 shrink-0"
+                                  className="inline-block w-4 h-4 ml-1.5 align-[-0.1em] shrink-0"
                                   aria-hidden
                                 />
                               </a>
