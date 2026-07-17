@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import PagesMetaHead from "../components/PagesMetaHead";
+import PagesMetaHead, { SITE_URL } from "../components/PagesMetaHead";
 import ContactForm from "../components/contact/ContactForm";
 
 const ContactHeroSvg = () => (
@@ -114,6 +114,20 @@ const Contact = () => (
       title="Contact | Joel Tavarez"
       description="Get in touch with Joel Tavarez — product engineer. Send a message for opportunities or collaboration."
       keywords="contact Joel Tavarez, hire Joel Tavarez, product engineer contact"
+      canonicalPath="/contact"
+      structuredData={{
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contact Joel Tavarez",
+        description:
+          "Contact Joel Tavarez about product engineering opportunities and collaboration.",
+        url: `${SITE_URL}/contact`,
+        mainEntity: {
+          "@type": "Person",
+          name: "Joel Tavarez",
+          url: SITE_URL,
+        },
+      }}
     />
     <section className="relative min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row lg:items-center overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">
       {/* Layered background for depth */}
