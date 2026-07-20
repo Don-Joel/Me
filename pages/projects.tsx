@@ -16,8 +16,8 @@ const projects = [
     url: "https://www.dallasbillboardconnection.com/",
     company: "Billboard Connection",
     type: "End-to-end product build",
-    image: "/images/project-dallas.png?v=2",
-    video: "/videos/dallas-demo.mp4",
+    image: "/images/project-dallas.png?v=3",
+    video: "/videos/dallas-demo.mp4?v=3",
     imageAlt:
       "Live walkthrough of Dallas Billboard Connection — scrolling the site, browsing billboards, and starting a campaign form",
     accent: "text-blue-700 dark:text-blue-400",
