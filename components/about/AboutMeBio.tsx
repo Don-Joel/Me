@@ -176,9 +176,11 @@ const AboutMeBio = () => {
                               {exp.period}
                             </span>
                           </div>
-                          <p className="text-slate-600 dark:text-slate-400 mb-2 font-general-medium break-words">
-                            {exp.company}
-                          </p>
+                          {exp.company !== exp.title && (
+                            <p className="text-slate-600 dark:text-slate-400 mb-2 font-general-medium break-words">
+                              {exp.company}
+                            </p>
+                          )}
                           <p className="text-slate-600 dark:text-slate-300 leading-relaxed break-words">
                             {exp.description}
                           </p>

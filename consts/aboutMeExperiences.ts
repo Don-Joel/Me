@@ -20,10 +20,9 @@ export const experiences: Experience[] = [
   },
   {
     icon: FiMapPin,
-    title: "dallasbillboardconnection.com",
+    title: "Billboard Connection",
     period: "Present",
     company: "Billboard Connection",
-    url: "https://dallasbillboardconnection.com",
     description:
       "Built an end-to-end web application for a $4M annual revenue billboard advertising agency. Handled everything from initial stakeholder product discovery to full-stack implementation, utilizing Next.js, Node, and Vercel. Engineered a programmatic SEO strategy, authored targeted conversion copy, and integrated a custom Resend data pipeline for real-time, asynchronous CTA tracking. The platform achieves a perfect 100/100 performance score across all four Google Lighthouse metrics with zero-downtime CI/CD deployment.",
     iconBg: "bg-indigo-100 dark:bg-indigo-900/30",
