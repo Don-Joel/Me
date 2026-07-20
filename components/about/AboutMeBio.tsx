@@ -128,6 +128,9 @@ const AboutMeBio = () => {
 
               {/* Experience Timeline */}
               <div className="lg:col-span-8 min-w-0 space-y-8">
+                <h2 className="text-2xl font-general-bold text-slate-900 dark:text-slate-100 sm:text-3xl">
+                  Experience
+                </h2>
                 {experiences.map((exp, idx) => (
                   <motion.div
                     key={exp.title}

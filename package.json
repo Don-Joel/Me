@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write . && yarn lint"
+    "format": "prettier --write . && yarn lint",
+    "record:demos": "node scripts/record-site-demos.mjs",
+    "generate:seo-assets": "node scripts/generate-seo-assets.mjs"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.4.0",
@@ -39,6 +41,7 @@
     "autoprefixer": "^10.4.0",
     "eslint": "8.4.1",
     "eslint-config-next": "^13.0.5",
+    "playwright": "^1.61.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.5",
     "typescript": "^5.9.3"

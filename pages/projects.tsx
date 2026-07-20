@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
-import PagesMetaHead, { SITE_URL } from "../components/PagesMetaHead";
+import PagesMetaHead from "../components/PagesMetaHead";
 import ProjectBrowserPreview from "../components/projects/ProjectBrowserPreview";
+import {
+  SITE_URL,
+  breadcrumbStructuredData,
+  personStructuredData,
+} from "../lib/seo";
 
 const projects = [
   {
@@ -12,8 +17,9 @@ const projects = [
     company: "Billboard Connection",
     type: "End-to-end product build",
     image: "/images/project-dallas.png?v=2",
+    video: "/videos/dallas-demo.mp4",
     imageAlt:
-      "Dallas Billboard Connection homepage with DFW billboard campaign messaging",
+      "Live walkthrough of Dallas Billboard Connection — scrolling the site, browsing billboards, and starting a campaign form",
     accent: "text-blue-700 dark:text-blue-400",
     glow: "from-indigo-500/20 via-blue-500/10 to-transparent",
     summary:
@@ -24,6 +30,27 @@ const projects = [
       "Resend lead tracking and 100/100 Lighthouse scores",
     ],
     tags: ["Next.js", "Node.js", "Vercel", "Resend", "Programmatic SEO"],
+  },
+  {
+    name: "percentiles.fyi",
+    shortUrl: "percentiles.fyi",
+    url: "https://percentiles.fyi/",
+    company: "Independent project",
+    type: "Interactive data product",
+    image: "/images/project-percentiles.png?v=3",
+    video: "/videos/percentiles-demo.mp4",
+    imageAlt:
+      "Interactive product demo of percentiles.fyi — searching tools and using the income calculator",
+    accent: "text-cyan-600 dark:text-cyan-400",
+    glow: "from-cyan-500/20 via-sky-500/10 to-transparent",
+    summary:
+      "A personal project that makes everyday statistics easier to understand and compare.",
+    outcomes: [
+      "More than 10 interactive percentile calculators",
+      "Census, IPUMS, and published research data",
+      "Plain-language explanations of rank, median, and z-scores",
+    ],
+    tags: ["Data Visualization", "Statistics", "Research", "UX", "SEO"],
   },
   {
     name: "Atlanta Billboard Connection",
@@ -45,26 +72,6 @@ const projects = [
     ],
     tags: ["Site Migration", "Technical SEO", "Responsive Design", "Routing"],
   },
-  {
-    name: "percentiles.fyi",
-    shortUrl: "percentiles.fyi",
-    url: "https://percentiles.fyi/",
-    company: "Independent project",
-    type: "Interactive data product",
-    image: "/images/project-percentiles.png?v=3",
-    imageAlt:
-      "percentiles.fyi homepage showing searchable percentile tools and an income calculator",
-    accent: "text-cyan-600 dark:text-cyan-400",
-    glow: "from-cyan-500/20 via-sky-500/10 to-transparent",
-    summary:
-      "A personal project that makes everyday statistics easier to understand and compare.",
-    outcomes: [
-      "More than 10 interactive percentile calculators",
-      "Census, IPUMS, and published research data",
-      "Plain-language explanations of rank, median, and z-scores",
-    ],
-    tags: ["Data Visualization", "Statistics", "Research", "UX", "SEO"],
-  },
 ];
 
 const Projects = () => (
@@ -72,28 +79,45 @@ const Projects = () => (
     <PagesMetaHead
       title="Projects | Joel Tavarez"
       description="A closer look at websites and products Joel Tavarez has designed and built."
-      keywords="Joel Tavarez projects, product engineering portfolio, Next.js projects, technical SEO, website migration, data visualization"
       canonicalPath="/projects"
+      ogImage="/images/og-projects.png"
+      ogImageAlt="Selected projects by Joel Tavarez"
       structuredData={{
         "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Selected projects by Joel Tavarez",
-        url: `${SITE_URL}/projects`,
-        itemListElement: projects.map((project, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "WebSite",
-            name: project.name,
-            url: project.url,
-            description: project.summary,
-            creator: {
-              "@type": "Person",
-              name: "Joel Tavarez",
-              url: SITE_URL,
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": `${SITE_URL}/projects#webpage`,
+            name: "Projects | Joel Tavarez",
+            description:
+              "A closer look at websites and products Joel Tavarez has designed and built.",
+            url: `${SITE_URL}/projects`,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            breadcrumb: breadcrumbStructuredData([
+              { name: "Home", path: "/" },
+              { name: "Projects", path: "/projects" },
+            ]),
+            mainEntity: {
+              "@type": "ItemList",
+              name: "Selected projects by Joel Tavarez",
+              numberOfItems: projects.length,
+              itemListElement: projects.map((project, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                item: {
+                  "@type": "SoftwareApplication",
+                  name: project.name,
+                  url: project.url,
+                  description: project.summary,
+                  applicationCategory: "WebApplication",
+                  operatingSystem: "Web",
+                  creator: { "@id": `${SITE_URL}/#person` },
+                },
+              })),
             },
           },
-        })),
+          personStructuredData(),
+        ],
       }}
     />
 
@@ -111,7 +135,8 @@ const Projects = () => (
             </span>
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
-            A closer look at a few sites I&apos;ve built.
+            Product demos of a few sites I&apos;ve built — what they are, how
+            they look, and what shipped.
           </p>
         </motion.div>
       </div>
@@ -136,6 +161,7 @@ const Projects = () => (
                 image={project.image}
                 imageAlt={project.imageAlt}
                 glow={project.glow}
+                video={"video" in project ? project.video : undefined}
                 priority={index === 0}
               />
 

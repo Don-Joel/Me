@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
-import PagesMetaHead, { SITE_URL } from "../components/PagesMetaHead";
+import PagesMetaHead from "../components/PagesMetaHead";
 import ContactForm from "../components/contact/ContactForm";
+import {
+  SITE_URL,
+  breadcrumbStructuredData,
+  personStructuredData,
+} from "../lib/seo";
 
 const ContactHeroSvg = () => (
   <svg
@@ -113,20 +118,28 @@ const Contact = () => (
     <PagesMetaHead
       title="Contact | Joel Tavarez"
       description="Get in touch with Joel Tavarez — product engineer. Send a message for opportunities or collaboration."
-      keywords="contact Joel Tavarez, hire Joel Tavarez, product engineer contact"
       canonicalPath="/contact"
+      ogImage="/images/og-contact.png"
+      ogImageAlt="Contact Joel Tavarez — Product Engineer"
       structuredData={{
         "@context": "https://schema.org",
-        "@type": "ContactPage",
-        name: "Contact Joel Tavarez",
-        description:
-          "Contact Joel Tavarez about product engineering opportunities and collaboration.",
-        url: `${SITE_URL}/contact`,
-        mainEntity: {
-          "@type": "Person",
-          name: "Joel Tavarez",
-          url: SITE_URL,
-        },
+        "@graph": [
+          {
+            "@type": "ContactPage",
+            "@id": `${SITE_URL}/contact#webpage`,
+            name: "Contact Joel Tavarez",
+            description:
+              "Contact Joel Tavarez about product engineering opportunities and collaboration.",
+            url: `${SITE_URL}/contact`,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            mainEntity: { "@id": `${SITE_URL}/#person` },
+            breadcrumb: breadcrumbStructuredData([
+              { name: "Home", path: "/" },
+              { name: "Contact", path: "/contact" },
+            ]),
+          },
+          personStructuredData(),
+        ],
       }}
     />
     <section className="relative min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row lg:items-center overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">

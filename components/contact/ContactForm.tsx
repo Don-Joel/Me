@@ -133,9 +133,12 @@ const ContactForm = () => {
         >
           <FiCheck className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
         </motion.div>
-        <h3 className="text-xl font-general-semibold text-slate-900 dark:text-slate-100 mb-2">
+        <p
+          role="status"
+          className="text-xl font-general-semibold text-slate-900 dark:text-slate-100 mb-2"
+        >
           Message sent
-        </h3>
+        </p>
         <p className="text-slate-600 dark:text-slate-400 font-general-medium text-sm">
           Thanks for reaching out. I will get back to you soon.
         </p>

@@ -1,6 +1,11 @@
 import dynamic from "next/dynamic";
 import AboutMeBio from "../components/about/AboutMeBio";
-import PagesMetaHead, { SITE_URL } from "../components/PagesMetaHead";
+import PagesMetaHead from "../components/PagesMetaHead";
+import {
+  SITE_URL,
+  breadcrumbStructuredData,
+  personStructuredData,
+} from "../lib/seo";
 
 const TechnologiesSection = dynamic(
   () => import("../components/about/TechnologiesSection"),
@@ -17,26 +22,29 @@ const About = () => (
     <PagesMetaHead
       title="About Joel Tavarez | Product Engineer"
       description="Learn about Joel Tavarez's product engineering experience, leadership, technology stack, and work building scalable full-stack systems."
-      keywords="about Joel Tavarez, Joel Tavarez experience, product engineer, full-stack engineer, React, JVM"
       canonicalPath="/about"
       ogType="profile"
+      ogImage="/images/og-about.png"
+      ogImageAlt="About Joel Tavarez — Product Engineer"
       structuredData={{
         "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        name: "About Joel Tavarez",
-        description:
-          "Joel Tavarez's product engineering experience, leadership, and technology stack.",
-        url: `${SITE_URL}/about`,
-        mainEntity: {
-          "@type": "Person",
-          name: "Joel Tavarez",
-          url: SITE_URL,
-          jobTitle: "Product Engineer",
-          sameAs: [
-            "https://github.com/Don-Joel",
-            "https://www.linkedin.com/in/joel-d-tavarez/",
-          ],
-        },
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": `${SITE_URL}/about#webpage`,
+            name: "About Joel Tavarez",
+            description:
+              "Joel Tavarez's product engineering experience, leadership, and technology stack.",
+            url: `${SITE_URL}/about`,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            mainEntity: { "@id": `${SITE_URL}/#person` },
+            breadcrumb: breadcrumbStructuredData([
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+            ]),
+          },
+          personStructuredData(),
+        ],
       }}
     />
     <AboutMeBio />

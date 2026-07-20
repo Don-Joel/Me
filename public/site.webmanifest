@@ -1,0 +1,24 @@
+{
+  "name": "Joel Tavarez",
+  "short_name": "Joel Tavarez",
+  "description": "Product engineer portfolio — AI orchestration, full-stack systems, and selected work.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "608x608",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
