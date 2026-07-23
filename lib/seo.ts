@@ -72,6 +72,7 @@ export function personStructuredData() {
     "@id": `${SITE_URL}/#person`,
     name: SITE_NAME,
     url: SITE_URL,
+    image: absoluteAssetUrl("/images/logo.png"),
     jobTitle: "Product Engineer",
     sameAs: [...PERSON_SAME_AS],
   };

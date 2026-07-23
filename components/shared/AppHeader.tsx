@@ -38,21 +38,17 @@ const AppHeader = () => {
     >
       <nav className="container relative mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center"
-          >
+          {/* Brand */}
+          <div className="flex items-center">
             <Link
               href="/"
-              className="font-general-bold text-xl lg:text-2xl bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent hover:from-slate-600 hover:via-blue-600 hover:to-slate-700 dark:hover:from-slate-200 dark:hover:to-blue-300 transition-all duration-200"
+              className="font-general-semibold text-[15px] tracking-tight text-slate-800 transition-colors hover:text-slate-950 lg:text-base dark:text-slate-100 dark:hover:text-white"
               aria-label="Home"
             >
-              <span className="hidden lg:inline">Joel D. Tavarez</span>
-              <span className="lg:hidden">JDT</span>
+              <span className="hidden sm:inline">Joel D. Tavarez</span>
+              <span className="sm:hidden">JDT</span>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Mobile actions */}
           <div className="flex items-center gap-2 lg:hidden">

@@ -68,8 +68,18 @@ const PagesMetaHead = ({
       <meta charSet="utf-8" />
 
       {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
-      <link rel="icon" href="/images/logo.ico" />
-      <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+      <link
+        rel="icon"
+        href="/images/logo.png"
+        type="image/png"
+        sizes="512x512"
+      />
+      <link rel="icon" href="/images/logo.ico" sizes="32x32" />
+      <link
+        rel="apple-touch-icon"
+        href="/images/apple-touch-icon.png"
+        sizes="180x180"
+      />
       <link rel="manifest" href="/site.webmanifest" />
 
       <meta
