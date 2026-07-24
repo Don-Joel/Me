@@ -1,311 +1,139 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import {
-  FiArrowDownCircle,
-  FiCode,
-  FiDatabase,
-  FiZap,
-  FiLayers,
-  FiCpu,
-  FiSettings,
-  FiUsers,
-} from "react-icons/fi";
+import Link from "next/link";
+import { FiArrowRight, FiDownload } from "react-icons/fi";
 import useIsMounted from "../../hooks/useIsMounted";
-import TypewriterText, { TypewriterCursor } from "../ui/TypewriterText";
-
-const INTRO_LENGTHS = [8, 4, 7]; // "Hi, I'm ", "Joel", "Tavarez"
-const INTRO_TOTAL = INTRO_LENGTHS[0] + INTRO_LENGTHS[1] + INTRO_LENGTHS[2];
-
-const TECH_STACK = [
-  {
-    icon: FiCode,
-    label: "Frontend",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiDatabase,
-    label: "Backend",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiZap,
-    label: "Performance",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiLayers,
-    label: "Architecture",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiCpu,
-    label: "AI/ML",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiSettings,
-    label: "DevOps",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-  {
-    icon: FiUsers,
-    label: "Leadership",
-    iconColor: "text-slate-600 dark:text-slate-400",
-  },
-];
-
-const heroLightLoopWrapper =
-  "inline-block p-[3px] rounded-xl animate-cta-light-loop";
-const heroLightLoopBg =
-  "conic-gradient(from var(--cta-light-angle, 0deg), #3f4755 0deg, #3f4755 142deg, rgba(233,238,246,1) 160deg, rgba(248,251,255,1) 176deg, rgba(226,233,243,1) 206deg, rgba(210,220,234,1) 236deg, rgba(236,242,250,1) 264deg, rgba(250,252,255,1) 288deg, rgba(224,231,241,1) 322deg, rgba(206,217,231,1) 336deg, #3f4755 356deg, #3f4755 360deg)";
-const heroGlowShadow =
-  "0 0 16px rgba(226,234,246,0.36), 0 0 30px rgba(236,243,252,0.26), 0 0 50px rgba(244,248,255,0.2)";
+import { primaryCtaClasses } from "../ui/cta";
+import SoftHoverLink from "../ui/SoftHoverLink";
 
 const HeroBackground = () => (
   <>
-    <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+    <div className="absolute inset-0 bg-white dark:bg-slate-950" />
+    <div
+      className="absolute inset-0 opacity-80 dark:opacity-40"
+      style={{
+        background:
+          "radial-gradient(ellipse 70% 45% at 75% 35%, rgba(59, 130, 246, 0.07), transparent 55%)",
+      }}
+      aria-hidden
+    />
   </>
 );
 
-const HeroImageContent = () => (
-  <div className="relative">
-    <div className="absolute inset-0 bg-gradient-to-r from-slate-400/15 via-blue-500/20 to-slate-400/15 dark:from-slate-500/10 dark:via-blue-600/15 dark:to-slate-500/10 rounded-3xl blur-3xl transform rotate-6" />
-    <div className="relative">
-      <Image
-        src="/images/udeveloper.svg"
-        width={600}
-        height={600}
-        alt="Developer illustration"
-        className="w-full h-auto drop-shadow-2xl"
-        priority
-      />
-    </div>
+const HeroImage = () => (
+  <div className="relative mx-auto w-full max-w-[280px] sm:max-w-sm lg:max-w-none">
+    <div
+      className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blue-500/10 via-slate-300/20 to-transparent blur-2xl dark:from-blue-500/15 dark:via-slate-600/10"
+      aria-hidden
+    />
+    <Image
+      src="/images/udeveloper.svg"
+      width={600}
+      height={600}
+      alt="Developer illustration"
+      className="relative h-auto w-full"
+      priority
+    />
   </div>
 );
 
-const AppBannerStatic = () => (
-  <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-    <HeroBackground />
-    <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-general-bold mb-6 leading-tight">
-              <span className="text-slate-900 dark:text-slate-100">
-                Hi, I&apos;m Joel
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent">
-                Tavarez
-              </span>
-            </h1>
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-general-semibold text-slate-700 dark:text-slate-300 mb-4">
-              Product Engineer
-            </p>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              I design and ship the ideal product—full-stack from idea to
-              production, with a focus on user value and systems that scale.
-            </p>
-            <p className="text-base sm:text-lg text-slate-500 dark:text-slate-500 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              React, JVM languages, and modern web—accelerated by AI.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
-              {TECH_STACK.map((tech) => (
-                <div
-                  key={tech.label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
-                >
-                  <tech.icon className={`w-4 h-4 ${tech.iconColor}`} />
-                  <span className="text-sm font-general-medium text-slate-700 dark:text-slate-300">
-                    {tech.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="flex justify-center lg:justify-start">
-              <span
-                className={heroLightLoopWrapper}
-                style={{
-                  background: heroLightLoopBg,
-                  boxShadow: heroGlowShadow,
-                }}
-              >
-                <a
-                  download="Tavarez-Joel-Resume.pdf"
-                  href="/files/Tavarez-Joel-Resume.pdf"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 text-white font-general-semibold rounded-[10px] shadow-lg hover:shadow-xl transition-all duration-300"
-                  aria-label="Download Resume"
-                >
-                  <FiArrowDownCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  <span>Download Resume</span>
-                </a>
-              </span>
-            </div>
-          </div>
-          <div className="hidden lg:block relative">
-            <HeroImageContent />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+type HeroContentProps = {
+  animated?: boolean;
+};
 
-const AppBannerAnimated = () => {
+const HeroContent = ({ animated = false }: HeroContentProps) => {
   const reducedMotion = useReducedMotion();
-  const [len1, setLen1] = useState(0);
-  const [len2, setLen2] = useState(0);
-  const [len3, setLen3] = useState(0);
-  const totalVisible = len1 + len2 + len3;
-  const isTyping = totalVisible < INTRO_TOTAL;
+  const enableMotion = animated && !reducedMotion;
+
+  const fade = (delay = 0) =>
+    enableMotion
+      ? {
+          initial: { opacity: 0, y: 16 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+        }
+      : {};
+
+  const TitleTag = enableMotion ? motion.h1 : "h1";
+  const SubTag = enableMotion ? motion.p : "p";
+  const BodyTag = enableMotion ? motion.p : "p";
+  const CtaTag = enableMotion ? motion.div : "div";
+  const ImageWrap = enableMotion ? motion.div : "div";
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-center overflow-hidden lg:min-h-[88vh]">
       <HeroBackground />
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-center lg:text-left"
+
+      <div className="container relative z-10 mx-auto px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="text-center lg:text-left">
+            <TitleTag
+              {...fade(0)}
+              className="text-5xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl xl:text-[4.75rem] xl:leading-[1.05]"
             >
-              <motion.h1
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-general-bold mb-6 leading-tight"
-              >
-                {totalVisible === 0 && <TypewriterCursor />}
-                <TypewriterText
-                  text="Hi, I'm "
-                  duration={0.6}
-                  delay={0.2}
-                  cursor={false}
-                  onVisibleLengthChange={setLen1}
-                  className="text-slate-900 dark:text-slate-100"
-                />
-                {totalVisible >= 1 && totalVisible <= 8 && <TypewriterCursor />}
-                <TypewriterText
-                  text="Joel"
-                  duration={0.6}
-                  delay={0.5}
-                  cursor={false}
-                  onVisibleLengthChange={setLen2}
-                  className="text-slate-900 dark:text-slate-100"
-                />
-                {totalVisible >= 9 && totalVisible <= 12 && (
-                  <TypewriterCursor />
-                )}
-                <br />
-                <TypewriterText
-                  text="Tavarez"
-                  duration={0.6}
-                  delay={0.85}
-                  cursor={false}
-                  onVisibleLengthChange={setLen3}
-                  className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent"
-                />
-                {totalVisible >= 13 && isTyping && <TypewriterCursor />}
-              </motion.h1>
+              Joel Tavarez
+            </TitleTag>
 
-              <motion.p
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
-                className="text-2xl sm:text-3xl lg:text-4xl font-general-semibold text-slate-700 dark:text-slate-300 mb-4"
-              >
-                Product Engineer
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
-                className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-              >
-                I design and ship the ideal product—full-stack from idea to
-                production, with a focus on user value and systems that scale.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
-                className="text-base sm:text-lg text-slate-500 dark:text-slate-500 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-              >
-                React, JVM languages, and modern web—accelerated by AI.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
-                className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10"
-              >
-                {TECH_STACK.map((tech) => (
-                  <motion.div
-                    key={tech.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 2, duration: 0.35, ease: "easeOut" }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all"
-                  >
-                    <tech.icon className={`w-4 h-4 ${tech.iconColor}`} />
-                    <span className="text-sm font-general-medium text-slate-700 dark:text-slate-300">
-                      {tech.label}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
-                className="flex justify-center lg:justify-start"
-              >
-                <span
-                  className={
-                    reducedMotion
-                      ? "inline-block p-[3px] rounded-xl"
-                      : heroLightLoopWrapper
-                  }
-                  style={{
-                    background: heroLightLoopBg,
-                    boxShadow: heroGlowShadow,
-                  }}
-                >
-                  <motion.a
-                    whileHover={
-                      reducedMotion ? undefined : { scale: 1.05, y: -2 }
-                    }
-                    whileTap={reducedMotion ? undefined : { scale: 0.95 }}
-                    download="Tavarez-Joel-Resume.pdf"
-                    href="/files/Tavarez-Joel-Resume.pdf"
-                    className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-500 dark:to-blue-600 dark:hover:from-slate-400 dark:hover:to-blue-500 text-white font-general-semibold rounded-[10px] shadow-lg hover:shadow-xl transition-all duration-300"
-                    aria-label="Download Resume"
-                  >
-                    <FiArrowDownCircle className="w-5 h-5 group-hover:animate-bounce" />
-                    <span>Download Resume</span>
-                  </motion.a>
-                </span>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
-              className="hidden lg:block relative"
+            <SubTag
+              {...fade(0.08)}
+              className="mt-5 text-xl font-general-medium text-slate-500 dark:text-slate-400 sm:text-2xl"
             >
-              <HeroImageContent />
-            </motion.div>
+              Product Engineer
+            </SubTag>
+
+            <BodyTag
+              {...fade(0.14)}
+              className="mx-auto mt-6 max-w-xl text-lg font-general-medium leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl lg:mx-0"
+            >
+              I design and ship full-stack products—from idea to production—with
+              a focus on user value and systems that scale.
+            </BodyTag>
+
+            <CtaTag
+              {...fade(0.22)}
+              className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+            >
+              <Link
+                href="/projects"
+                className={`${primaryCtaClasses} gap-2 px-7 py-3.5 text-sm`}
+              >
+                View projects
+                <FiArrowRight className="h-4 w-4" />
+              </Link>
+              <SoftHoverLink
+                href="/contact"
+                className="px-7 py-3.5 text-sm font-general-semibold text-slate-700 transition-colors duration-200 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+              >
+                Get in touch
+              </SoftHoverLink>
+              <SoftHoverLink
+                href="/files/Tavarez-Joel-Resume.pdf"
+                download="Tavarez-Joel-Resume.pdf"
+                aria-label="Download Resume"
+                className="px-3 py-3.5 text-sm font-general-medium text-slate-500 transition-colors duration-200 hover:text-slate-800 dark:text-slate-500 dark:hover:text-slate-300 sm:ml-1"
+              >
+                <FiDownload className="h-4 w-4" />
+                Resume
+              </SoftHoverLink>
+            </CtaTag>
           </div>
+
+          <ImageWrap
+            {...(enableMotion
+              ? {
+                  initial: { opacity: 0, scale: 0.98 },
+                  animate: { opacity: 1, scale: 1 },
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.18,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                }
+              : {})}
+            className="relative"
+          >
+            <HeroImage />
+          </ImageWrap>
         </div>
       </div>
     </section>
@@ -315,11 +143,7 @@ const AppBannerAnimated = () => {
 const AppBanner = () => {
   const mounted = useIsMounted();
 
-  if (!mounted) {
-    return <AppBannerStatic />;
-  }
-
-  return <AppBannerAnimated />;
+  return <HeroContent animated={mounted} />;
 };
 
 export default AppBanner;

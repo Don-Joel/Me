@@ -20,8 +20,6 @@ const projects = [
     video: "/videos/dallas-demo.mp4?v=3",
     imageAlt:
       "Live walkthrough of Dallas Billboard Connection — scrolling the site, browsing billboards, and starting a campaign form",
-    accent: "text-blue-700 dark:text-blue-400",
-    glow: "from-indigo-500/20 via-blue-500/10 to-transparent",
     summary:
       "Built from the ground up for a Dallas billboard agency, from early product discovery through launch.",
     outcomes: [
@@ -41,8 +39,6 @@ const projects = [
     video: "/videos/percentiles-demo.mp4",
     imageAlt:
       "Interactive product demo of percentiles.fyi — searching tools and using the income calculator",
-    accent: "text-cyan-600 dark:text-cyan-400",
-    glow: "from-cyan-500/20 via-sky-500/10 to-transparent",
     summary:
       "A personal project that makes everyday statistics easier to understand and compare.",
     outcomes: [
@@ -61,8 +57,6 @@ const projects = [
     image: "/images/project-atlanta.png?v=2",
     imageAlt:
       "Redesigned Atlanta Billboard Connection homepage with Atlanta campaign messaging",
-    accent: "text-blue-600 dark:text-blue-400",
-    glow: "from-blue-500/20 via-cyan-500/10 to-transparent",
     summary:
       "Rebuilt a dated Atlanta website while preserving the search value it had earned over time.",
     outcomes: [
@@ -121,20 +115,17 @@ const Projects = () => (
       }}
     />
 
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-100 py-12 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 lg:py-16">
-      <div className="container relative z-10 mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="bg-white pt-16 dark:bg-slate-950 lg:pt-24">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
           initial={false}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto max-w-6xl text-center"
+          className="mx-auto max-w-6xl"
         >
-          <h1 className="mb-6 text-4xl font-general-bold leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:whitespace-nowrap lg:text-6xl">
-            Products built for{" "}
-            <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 bg-clip-text text-transparent dark:from-slate-300 dark:via-blue-400 dark:to-slate-400">
-              real outcomes
-            </span>
+          <h1 className="text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+            Projects
           </h1>
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
+          <p className="mt-5 max-w-2xl text-lg font-general-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:text-xl">
             Product demos of a few sites I&apos;ve built — what they are, how
             they look, and what shipped.
           </p>
@@ -142,9 +133,9 @@ const Projects = () => (
       </div>
     </section>
 
-    <section className="bg-slate-100 pb-16 pt-8 dark:bg-slate-950 lg:pb-24 lg:pt-10">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl space-y-16 lg:space-y-24">
+    <section className="bg-white pb-16 pt-14 dark:bg-slate-950 lg:pb-24 lg:pt-20">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-6xl space-y-20 lg:space-y-28">
           {projects.map((project, index) => (
             <motion.article
               key={project.name}
@@ -152,7 +143,7 @@ const Projects = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-300/30 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/20 lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch"
+              className="overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch"
             >
               <ProjectBrowserPreview
                 name={project.name}
@@ -160,59 +151,45 @@ const Projects = () => (
                 shortUrl={project.shortUrl}
                 image={project.image}
                 imageAlt={project.imageAlt}
-                glow={project.glow}
                 video={"video" in project ? project.video : undefined}
                 priority={index === 0}
               />
 
-              <div className="p-6 font-general-medium sm:p-10 lg:order-1 lg:p-7">
-                <div className="mb-5 border-b border-slate-200 pb-5 dark:border-slate-700">
-                  <div>
-                    <p className="mb-3 text-xs font-general-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                      0{index + 1} / {project.type}
-                    </p>
-                    <h2 className="text-3xl font-general-bold text-slate-900 dark:text-white sm:text-4xl">
-                      {project.name}
-                    </h2>
-                    <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-                      {project.company}
-                    </p>
-                  </div>
-                </div>
+              <div className="flex flex-col justify-center p-8 font-general-medium sm:p-10 lg:order-1 lg:p-12">
+                <p className="mb-3 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+                  {project.type}
+                </p>
+                <h2 className="text-3xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                  {project.name}
+                </h2>
+                <p className="mt-2 text-sm font-general-medium text-slate-500 dark:text-slate-400">
+                  {project.company}
+                </p>
 
-                <div className="grid gap-5">
-                  <div>
-                    <p className="text-lg font-general-semibold leading-relaxed text-slate-800 dark:text-slate-100">
-                      {project.summary}
-                    </p>
-                  </div>
+                <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                  {project.summary}
+                </p>
 
-                  <div>
-                    <p className="mb-2 text-xs font-general-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                      What I worked on
-                    </p>
-                    <div>
-                      {project.outcomes.map((outcome) => (
-                        <p
-                          key={outcome}
-                          className="border-b border-slate-200 py-2.5 font-general-medium text-sm leading-relaxed text-slate-600 last:border-b-0 dark:border-slate-700 dark:text-slate-300"
-                        >
-                          {outcome}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <ul className="mt-6 space-y-3">
+                  {project.outcomes.map((outcome) => (
+                    <li
+                      key={outcome}
+                      className="font-general-medium text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                    >
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
 
-                <div className="mt-5 border-t border-slate-200 pt-5 dark:border-slate-700">
-                  <p className="mb-4 font-general-medium text-xs leading-relaxed tracking-wide text-slate-500 dark:text-slate-400">
+                <div className="mt-8">
+                  <p className="mb-4 text-xs font-general-medium tracking-wide text-slate-400 dark:text-slate-500">
                     {project.tags.join("  ·  ")}
                   </p>
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 font-general-semibold ${project.accent}`}
+                    className="inline-flex items-center gap-2 font-general-semibold text-slate-900 transition-colors hover:text-slate-600 dark:text-white dark:hover:text-slate-300"
                   >
                     View live site
                     <FiArrowUpRight className="h-4 w-4" />

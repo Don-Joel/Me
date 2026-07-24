@@ -1,194 +1,132 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
-import {
-  FiBriefcase,
-  FiMapPin,
-  FiCalendar,
-  FiExternalLink,
-} from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import { experiences } from "../../consts/aboutMeExperiences";
 
 const AboutMeBio = () => {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-100 py-12 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 lg:py-16">
-        <div className="container relative z-10 mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-white pt-16 dark:bg-slate-950 lg:pt-24">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto max-w-6xl text-center"
+            className="mx-auto max-w-6xl"
           >
-            <h1 className="mb-6 text-4xl font-general-bold leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
-              About{" "}
-              <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 bg-clip-text text-transparent dark:from-slate-300 dark:via-blue-400 dark:to-slate-400">
-                Me
-              </span>
+            <h1 className="text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+              About
             </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
-              A closer look at my experience, work, and the technologies I use.
+            <p className="mt-5 max-w-2xl text-lg font-general-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:text-xl">
+              Experience, work, and the technologies I use.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="overflow-x-hidden bg-gradient-to-b from-slate-100 via-slate-100 to-slate-50 pb-16 pt-8 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 lg:pb-24 lg:pt-10">
+      <section className="overflow-x-hidden bg-white pb-20 pt-14 dark:bg-slate-950 lg:pb-28 lg:pt-20">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-7xl min-w-0">
-            <div className="grid min-w-0 items-start gap-8 lg:grid-cols-12 lg:gap-12">
-              {/* Profile Sidebar */}
-              <motion.div
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <motion.aside
                 initial={false}
-                whileInView={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="min-w-0 self-start lg:col-span-4"
+                transition={{ duration: 0.5 }}
+                className="min-w-0 lg:col-span-4"
               >
-                <div className="lg:sticky lg:top-24">
-                  <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-700">
-                    {/* Profile Image */}
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      className="mb-6 flex justify-center"
-                    >
-                      <div className="relative w-full max-w-[280px] overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-400 via-blue-500/80 to-slate-500 dark:from-slate-500 dark:via-blue-600/50 dark:to-slate-600 rounded-2xl blur-2xl opacity-25 dark:opacity-20" />
-                        <Image
-                          src="/images/profile.jpg"
-                          height={280}
-                          width={280}
-                          className="relative w-full h-auto rounded-2xl shadow-2xl"
-                          alt="Joel Tavarez"
-                          priority
-                        />
-                      </div>
-                    </motion.div>
+                <div className="lg:sticky lg:top-28">
+                  <div className="overflow-hidden rounded-3xl">
+                    <Image
+                      src="/images/profile.jpg"
+                      height={280}
+                      width={280}
+                      className="h-auto w-full"
+                      alt="Joel Tavarez"
+                      priority
+                    />
+                  </div>
 
-                    {/* Location & Info */}
-                    <div className="space-y-3 mb-6 text-center">
-                      <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
-                        <FiBriefcase className="w-4 h-4" />
-                        <span className="text-sm font-general-medium">
-                          Product Engineer at Newmark
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
-                        <FiMapPin className="w-4 h-4" />
-                        <span className="text-sm font-general-medium">
-                          University of Virginia
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
-                        <FiCalendar className="w-4 h-4" />
-                        <span className="text-sm font-general-medium">
-                          B.A. Computer Science
-                        </span>
-                      </div>
-                    </div>
+                  <div className="mt-6 space-y-1.5">
+                    <p className="font-general-semibold text-slate-900 dark:text-white">
+                      Product Engineer at Newmark
+                    </p>
+                    <p className="text-sm font-general-medium text-slate-500 dark:text-slate-400">
+                      University of Virginia · B.A. Computer Science
+                    </p>
+                  </div>
 
-                    {/* Social Links */}
-                    <div className="flex justify-evenly gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
-                      <motion.div
-                        whileHover={{ scale: 1.2, y: -3 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="transition-transform"
-                      >
-                        <SocialIcon
-                          url="https://github.com/Don-Joel"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ scale: 1.2, y: -3 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="transition-transform"
-                      >
-                        <SocialIcon
-                          url="https://www.linkedin.com/in/joel-d-tavarez/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ scale: 1.2, y: -3 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="transition-transform"
-                      >
-                        <SocialIcon
-                          url="mailto:joeldtavarez@gmail.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />
-                      </motion.div>
-                    </div>
+                  <div className="mt-6 flex gap-3">
+                    <SocialIcon
+                      url="https://github.com/Don-Joel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ height: 36, width: 36 }}
+                    />
+                    <SocialIcon
+                      url="https://www.linkedin.com/in/joel-d-tavarez/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ height: 36, width: 36 }}
+                    />
+                    <SocialIcon
+                      url="mailto:joeldtavarez@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ height: 36, width: 36 }}
+                    />
                   </div>
                 </div>
-              </motion.div>
+              </motion.aside>
 
-              {/* Experience Timeline */}
-              <div className="lg:col-span-8 min-w-0 space-y-8">
-                <h2 className="text-2xl font-general-bold text-slate-900 dark:text-slate-100 sm:text-3xl">
+              <div className="min-w-0 space-y-2 lg:col-span-8">
+                <h2 className="mb-8 text-sm font-general-medium text-slate-400 dark:text-slate-500">
                   Experience
                 </h2>
-                {experiences.map((exp, idx) => (
-                  <motion.div
-                    key={exp.title}
-                    initial={false}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                    className="group relative"
-                  >
-                    <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-1 min-w-0">
-                      <div className="flex items-start gap-4 sm:gap-6 min-w-0">
-                        {/* Icon */}
-                        <div
-                          className={`flex-shrink-0 p-4 rounded-xl ${exp.iconBg} group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          <exp.icon className={`w-6 h-6 ${exp.iconColor}`} />
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                            <h3 className="min-w-0 text-2xl font-general-semibold break-words">
-                              {exp.url ? (
-                                <a
-                                  href={exp.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline text-blue-700 dark:text-blue-400 underline underline-offset-4 decoration-blue-700/40 dark:decoration-blue-400/40 hover:decoration-blue-700 dark:hover:decoration-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors break-all"
-                                >
-                                  {exp.title}
-                                  <FiExternalLink
-                                    className="inline-block w-4 h-4 ml-1.5 align-[-0.1em] shrink-0"
-                                    aria-hidden
-                                  />
-                                </a>
-                              ) : (
-                                <span className="text-slate-900 dark:text-slate-100">
-                                  {exp.title}
-                                </span>
-                              )}
-                            </h3>
-                            <span className="text-sm font-general-medium text-slate-500 dark:text-slate-400 shrink-0">
-                              {exp.period}
-                            </span>
-                          </div>
-                          {exp.company !== exp.title && (
-                            <p className="text-slate-600 dark:text-slate-400 mb-2 font-general-medium break-words">
-                              {exp.company}
-                            </p>
+                <div className="divide-y divide-slate-200 dark:divide-slate-800">
+                  {experiences.map((exp, idx) => (
+                    <motion.article
+                      key={exp.title}
+                      initial={false}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: idx * 0.05 }}
+                      className="py-8 first:pt-0 last:pb-0"
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                        <h3 className="text-xl font-general-semibold tracking-tight text-slate-900 dark:text-white sm:text-2xl">
+                          {exp.url ? (
+                            <a
+                              href={exp.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 transition-colors hover:text-slate-600 dark:hover:text-slate-300"
+                            >
+                              {exp.title}
+                              <FiExternalLink
+                                className="h-4 w-4 shrink-0 text-slate-400"
+                                aria-hidden
+                              />
+                            </a>
+                          ) : (
+                            exp.title
                           )}
-                          <p className="text-slate-600 dark:text-slate-300 leading-relaxed break-words">
-                            {exp.description}
-                          </p>
-                        </div>
+                        </h3>
+                        <span className="shrink-0 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+                          {exp.period}
+                        </span>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                      {exp.company !== exp.title && (
+                        <p className="mt-1 text-sm font-general-medium text-slate-500 dark:text-slate-400">
+                          {exp.company}
+                        </p>
+                      )}
+                      <p className="mt-4 font-general-medium leading-relaxed text-slate-600 dark:text-slate-400">
+                        {exp.description}
+                      </p>
+                    </motion.article>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

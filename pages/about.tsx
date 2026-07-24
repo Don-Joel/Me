@@ -12,7 +12,7 @@ const TechnologiesSection = dynamic(
   () => import("../components/about/TechnologiesSection"),
   {
     loading: () => (
-      <section className="min-h-[400px] bg-gradient-to-b from-slate-50 to-white py-20 dark:from-slate-900 dark:to-slate-900 lg:py-32" />
+      <section className="min-h-[400px] bg-slate-50 py-20 dark:bg-slate-900 lg:py-32" />
     ),
     ssr: true,
   }

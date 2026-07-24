@@ -3,51 +3,45 @@ import { pillars } from "../../consts/howIBuildPillars";
 
 const HowIBuildSection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900">
+    <section className="bg-white py-24 dark:bg-slate-900 lg:py-32">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
+        <div className="mx-auto max-w-6xl">
           <motion.div
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16 lg:mb-24"
+            transition={{ duration: 0.5 }}
+            className="mb-14 max-w-2xl lg:mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-general-bold mb-4 text-slate-900 dark:text-slate-100">
-              How I Build
+            <h2 className="text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+              How I build
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 mx-auto rounded-full" />
-            <p className="mt-6 text-slate-600 dark:text-slate-400 font-general-medium max-w-2xl mx-auto text-lg">
-              Product-minded engineering: leadership, systems, and AI
-              orchestration
+            <p className="mt-5 text-lg font-general-medium leading-relaxed text-slate-500 dark:text-slate-400">
+              Product-minded engineering across leadership, systems, and AI
+              orchestration.
             </p>
           </motion.div>
 
-          {/* Three Pillars */}
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid gap-px overflow-hidden rounded-3xl bg-slate-200/80 dark:bg-slate-800 md:grid-cols-3">
             {pillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
                 initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative"
+                transition={{ duration: 0.45, delay: idx * 0.06 }}
+                className="bg-slate-50 p-8 dark:bg-slate-950 sm:p-10"
               >
-                <div className="h-full bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-1">
-                  <div
-                    className={`flex-shrink-0 inline-flex p-4 rounded-xl mb-6 ${pillar.iconBg} group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <pillar.icon className={`w-6 h-6 ${pillar.iconColor}`} />
-                  </div>
-                  <h3 className="text-xl font-general-semibold text-slate-900 dark:text-slate-100 mb-3">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-general-medium">
-                    {pillar.description}
-                  </p>
-                </div>
+                <pillar.icon
+                  className="mb-6 h-6 w-6 text-slate-400 dark:text-slate-500"
+                  aria-hidden
+                />
+                <h3 className="text-xl font-general-semibold tracking-tight text-slate-900 dark:text-slate-100">
+                  {pillar.title}
+                </h3>
+                <p className="mt-4 font-general-medium leading-relaxed text-slate-600 dark:text-slate-400">
+                  {pillar.description}
+                </p>
               </motion.div>
             ))}
           </div>

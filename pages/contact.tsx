@@ -7,112 +7,6 @@ import {
   personStructuredData,
 } from "../lib/seo";
 
-const ContactHeroSvg = () => (
-  <svg
-    viewBox="0 0 280 200"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-full max-w-[260px] h-auto mx-auto lg:mx-0"
-    aria-hidden
-  >
-    <defs>
-      <linearGradient
-        id="contact-flap"
-        x1="40"
-        y1="60"
-        x2="240"
-        y2="130"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="rgb(59, 130, 246)" stopOpacity="0.2" />
-        <stop offset="0.5" stopColor="rgb(148, 163, 184)" stopOpacity="0.1" />
-        <stop offset="1" stopColor="rgb(59, 130, 246)" stopOpacity="0.15" />
-      </linearGradient>
-    </defs>
-    {/* Soft glow */}
-    <ellipse
-      cx="140"
-      cy="115"
-      rx="95"
-      ry="55"
-      className="fill-blue-500/10 dark:fill-blue-500/5"
-    />
-    {/* Envelope body */}
-    <rect
-      x="45"
-      y="65"
-      width="190"
-      height="95"
-      rx="8"
-      className="fill-white dark:fill-slate-800/90 stroke-slate-200 dark:stroke-slate-600"
-      strokeWidth="1.5"
-    />
-    {/* Flap (folded triangle) */}
-    <path d="M45 65L140 125L235 65H45z" fill="url(#contact-flap)" />
-    <path
-      d="M45 65L140 125L235 65"
-      fill="none"
-      className="stroke-slate-300 dark:stroke-slate-600"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    {/* Paper inside */}
-    <rect
-      x="65"
-      y="92"
-      width="150"
-      height="55"
-      rx="4"
-      className="fill-slate-50 dark:fill-slate-700/70 stroke-slate-200 dark:stroke-slate-600"
-      strokeWidth="1"
-    />
-    <line
-      x1="78"
-      y1="105"
-      x2="182"
-      y2="105"
-      className="stroke-slate-200 dark:stroke-slate-500"
-      strokeWidth="1"
-      strokeLinecap="round"
-    />
-    <line
-      x1="78"
-      y1="115"
-      x2="165"
-      y2="115"
-      className="stroke-slate-200 dark:stroke-slate-500"
-      strokeWidth="1"
-      strokeLinecap="round"
-    />
-    <line
-      x1="78"
-      y1="125"
-      x2="152"
-      y2="125"
-      className="stroke-slate-200 dark:stroke-slate-500"
-      strokeWidth="1"
-      strokeLinecap="round"
-    />
-    {/* Checkmark badge */}
-    <circle
-      cx="208"
-      cy="122"
-      r="24"
-      className="fill-blue-500/25 dark:fill-blue-500/30 stroke-blue-500/60 dark:stroke-blue-400/60"
-      strokeWidth="1.5"
-    />
-    <path
-      d="M199 122l6 6 14-14"
-      className="stroke-blue-600 dark:stroke-blue-400"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-  </svg>
-);
-
 const Contact = () => (
   <>
     <PagesMetaHead
@@ -142,55 +36,34 @@ const Contact = () => (
         ],
       }}
     />
-    <section className="relative min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row lg:items-center overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">
-      {/* Layered background for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-100/80 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.12),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.06),transparent_45%)]" />
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex-1">
-        <div className="max-w-4xl mx-auto grid lg:grid-cols-5 lg:gap-12 lg:items-start">
-          {/* Left: headline and illustration */}
+    <section className="bg-white pt-16 dark:bg-slate-950 lg:min-h-[calc(100vh-5rem)] lg:pt-24">
+      <div className="container mx-auto px-6 pb-20 sm:px-8 lg:px-12 lg:pb-28">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="lg:col-span-2 mb-8 lg:mb-0"
+            transition={{ duration: 0.45 }}
+            className="lg:col-span-5"
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-general-bold text-slate-900 dark:text-slate-100 mb-4">
-              Get in{" "}
-              <span className="bg-gradient-to-r from-slate-700 via-blue-700 to-slate-800 dark:from-slate-300 dark:via-blue-400 dark:to-slate-400 bg-clip-text text-transparent">
-                touch
-              </span>
+            <h1 className="text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+              Contact
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 font-general-medium text-lg leading-relaxed mb-6">
-              Have a project in mind or want to connect? Send a message below.
+            <p className="mt-5 max-w-md text-lg font-general-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:text-xl">
+              Have a project in mind or want to connect? Send a message and
+              I&apos;ll get back to you.
             </p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <ContactHeroSvg />
-            </motion.div>
           </motion.div>
 
-          {/* Right: glass form card, centered in column */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="lg:col-span-3 flex flex-col justify-center"
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="lg:col-span-7"
           >
-            <div className="rounded-2xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/40 backdrop-blur-xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 ring-1 ring-slate-200/50 dark:ring-slate-700/50 overflow-hidden">
-              <div className="p-6 sm:p-8">
-                <ContactForm />
-              </div>
+            <div className="rounded-3xl bg-slate-50 p-6 dark:bg-slate-900 sm:p-8 lg:p-10">
+              <ContactForm />
             </div>
-            <p className="mt-4 text-center text-xs text-slate-400 dark:text-slate-500 font-general-medium">
-              Securely delivered with captcha protection.
-            </p>
           </motion.div>
         </div>
       </div>

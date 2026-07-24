@@ -1,36 +1,12 @@
-import { motion } from "framer-motion";
 import AppFooterCopyright from "./AppFooterCopyright";
-import { FiHeart } from "react-icons/fi";
 
 const AppFooter = () => {
   return (
-    <footer className="relative bg-gradient-to-br from-slate-50 via-slate-100/50 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border-t border-slate-200/50 dark:border-slate-700/50">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-        <motion.div
-          initial={false}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="flex flex-col items-center gap-6">
-            {/* Footer content */}
-            <div className="text-center">
-              <AppFooterCopyright />
-            </div>
-
-            {/* Tech stack badge */}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700">
-              <span className="text-sm text-slate-600 dark:text-slate-400 font-general-medium">
-                Built with
-              </span>
-              <FiHeart className="w-4 h-4 text-red-500 mx-1" />
-              <span className="text-sm text-slate-600 dark:text-slate-400 font-general-medium">
-                Next.js, Tailwind CSS & Framer Motion
-              </span>
-            </div>
-          </div>
-        </motion.div>
+    <footer className="border-t border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-950">
+      <div className="container mx-auto px-6 py-12 sm:px-8 lg:px-12 lg:py-14">
+        <div className="mx-auto max-w-6xl">
+          <AppFooterCopyright />
+        </div>
       </div>
     </footer>
   );

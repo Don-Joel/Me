@@ -67,7 +67,7 @@ const PageContinueSection = ({ current }: PageContinueSectionProps) => {
   const context = contextByCurrent[current];
 
   return (
-    <section className="bg-slate-50 py-24 dark:bg-slate-950 lg:py-32">
+    <section className="bg-white py-24 dark:bg-slate-950 lg:py-32">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <motion.p
@@ -86,11 +86,11 @@ const PageContinueSection = ({ current }: PageContinueSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45 }}
-              className="bg-white dark:bg-slate-900 md:col-span-3"
+              className="bg-slate-50 dark:bg-slate-900 md:col-span-3"
             >
               <Link
                 href={primaryDest.href}
-                className="group flex h-full min-h-[12rem] flex-col justify-between p-8 transition-colors duration-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 sm:p-10 lg:min-h-[14rem] lg:p-12"
+                className="group flex h-full min-h-[12rem] flex-col justify-between p-8 transition-colors duration-300 hover:bg-slate-100/90 dark:hover:bg-slate-800/80 sm:p-10 lg:min-h-[14rem] lg:p-12"
               >
                 <div>
                   <span className="inline-flex items-center gap-2.5 text-3xl font-general-semibold tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-100 dark:group-hover:text-white sm:text-4xl">
@@ -116,11 +116,11 @@ const PageContinueSection = ({ current }: PageContinueSectionProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: 0.05 + index * 0.05 }}
-                  className="bg-white dark:bg-slate-900"
+                  className="bg-slate-50 dark:bg-slate-900"
                 >
                   <Link
                     href={dest.href}
-                    className={`group flex h-full flex-col justify-center p-7 transition-colors duration-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 sm:p-8 ${
+                    className={`group flex h-full flex-col justify-center p-7 transition-colors duration-300 hover:bg-slate-100/90 dark:hover:bg-slate-800/80 sm:p-8 ${
                       secondaryDests.length > 1
                         ? "min-h-[7rem] lg:min-h-0"
                         : "min-h-[12rem] lg:min-h-[14rem]"

@@ -1,17 +1,18 @@
 const AppFooterCopyright = () => {
   return (
-    <div className="text-center">
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
       <p
-        className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-general-medium"
+        className="text-sm font-general-medium text-slate-500 dark:text-slate-400"
         suppressHydrationWarning
       >
-        <span className="text-slate-900 dark:text-slate-100 font-general-semibold">
+        <span className="font-general-semibold text-slate-900 dark:text-slate-100">
           Joel Tavarez
-        </span>{" "}
-        &copy; {new Date().getFullYear()}
+        </span>
+        <span className="mx-2 text-slate-300 dark:text-slate-700">·</span>
+        <span suppressHydrationWarning>&copy; {new Date().getFullYear()}</span>
       </p>
-      <p className="text-sm text-slate-500 dark:text-slate-500 mt-2 font-general-regular">
-        Full-stack software engineer passionate about building great products
+      <p className="text-sm font-general-medium text-slate-400 dark:text-slate-500">
+        Product engineer
       </p>
     </div>
   );

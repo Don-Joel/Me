@@ -9,14 +9,14 @@ const TechCard = ({ name, slug, url }: Technology) => {
   const useFallback = !slug || imgError;
 
   const cardClassName =
-    "group flex flex-col items-center justify-center gap-3 p-5 w-[184px] flex-shrink-0 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-blue-500/70 dark:hover:border-blue-500/60 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-blue-600/10 hover:-translate-y-1 transition-all duration-300";
+    "group flex w-[168px] flex-shrink-0 flex-col items-center justify-center gap-3 rounded-2xl bg-white px-4 py-5 dark:bg-slate-900";
 
   const inner = (
     <>
-      <div className="relative flex items-center justify-center w-12 h-12 transition-transform duration-300 group-hover:scale-110">
+      <div className="relative flex h-10 w-10 items-center justify-center">
         {useFallback ? (
           <div
-            className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-700/60 flex items-center justify-center text-slate-600 dark:text-slate-400 font-general-semibold text-sm"
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-sm font-general-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400"
             aria-hidden
           >
             {name.charAt(0)}
@@ -25,15 +25,15 @@ const TechCard = ({ name, slug, url }: Technology) => {
           <Image
             src={`${ICON_BASE}/${slug}`}
             alt={name}
-            width={40}
-            height={40}
-            className="object-contain"
+            width={36}
+            height={36}
+            className="object-contain opacity-90 transition-opacity group-hover:opacity-100"
             onError={() => setImgError(true)}
             unoptimized
           />
         )}
       </div>
-      <span className="text-sm font-general-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-100 text-center transition-colors">
+      <span className="text-center text-sm font-general-medium text-slate-600 transition-colors group-hover:text-slate-900 dark:text-slate-400 dark:group-hover:text-slate-100">
         {name}
       </span>
     </>
@@ -72,10 +72,10 @@ const Carousel = ({
   const totalDurationSec = Math.max(20, items.length * speedSecondsPerItem);
 
   return (
-    <div className="marquee-fade marquee-pause overflow-hidden py-3">
+    <div className="marquee-fade marquee-pause overflow-hidden py-2">
       <div
         data-marquee-track
-        className={`flex gap-4 w-max ${animationName}`}
+        className={`flex w-max gap-3 ${animationName}`}
         style={
           {
             ["--marquee-duration" as string]: `${totalDurationSec}s`,
@@ -96,64 +96,54 @@ const Carousel = ({
 };
 
 const TechnologiesSection = () => (
-  <section className="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900 overflow-hidden">
+  <section className="overflow-hidden bg-slate-50 py-24 dark:bg-slate-900 lg:py-32">
     <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+      <div className="mx-auto max-w-6xl">
         <motion.div
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20"
+          transition={{ duration: 0.5 }}
+          className="mb-14 max-w-2xl lg:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-general-bold mb-4 text-slate-900 dark:text-slate-100">
+          <h2 className="text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             Technologies
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-slate-600 via-blue-700 to-slate-700 dark:from-slate-500 dark:via-blue-600 dark:to-slate-600 mx-auto rounded-full" />
-          <p className="mt-6 text-slate-600 dark:text-slate-400 font-general-medium max-w-2xl mx-auto text-lg">
-            Languages, frameworks, and tools I work with
+          <p className="mt-5 text-lg font-general-medium leading-relaxed text-slate-500 dark:text-slate-400">
+            Languages, frameworks, and tools I work with.
           </p>
         </motion.div>
       </div>
     </div>
 
-    {/* Languages */}
     <motion.div
       initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="mb-14"
+      transition={{ duration: 0.45 }}
+      className="mb-12"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-6">
-        <div className="max-w-7xl mx-auto flex items-baseline justify-between">
-          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300">
+      <div className="container mx-auto mb-5 px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-6xl">
+          <h3 className="text-sm font-general-medium text-slate-400 dark:text-slate-500">
             Languages
           </h3>
-          <span className="text-xs font-general-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
-            Hover to pause
-          </span>
         </div>
       </div>
       <Carousel items={LANGUAGES} direction="left" />
     </motion.div>
 
-    {/* Frameworks & Tools */}
     <motion.div
       initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.45 }}
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 mb-6">
-        <div className="max-w-7xl mx-auto flex items-baseline justify-between">
-          <h3 className="text-xl font-general-semibold text-slate-700 dark:text-slate-300">
-            Frameworks & Tools
+      <div className="container mx-auto mb-5 px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-6xl">
+          <h3 className="text-sm font-general-medium text-slate-400 dark:text-slate-500">
+            Frameworks & tools
           </h3>
-          <span className="text-xs font-general-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
-            Hover to pause
-          </span>
         </div>
       </div>
       <Carousel items={TECH_STACK} direction="right" />

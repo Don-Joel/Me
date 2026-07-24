@@ -3,13 +3,14 @@ import type { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { FiSend, FiCheck, FiShield } from "react-icons/fi";
 import { PHONE_PATTERN, formatPhoneDisplay } from "../../lib/phone";
+import { primaryCtaClasses } from "../ui/cta";
 
 const ReCAPTCHALoader = lazy(() => import("./ReCAPTCHALoader"));
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const inputBase =
-  "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-slate-800/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-general-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:ring-offset-0 focus:border-blue-500 dark:focus:border-blue-400";
+  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 font-general-medium text-slate-900 placeholder-slate-400 transition-colors duration-200 focus:border-slate-400 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-slate-500";
 
 const ContactForm = () => {
   const [sent, setSent] = useState(false);
@@ -120,26 +121,21 @@ const ContactForm = () => {
   if (sent) {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="p-6 text-center"
+        className="py-8 text-center"
       >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="inline-flex p-4 rounded-2xl bg-emerald-100/80 dark:bg-emerald-900/40 mb-6 ring-2 ring-emerald-500/20"
-        >
-          <FiCheck className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-        </motion.div>
+        <div className="mb-5 inline-flex rounded-full bg-slate-900 p-3 text-white dark:bg-white dark:text-slate-900">
+          <FiCheck className="h-5 w-5" />
+        </div>
         <p
           role="status"
-          className="text-xl font-general-semibold text-slate-900 dark:text-slate-100 mb-2"
+          className="mb-2 text-xl font-general-semibold text-slate-900 dark:text-slate-100"
         >
           Message sent
         </p>
-        <p className="text-slate-600 dark:text-slate-400 font-general-medium text-sm">
+        <p className="text-sm font-general-medium text-slate-500 dark:text-slate-400">
           Thanks for reaching out. I will get back to you soon.
         </p>
       </motion.div>
@@ -248,20 +244,18 @@ const ContactForm = () => {
               </Suspense>
             )}
             {!captchaToken ? (
-              <motion.button
+              <button
                 type="button"
                 onClick={handleVerifyHuman}
                 disabled={isVerifying}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 font-general-semibold hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors disabled:opacity-60"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-3.5 font-general-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-900"
               >
-                <FiShield className="w-5 h-5" />
+                <FiShield className="h-4 w-4" />
                 {isVerifying ? "Verifying..." : "Verify I'm human"}
-              </motion.button>
+              </button>
             ) : (
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-general-medium inline-flex items-center gap-2">
-                <FiCheck className="w-4 h-4 flex-shrink-0" />
+              <p className="inline-flex items-center gap-2 text-sm font-general-medium text-slate-600 dark:text-slate-400">
+                <FiCheck className="h-4 w-4 flex-shrink-0" />
                 Verified. You can send your message.
               </p>
             )}
@@ -277,21 +271,14 @@ const ContactForm = () => {
           </p>
         ) : null}
       </div>
-      <motion.button
+      <button
         type="submit"
-        whileHover={{
-          scale: 1.02,
-          boxShadow: "0 20px 40px -12px rgba(59, 130, 246, 0.35)",
-        }}
-        whileTap={{ scale: 0.98 }}
         disabled={isSubmitting || (isCaptchaConfigured && !captchaToken)}
-        className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-slate-700 to-blue-700 hover:from-slate-600 hover:to-blue-600 dark:from-slate-600 dark:to-blue-600 dark:hover:from-slate-500 dark:hover:to-blue-500 text-white font-general-semibold rounded-xl shadow-lg shadow-blue-600/20 dark:shadow-blue-600/15 hover:shadow-xl hover:shadow-blue-600/25 transition-shadow duration-300 disabled:opacity-50 disabled:pointer-events-none"
+        className={`${primaryCtaClasses} w-full gap-2 px-6 py-3.5 disabled:pointer-events-none disabled:opacity-50`}
       >
-        <motion.span whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
-          <FiSend className="w-5 h-5" />
-        </motion.span>
+        <FiSend className="h-4 w-4" />
         {isSubmitting ? "Sending..." : "Send message"}
-      </motion.button>
+      </button>
       {isCaptchaConfigured && (
         <p className="mt-4 text-xs text-slate-400 dark:text-slate-500 font-general-medium text-center">
           This site is protected by reCAPTCHA and the Google{" "}
