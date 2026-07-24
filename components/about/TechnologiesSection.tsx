@@ -125,7 +125,7 @@ const TechnologiesSection = () => (
     >
       <div className="container mx-auto mb-5 px-6 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
-          <h3 className="text-sm font-general-medium text-slate-400 dark:text-slate-500">
+          <h3 className="text-sm font-general-medium text-slate-600 dark:text-slate-400">
             Languages
           </h3>
         </div>
@@ -141,7 +141,7 @@ const TechnologiesSection = () => (
     >
       <div className="container mx-auto mb-5 px-6 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
-          <h3 className="text-sm font-general-medium text-slate-400 dark:text-slate-500">
+          <h3 className="text-sm font-general-medium text-slate-600 dark:text-slate-400">
             Frameworks & tools
           </h3>
         </div>

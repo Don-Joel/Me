@@ -280,13 +280,13 @@ const ContactForm = () => {
         {isSubmitting ? "Sending..." : "Send message"}
       </button>
       {isCaptchaConfigured && (
-        <p className="mt-4 text-xs text-slate-400 dark:text-slate-500 font-general-medium text-center">
+        <p className="mt-4 text-center text-xs font-general-medium text-slate-600 dark:text-slate-400">
           This site is protected by reCAPTCHA and the Google{" "}
           <a
             href="https://policies.google.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-slate-600 dark:hover:text-slate-400"
+            className="underline hover:text-slate-800 dark:hover:text-slate-300"
           >
             Privacy Policy
           </a>{" "}
@@ -295,7 +295,7 @@ const ContactForm = () => {
             href="https://policies.google.com/terms"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-slate-600 dark:hover:text-slate-400"
+            className="underline hover:text-slate-800 dark:hover:text-slate-300"
           >
             Terms of Service
           </a>{" "}

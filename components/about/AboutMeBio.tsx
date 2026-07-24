@@ -80,7 +80,7 @@ const AboutMeBio = () => {
               </motion.aside>
 
               <div className="min-w-0 space-y-2 lg:col-span-8">
-                <h2 className="mb-8 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+                <h2 className="mb-8 text-sm font-general-medium text-slate-600 dark:text-slate-400">
                   Experience
                 </h2>
                 <div className="divide-y divide-slate-200 dark:divide-slate-800">
@@ -112,7 +112,7 @@ const AboutMeBio = () => {
                             exp.title
                           )}
                         </h3>
-                        <span className="shrink-0 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+                        <span className="shrink-0 text-sm font-general-medium text-slate-600 dark:text-slate-400">
                           {exp.period}
                         </span>
                       </div>

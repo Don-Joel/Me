@@ -20,7 +20,7 @@ const Custom404 = () => (
         transition={{ duration: 0.35 }}
         className="mx-auto max-w-lg text-center"
       >
-        <p className="mb-4 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+        <p className="mb-4 text-sm font-general-medium text-slate-600 dark:text-slate-400">
           404
         </p>
         <h1 className="mb-4 text-4xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">

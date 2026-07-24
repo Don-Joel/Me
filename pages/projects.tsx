@@ -156,7 +156,7 @@ const Projects = () => (
               />
 
               <div className="flex flex-col justify-center p-8 font-general-medium sm:p-10 lg:order-1 lg:p-12">
-                <p className="mb-3 text-sm font-general-medium text-slate-400 dark:text-slate-500">
+                <p className="mb-3 text-sm font-general-medium text-slate-600 dark:text-slate-400">
                   {project.type}
                 </p>
                 <h2 className="text-3xl font-general-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
@@ -182,7 +182,7 @@ const Projects = () => (
                 </ul>
 
                 <div className="mt-8">
-                  <p className="mb-4 text-xs font-general-medium tracking-wide text-slate-400 dark:text-slate-500">
+                  <p className="mb-4 text-xs font-general-medium tracking-wide text-slate-600 dark:text-slate-400">
                     {project.tags.join("  ·  ")}
                   </p>
                   <a
