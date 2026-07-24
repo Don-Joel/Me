@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import PagesMetaHead from "../components/PagesMetaHead";
 import ProjectBrowserPreview from "../components/projects/ProjectBrowserPreview";
+import PageContinueSection from "../components/shared/PageContinueSection";
 import {
   SITE_URL,
   breadcrumbStructuredData,
@@ -225,27 +225,7 @@ const Projects = () => (
       </div>
     </section>
 
-    <section className="bg-gradient-to-b from-slate-100 via-slate-50 to-slate-50 py-20 text-center dark:from-slate-950 dark:via-slate-900 dark:to-slate-900">
-      <div className="container mx-auto px-6">
-        <p className="mb-3 text-sm font-general-semibold uppercase tracking-widest text-blue-700 dark:text-blue-400">
-          Get in touch
-        </p>
-        <h2 className="mb-5 text-3xl font-general-bold text-slate-900 dark:text-white sm:text-4xl">
-          Have something you want to build?
-        </h2>
-        <p className="mx-auto mb-8 max-w-2xl text-slate-600 dark:text-slate-300">
-          I&apos;m always happy to talk through an idea, whether it&apos;s a new
-          product or an existing site that needs another look.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-slate-700 to-blue-700 px-6 py-3 font-general-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
-        >
-          Start a conversation
-          <FiArrowUpRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </section>
+    <PageContinueSection current="projects" />
   </>
 );
 

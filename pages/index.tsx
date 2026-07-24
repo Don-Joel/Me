@@ -1,5 +1,6 @@
 import PagesMetaHead from "../components/PagesMetaHead";
 import DynamicAppBanner from "../components/shared/DynamicAppBanner";
+import PageContinueSection from "../components/shared/PageContinueSection";
 import HowIBuildSection from "../components/about/HowIBuildSection";
 import { PERSON_SAME_AS, SITE_URL, personStructuredData } from "../lib/seo";
 
@@ -42,6 +43,7 @@ const Home = () => {
       />
       <DynamicAppBanner />
       <HowIBuildSection />
+      <PageContinueSection current="home" />
     </>
   );
 };

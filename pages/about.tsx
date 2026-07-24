@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import AboutMeBio from "../components/about/AboutMeBio";
 import PagesMetaHead from "../components/PagesMetaHead";
+import PageContinueSection from "../components/shared/PageContinueSection";
 import {
   SITE_URL,
   breadcrumbStructuredData,
@@ -49,6 +50,7 @@ const About = () => (
     />
     <AboutMeBio />
     <TechnologiesSection />
+    <PageContinueSection current="about" />
   </>
 );
 
