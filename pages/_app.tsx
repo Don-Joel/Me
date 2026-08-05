@@ -12,6 +12,13 @@ const Analytics = process.env.NEXT_PUBLIC_VERCEL_ENV
     )
   : () => null;
 
+const SpeedInsights = process.env.NEXT_PUBLIC_VERCEL_ENV
+  ? dynamic<{}>(
+      () => import("@vercel/speed-insights/next").then((mod) => mod.SpeedInsights),
+      { ssr: false }
+    )
+  : () => null;
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
@@ -26,6 +33,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <UseScrollToTop />
       </div>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 };
