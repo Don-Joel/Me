@@ -178,15 +178,17 @@ const ContactForm = () => {
         </label>
         <input
           id="phone"
+          name="phone"
           type="tel"
           inputMode="tel"
           value={phone}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handlePhoneChange(e.target.value)
           }
+          onBlur={(e) => handlePhoneChange(e.target.value)}
           placeholder="(555) 555-5555"
           className={inputBase}
-          autoComplete="tel"
+          autoComplete="tel-national"
           pattern={PHONE_PATTERN.source}
           title="Use digits and optional +, spaces, parentheses, dots, or dashes."
           required
