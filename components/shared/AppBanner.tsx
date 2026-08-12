@@ -23,7 +23,7 @@ const HeroBackground = () => (
 const HeroImage = () => (
   <div className="relative mx-auto w-full max-w-[280px] sm:max-w-sm lg:max-w-none">
     <div
-      className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blue-500/10 via-slate-300/20 to-transparent blur-2xl dark:from-blue-500/15 dark:via-slate-600/10"
+      className="absolute -inset-6 rounded-[2.5rem] from-blue-500/10 via-slate-300/20 to-transparent blur-2xl dark:from-blue-500/15 dark:via-slate-600/10"
       aria-hidden
     />
     <Image
