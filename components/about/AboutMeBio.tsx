@@ -49,7 +49,7 @@ const AboutMeBio = () => {
 
                   <div className="mt-6 space-y-1.5">
                     <p className="font-general-semibold text-slate-900 dark:text-white">
-                      Product Engineer at Newmark
+                      Full Stack Software Engineer at Newmark
                     </p>
                     <p className="text-sm font-general-medium text-slate-500 dark:text-slate-400">
                       University of Virginia · B.A. Computer Science

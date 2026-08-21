@@ -78,7 +78,7 @@ const HeroContent = ({ animated = false }: HeroContentProps) => {
               {...fade(0.08)}
               className="mt-5 text-xl font-general-medium text-slate-500 dark:text-slate-400 sm:text-2xl"
             >
-              Product Engineer
+              Full Stack Software Engineer
             </SubTag>
 
             <BodyTag

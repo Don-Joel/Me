@@ -21,12 +21,12 @@ const TechnologiesSection = dynamic(
 const About = () => (
   <>
     <PagesMetaHead
-      title="About Joel Tavarez | Product Engineer"
-      description="Learn about Joel Tavarez's product engineering experience, leadership, technology stack, and work building scalable full-stack systems."
+      title="About Joel Tavarez | Full Stack Software Engineer"
+      description="Learn about Joel Tavarez's full stack software engineer experience, leadership, technology stack, and work building scalable full-stack systems."
       canonicalPath="/about"
       ogType="profile"
       ogImage="/images/og-about.png"
-      ogImageAlt="About Joel Tavarez — Product Engineer"
+      ogImageAlt="About Joel Tavarez — Full Stack Software Engineer"
       structuredData={{
         "@context": "https://schema.org",
         "@graph": [
@@ -35,7 +35,7 @@ const About = () => (
             "@id": `${SITE_URL}/about#webpage`,
             name: "About Joel Tavarez",
             description:
-              "Joel Tavarez's product engineering experience, leadership, and technology stack.",
+              "Joel Tavarez's full stack software engineering experience, leadership, and technology stack.",
             url: `${SITE_URL}/about`,
             isPartOf: { "@id": `${SITE_URL}/#website` },
             mainEntity: { "@id": `${SITE_URL}/#person` },

@@ -15,7 +15,8 @@ const cards = [
     file: "og-about.png",
     eyebrow: "About",
     title: "Joel Tavarez",
-    subtitle: "Product engineer · experience, stack, and work history",
+    subtitle:
+      "Full Stack Software Engineer· experience, stack, and work history",
   },
   {
     file: "og-projects.png",
@@ -27,7 +28,8 @@ const cards = [
     file: "og-contact.png",
     eyebrow: "Contact",
     title: "Get in touch",
-    subtitle: "Opportunities, collaboration, and product engineering",
+    subtitle:
+      "Opportunities, collaboration, and full stack software engineering",
   },
 ];
 

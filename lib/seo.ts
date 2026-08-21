@@ -2,9 +2,10 @@ export const SITE_URL = "https://joeltavarez.dev";
 export const SITE_NAME = "Joel Tavarez";
 export const SITE_TITLE_DEFAULT = "Joel Tavarez's Portfolio";
 export const SITE_DESCRIPTION_DEFAULT =
-  "Product engineer who uses AI orchestration to build ideal software. Full-stack experience at Newmark and Target.";
+  "Full Stack Software Engineer who uses AI orchestration to build ideal software. Full-stack experience at Newmark and Target.";
 export const DEFAULT_OG_IMAGE = "/images/og-card.png";
-export const DEFAULT_OG_IMAGE_ALT = "Joel Tavarez, Product Engineer";
+export const DEFAULT_OG_IMAGE_ALT =
+  "Joel Tavarez, Full Stack Software Engineer";
 export const THEME_COLOR_LIGHT = "#f8fafc";
 export const THEME_COLOR_DARK = "#0f172a";
 
@@ -73,7 +74,7 @@ export function personStructuredData() {
     name: SITE_NAME,
     url: SITE_URL,
     image: absoluteAssetUrl("/images/logo.png"),
-    jobTitle: "Product Engineer",
+    jobTitle: "Full Stack Software Engineer",
     sameAs: [...PERSON_SAME_AS],
   };
 }

@@ -11,10 +11,10 @@ const Contact = () => (
   <>
     <PagesMetaHead
       title="Contact | Joel Tavarez"
-      description="Get in touch with Joel Tavarez — product engineer. Send a message for opportunities or collaboration."
+      description="Get in touch with Joel Tavarez — full stack software engineer. Send a message for opportunities or collaboration."
       canonicalPath="/contact"
       ogImage="/images/og-contact.png"
-      ogImageAlt="Contact Joel Tavarez — Product Engineer"
+      ogImageAlt="Contact Joel Tavarez — Full Stack Software Engineer"
       structuredData={{
         "@context": "https://schema.org",
         "@graph": [
@@ -23,7 +23,7 @@ const Contact = () => (
             "@id": `${SITE_URL}/contact#webpage`,
             name: "Contact Joel Tavarez",
             description:
-              "Contact Joel Tavarez about product engineering opportunities and collaboration.",
+              "Contact Joel Tavarez about full stack software engineering opportunities and collaboration.",
             url: `${SITE_URL}/contact`,
             isPartOf: { "@id": `${SITE_URL}/#website` },
             mainEntity: { "@id": `${SITE_URL}/#person` },

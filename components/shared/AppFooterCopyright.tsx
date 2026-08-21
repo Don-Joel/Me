@@ -12,7 +12,7 @@ const AppFooterCopyright = () => {
         <span suppressHydrationWarning>&copy; {new Date().getFullYear()}</span>
       </p>
       <p className="text-sm font-general-medium text-slate-600 dark:text-slate-400">
-        Product engineer
+        Full Stack Software Engineer
       </p>
     </div>
   );

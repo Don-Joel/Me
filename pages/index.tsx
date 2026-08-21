@@ -13,14 +13,15 @@ const Home = () => {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: "Joel Tavarez",
-        description: "The product engineering portfolio of Joel Tavarez.",
+        description:
+          "The full stack software engineering portfolio of Joel Tavarez.",
         publisher: { "@id": `${SITE_URL}/#person` },
         inLanguage: "en-US",
       },
       {
         ...personStructuredData(),
         knowsAbout: [
-          "Product engineering",
+          "Full Stack Software Engineering",
           "Full-stack development",
           "React",
           "JVM languages",
@@ -34,11 +35,11 @@ const Home = () => {
   return (
     <>
       <PagesMetaHead
-        title="Joel Tavarez - Product Engineer | AI Orchestration, Leadership, Systems"
-        description="Product engineer who uses AI orchestration to build ideal software. Full-stack experience at Newmark and Target; leadership, system optimization, and React/JVM."
+        title="Joel Tavarez - Full Stack Software Engineer | AI Orchestration, Leadership, Systems"
+        description="Full Stack Software Engineer who uses AI orchestration to build ideal software. Full-stack experience at Newmark and Target; leadership, system optimization, and React/JVM."
         canonicalPath="/"
         ogImage="/images/og-card.png"
-        ogImageAlt="Joel Tavarez, Product Engineer — portfolio homepage"
+        ogImageAlt="Joel Tavarez, Full Stack Software Engineer— portfolio homepage"
         structuredData={structuredData}
       />
       <DynamicAppBanner />
