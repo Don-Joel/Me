@@ -16,7 +16,7 @@ export const pillars: Pillar[] = [
     iconBg: "bg-blue-100 dark:bg-blue-900/30",
     iconColor: "text-blue-600 dark:text-blue-400",
     description:
-      "I'm drawn to systems where small changes compound. At Target I owned the $2B+ same-day delivery flow—improving page speed, reliability, and cross-repo deployments across 6+ micro-frontends, refactoring the bottom-of-funnel experience, and shipping architectural upgrades to Add to Cart that cut errors under peak load. One feature I scoped and implemented is saving $100k/yr.",
+      "I'm drawn to systems where small changes compound. At Target I owned the $3.5B same-day delivery flow—improving page speed, reliability, and cross-repo deployments across 6+ micro-frontends, refactoring the bottom-of-funnel experience, and shipping architectural upgrades to Add to Cart that cut errors under peak load. One feature I scoped and implemented is saving $100k/yr.",
   },
   {
     icon: FiCpu,
